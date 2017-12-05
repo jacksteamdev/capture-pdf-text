@@ -1,21 +1,44 @@
 {
-  "name": "rollup-starter-lib",
+  "name": "capture-pdf-text-api",
   "version": "1.0.0",
+  "description": "TODO",
+  "license": "MIT",
+  "author": {
+    "name": "Jack Steam",
+    "email": "teamsteamdev@gmail.com"
+  },
   "main": "dist/capture-pdf-text-api.cjs.js",
   "module": "dist/capture-pdf-text-api.esm.js",
   "browser": "dist/capture-pdf-text-api.umd.js",
   "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1",
     "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "standard": "^10.0.3"
   },
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "",
-    "pretest": "yarn run build"
+    "test": "jest",
+    "pretest": "standard",
+    "fix": "standard --fix"
   },
-  "files":[
+  "files": [
     "dist"
-  ]
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "standard": {
+    "ignore": [
+      "/dist/"
+    ]
+  }
 }

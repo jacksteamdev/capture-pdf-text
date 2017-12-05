@@ -1,5 +1,5 @@
-var main = (array) => {
-  return (i) => array[i]
-};
+var main = (array => {
+  return i => array[i];
+});
 
 export default main;
