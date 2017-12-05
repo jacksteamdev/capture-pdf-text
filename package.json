@@ -1,0 +1,21 @@
+{
+  "name": "rollup-starter-lib",
+  "version": "1.0.0",
+  "main": "dist/capture-pdf-text-api.cjs.js",
+  "module": "dist/capture-pdf-text-api.esm.js",
+  "browser": "dist/capture-pdf-text-api.umd.js",
+  "devDependencies": {
+    "rollup": "^0.50.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "",
+    "pretest": "yarn run build"
+  },
+  "files":[
+    "dist"
+  ]
+}
