@@ -1,3 +1,16 @@
-export default (array) => {
-  return (i) => array[i]
+const waitOneSecond = (x) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(x)
+    }, 1000)
+  })
+}
+
+export default async (data) => {
+  const pages = ['empty', ...data]
+  const api = await waitOneSecond(async (n) => {
+    const result = await waitOneSecond(pages[n])
+    return result
+  })
+  return api
 }
