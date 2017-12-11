@@ -12,5 +12,7 @@ export default async (data) => {
     const result = await waitOneSecond(pages[n])
     return result
   })
+  api.size = pages.length
+
   return api
 }
