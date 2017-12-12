@@ -14,11 +14,14 @@ const waitOneSecond = x => {
 
 var main = (async data => {
   const pages = ['empty', ...data];
-  const api = await waitOneSecond(async n => {
+
+  const getPage = async n => {
     const result = await waitOneSecond(pages[n]);
     return result;
-  });
-  api.size = pages.length;
+  };
+  getPage.size = pages.length;
+
+  const api = await waitOneSecond(getPage);
 
   return api;
 });
