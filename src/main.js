@@ -1,21 +1,24 @@
-const waitOneSecond = (x) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(x)
-    }, 1000)
-  })
-}
+/* global PDFJS */
+import 'pdfjs-dist' // Use with workers
+// import 'pdfjs-dist/build/pdf.combined.js' // Use without workers
 
-export default async (data) => {
-  const pages = ['empty', ...data]
+const workerUrl = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.203/pdf.worker.min.js'
 
+export default async (data, worker = workerUrl) => {
+  PDFJS.workerSrc = worker
+  PDFJS.verbosity = 0
+
+  const pdf = await PDFJS.getDocument(data)
+  const size = pdf.pdfInfo.numPages
   const getPage = async (n) => {
-    const result = await waitOneSecond(pages[n])
-    return result
+    const page = await pdf.getPage(n)
+    const {items} = await page.getTextContent()
+
+    return items
+      .reduce((r, {str}) => r + str, '')
+      .slice(0, 250) + '...'
   }
-  getPage.size = pages.length
 
-  const api = await waitOneSecond(getPage)
-
-  return api
+  getPage.size = size
+  return getPage
 }

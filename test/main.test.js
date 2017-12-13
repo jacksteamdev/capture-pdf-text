@@ -1,19 +1,17 @@
 /* eslint-env jest */
-import loadPDF from '../src/main'
+import fs from 'fs'
+import path from 'path'
 
-it('should return a function', () => {
-  const array = ['a', 'b', 'c']
-  const res = loadPDF(array)
-  expect(res).toBeInstanceOf(Promise)
-})
+import loadPdf from '../src/main'
 
-it('should async return n + 1 in the array', async () => {
-  const array = ['a', 'b', 'c']
-  const api = await loadPDF(array)
+it('should load the pdf', async () => {
+  const filepath = path.resolve(process.cwd(), 'test/fixtures/ifm-simple-page.pdf')
+  const file = fs.readFileSync(filepath)
+  const data = new Uint8Array(file)
 
-  const a = await api(1)
-  const b = await api(2)
+  const pdf = await loadPdf(data)
+  expect(pdf.size).toBe(1)
 
-  expect(a).toBe('a')
-  expect(b).toBe('b')
+  const page = await pdf(1)
+  expect(typeof page).toBe('string')
 })
