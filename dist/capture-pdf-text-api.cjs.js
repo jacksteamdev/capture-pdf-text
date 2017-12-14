@@ -1,26 +1,55 @@
 'use strict';
 
-require('pdfjs-dist');
+/**
+ * Configure PDFJS
+ * @param {PDFJS} PDFJS
+ * @param {Object} options
+ * @param {string} options.workerUrl - URL for pdf.worker.min.js, may be in `public/` or a CDN
+ * @param {number} options.verbosity - Supress console messages: Errors only, 0; Warnings, 1; Info, 5;
+ */
+const applyOptions = (PDFJS, options = { verbosity: 0 }) => {
+  if (!options.doNotApply) {
+    // Setup worker
+    const version = PDFJS.version;
+    const workerUrl = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${version}/pdf.worker.min.js`;
+    PDFJS.workerSrc = options.workerUrl || workerUrl;
 
-/* global PDFJS */
-// import 'pdfjs-dist/build/pdf.combined.js' // Use without workers
+    // Suppress console.log messages
+    // 0 : Errors (default)
+    // 1 : Warnings
+    // 5 : Infos
+    PDFJS.verbosity = options.verbosity;
+  }
 
-const workerUrl = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.203/pdf.worker.min.js';
+  return PDFJS;
+};
 
-var main = (async (data, worker = workerUrl) => {
-  PDFJS.workerSrc = worker;
-  PDFJS.verbosity = 0;
-
+const loadDocument = async (PDFJS, data) => {
   const pdf = await PDFJS.getDocument(data);
-  const size = pdf.pdfInfo.numPages;
+  const count = pdf.pdfInfo.numPages;
+
   const getPage = async n => {
     const page = await pdf.getPage(n);
     const { items } = await page.getTextContent();
 
-    return items.reduce((r, { str }) => r + str, '').slice(0, 250) + '...';
+    return items;
   };
 
-  getPage.size = size;
+  getPage.pageCount = count;
+  getPage.data = data;
+
+  return getPage;
+};
+
+var main = (async (PDFJS, data, options) => {
+  // Configure PDFJS
+  // Disable by passing options as `{doNotApply: true}`
+  PDFJS = applyOptions(PDFJS, options);
+
+  // Load PDF document into page loader
+  const getPage = loadDocument(PDFJS, data);
+
+  // Return page loader
   return getPage;
 });
 
