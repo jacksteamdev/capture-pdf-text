@@ -31,12 +31,12 @@ const applyOptions = (PDFJS, options = {}) => {
 };
 
 /**
- * A TextItem instance maps some properties of an text item from PDFJS
+ * A Item instance maps some properties of an text item from PDFJS
  *
  * @export
- * @class TextItem
+ * @class Item
  */
-class TextItem {
+class Item {
   constructor(item) {
     const { str, width, fontName } = item;
     const [,,, height, bottom, left] = item.transform;
@@ -54,16 +54,8 @@ class TextItem {
   }
 }
 
-/**
- * Loads PDF into PDFJS and returns a function to get the items from individual pages
- *
- * @export
- * @async
- * @function loadDocument
- * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
- * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
- * @returns {Function} - getPage(pageNumber)
- */
+class Block extends Array {}
+
 const loadDocument = async (PDFJS, data) => {
   const pdf = await PDFJS.getDocument(data);
   const count = pdf.pdfInfo.numPages;
@@ -82,7 +74,7 @@ const loadDocument = async (PDFJS, data) => {
         const page = await pdf.getPage(n);
         const { items } = await page.getTextContent();
 
-        return items.map(item => new TextItem(item));
+        return items.map(item => new Item(item));
       } else {
         throw new Error(`Page ${n} of ${count} out of range.`);
       }
@@ -95,6 +87,28 @@ const loadDocument = async (PDFJS, data) => {
   getPage.data = data;
 
   return getPage;
+};
+
+/**
+ * Group items by section and margin
+ *
+ * @param {Item[]} items
+ * @param {Object} options
+ * @param {Object} options.sections - Section name: RangeArray
+ * @param {RangeArray} options.sections.header
+ * @param {RangeArray} options.sections.body
+ * @param {RangeArray} options.sections.sidebarL
+ * @param {RangeArray} options.sections.sidebarR
+ * @param {RangeArray} options.sections.footer
+ *
+ * @returns {Block[]}
+ */
+const groupItems = (items, options) => {
+  // Reduce to sections by range
+  // Create section trees
+  // Group within sections
+  const blocks = [new Block(...items)];
+  return blocks;
 };
 
 const loadPdf = async (PDFJS, data, options) => {
@@ -110,4 +124,10 @@ const loadPdf = async (PDFJS, data, options) => {
   return getPage;
 };
 
+const groupTextItems = (textItems, options) => {
+  const groups = groupItems(textItems, options);
+  return groups;
+};
+
 exports.loadPdf = loadPdf;
+exports.groupTextItems = groupTextItems;
