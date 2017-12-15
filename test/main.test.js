@@ -5,7 +5,7 @@ import path from 'path'
 /* globals PDFJS */
 import 'pdfjs-dist'
 
-import loadPdf from '../src/main'
+import { loadPdf } from '../src/main'
 
 it('should load the pdf', async () => {
   const filepath = path.resolve(process.cwd(), 'test/fixtures/ifm-simple-page.pdf')
