@@ -1,20 +1,11 @@
 /* eslint-env jest */
-import { Item, Block } from '../src/classes'
+import { Item } from '../src/classes'
 
 const item = {
   fontName: 'Times',
   str: 'test',
   transform: [
     0, 0, 0, 11, 200, 25
-  ],
-  width: 8.5
-}
-
-const item2 = {
-  fontName: 'Times',
-  str: 'test',
-  transform: [
-    0, 0, 0, 11, 400, 50
   ],
   width: 8.5
 }
