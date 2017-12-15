@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { TextItem } from '../src/classes'
+import { Item, Block } from '../src/classes'
 
 const item = {
   fontName: 'Times',
@@ -10,8 +10,17 @@ const item = {
   width: 8.5
 }
 
-it('should have all the right properties', () => {
-  const instance = new TextItem(item)
+const item2 = {
+  fontName: 'Times',
+  str: 'test',
+  transform: [
+    0, 0, 0, 11, 400, 50
+  ],
+  width: 8.5
+}
+
+it('should construct Item', () => {
+  const instance = new Item(item)
 
   expect(instance).toMatchObject({
     fontName: 'Times',

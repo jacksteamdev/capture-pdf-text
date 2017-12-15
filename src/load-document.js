@@ -1,4 +1,4 @@
-import { TextItem } from './classes'
+import { Item } from './classes'
 
 /**
  * Loads PDF into PDFJS and returns a function to get the items from individual pages
@@ -28,7 +28,7 @@ const loadDocument = async (PDFJS, data) => {
         const page = await pdf.getPage(n)
         const {items} = await page.getTextContent()
 
-        return items.map((item) => new TextItem(item))
+        return items.map((item) => new Item(item))
       } else {
         throw new Error(`Page ${n} of ${count} out of range.`)
       }

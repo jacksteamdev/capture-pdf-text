@@ -1,5 +1,6 @@
-import applyOptions from './apply-options.js'
-import loadDocument from './load-document.js'
+import applyOptions from './apply-options'
+import loadDocument from './load-document'
+import groupItems from './group-items'
 
 /**
  * Load a PDF for text extraction.
@@ -21,4 +22,9 @@ export const loadPdf = async (PDFJS, data, options) => {
 
   // Return page loader
   return getPage
+}
+
+export const groupTextItems = (textItems, options) => {
+  const groups = groupItems(textItems, options)
+  return groups
 }

@@ -1,10 +1,10 @@
 /**
- * A TextItem instance maps some properties of an text item from PDFJS
+ * A Item instance maps some properties of an text item from PDFJS
  *
  * @export
- * @class TextItem
+ * @class Item
  */
-export class TextItem {
+export class Item {
   constructor (item) {
     const { str, width, fontName } = item
     const [,,, height, bottom, left] = item.transform
@@ -21,3 +21,5 @@ export class TextItem {
     this.left = left
   }
 }
+
+export class Block extends Array {}
