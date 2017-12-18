@@ -1,5 +1,5 @@
 {
-  "name": "capture-pdf-text-api",
+  "name": "capture-pdf-text",
   "version": "0.1.0",
   "description": "TODO",
   "license": "MIT",
@@ -30,16 +30,12 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "jest",
-    "pretest": "standard"
+    "test": "jest"
   },
   "files": ["dist"],
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
-  },
-  "standard": {
-    "ignore": ["/dist/"]
   }
 }
