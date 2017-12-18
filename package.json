@@ -22,9 +22,7 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.1.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "standard": "^10.0.3",
-    "text-encoding": "^0.6.4"
+    "rollup-plugin-node-resolve": "^3.0.0"
   },
   "peerDependencies": {
     "pdfjs-dist": "^2.0.205"
@@ -33,20 +31,15 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
-    "pretest": "standard",
-    "fix": "standard --fix"
+    "pretest": "standard"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
   },
   "standard": {
-    "ignore": [
-      "/dist/"
-    ]
+    "ignore": ["/dist/"]
   }
 }
