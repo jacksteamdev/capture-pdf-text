@@ -7,7 +7,7 @@
 export class Item {
   constructor (item) {
     const { str, width, fontName } = item
-    const [, , , height, bottom, left] = item.transform
+    const [, , , height, left, bottom] = item.transform
 
     this.fontName = fontName
     this.text = str

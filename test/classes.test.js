@@ -4,9 +4,7 @@ import { Item } from '../src/classes'
 const item = {
   fontName: 'Times',
   str: 'test',
-  transform: [
-    0, 0, 0, 11, 200, 25
-  ],
+  transform: [0, 0, 0, 11, 25, 200],
   width: 8.5
 }
 
