@@ -9,7 +9,11 @@ import applyOptions from '../src/apply-options'
 import loadDocument from '../src/load-document'
 
 it('should load the pdf', async () => {
-  const filepath = path.resolve(process.cwd(), 'test/fixtures/ifm-simple-page.pdf')
+  expect.assertions(3)
+  const filepath = path.resolve(
+    process.cwd(),
+    'test/fixtures/ifm-simple-page.pdf'
+  )
   const file = fs.readFileSync(filepath)
   const data = new Uint8Array(file)
 
@@ -22,11 +26,16 @@ it('should load the pdf', async () => {
 })
 
 it('should get the page', async () => {
-  const filepath = path.resolve(process.cwd(), 'test/fixtures/ifm-simple-page.pdf')
+  expect.assertions(1)
+  const filepath = path.resolve(
+    process.cwd(),
+    'test/fixtures/ifm-simple-page.pdf'
+  )
   const file = fs.readFileSync(filepath)
   const data = new Uint8Array(file)
 
-  const getPage = await loadDocument(PDFJS, data)
+  const pdfjs = applyOptions(PDFJS)
+  const getPage = await loadDocument(pdfjs, data)
   const page = await getPage(1)
 
   expect(page).toBeInstanceOf(Array)
