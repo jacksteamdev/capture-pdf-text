@@ -50,8 +50,16 @@ class Item {
   }
 }
 
-class Block extends Array {}
-
+/**
+ * Loads PDF into PDFJS and returns a function to get the items from individual pages
+ *
+ * @export
+ * @async
+ * @function loadDocument
+ * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
+ * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
+ * @returns {Function} - getPage(pageNumber)
+ */
 const loadDocument = async (PDFJS, data) => {
   const pdf = await PDFJS.getDocument(data);
   const count = pdf.pdfInfo.numPages;
@@ -85,6 +93,8 @@ const loadDocument = async (PDFJS, data) => {
   return getPage;
 };
 
+// import { Block } from './classes'
+
 /**
  * Group items by section and margin
  *
@@ -103,10 +113,20 @@ const groupItems = (items, options) => {
   // Reduce to sections by range
   // Create section trees
   // Group within sections
-  const blocks = [new Block(...items)];
-  return blocks;
+  // const blocks = [new Block(...items)]
+  // return blocks
+  return items;
 };
 
+/**
+ * Load a PDF for text extraction.
+ * @param {PDFJS} PDFJS - PDFJS from pdfjs-dist, which pollutes the global scope when imported
+ * @param {string|Uint8Array} data - PDF url or Uint8Array containing the PDF data
+ * @param {[Object]} options - Options to configure PDFJS:
+ * @param {string} options.workerUrl - URL for pdf.worker.min.js. CORS restrictions apply.
+ * @param {number} options.verbosity - Supress PDFJS console messages: 0 for Errors, 1 for Warnings, 5 for Info.
+ * @returns {Promise} - Returns a Promise with a Function as the result.
+ */
 const loadPdf = async (PDFJS, data, options) => {
   // Configure PDFJS
   // Disable by passing options as `{doNotApply: true}`
