@@ -60,5 +60,8 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": ["node_modules/**", "dist/"]
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
   }
 }
