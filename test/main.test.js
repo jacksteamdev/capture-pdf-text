@@ -5,10 +5,14 @@ import path from 'path'
 /* globals PDFJS */
 import 'pdfjs-dist'
 
-import { loadPdf } from '../src/main'
+import { loadPdf, groupTextItems } from '../src/main'
 
 it('should load the pdf', async () => {
-  const filepath = path.resolve(process.cwd(), 'test/fixtures/ifm-simple-page.pdf')
+  expect.assertions(3)
+  const filepath = path.resolve(
+    process.cwd(),
+    'test/fixtures/ifm-simple-page.pdf'
+  )
   const file = fs.readFileSync(filepath)
   const data = new Uint8Array(file)
 
@@ -19,18 +23,25 @@ it('should load the pdf', async () => {
   expect(getPage.data).toBe(data)
 })
 
-it('should load the pdf with options', async () => {
-  const filepath = path.resolve(process.cwd(), 'test/fixtures/ifm-simple-page.pdf')
+it.only('should return the selected items', async () => {
+  expect.assertions(2)
+  const filepath = path.resolve(
+    process.cwd(),
+    'test/fixtures/ifm-simple-page.pdf'
+  )
   const file = fs.readFileSync(filepath)
   const data = new Uint8Array(file)
-  const options = {
-    workerUrl: 'someurl',
-    verbosity: 0
-  }
+  const selection = [200, 545, 170, 730]
 
-  const getPage = await loadPdf(PDFJS, data, options)
+  const getPage = await loadPdf(PDFJS, data)
+  const pageItems = await getPage(1)
 
-  expect(getPage).toBeInstanceOf(Function)
-  expect(getPage.pageCount).toBe(1)
-  expect(getPage.data).toBe(data)
+  const result = groupTextItems(pageItems, { selection })
+
+  expect(result).toBeInstanceOf(Array)
+  expect(result).not.toContain(
+    expect.objectContaining({
+      text: 'New Testament Survey'
+    })
+  )
 })

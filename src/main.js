@@ -1,6 +1,10 @@
+import createTrees from 'kd-interval-tree'
+import _ from 'lodash/fp'
+
 import applyOptions from './apply-options'
 import loadDocument from './load-document'
-import groupItems from './group-items'
+
+const createItemTrees = createTrees(['left', 'right', 'bottom', 'top'])
 
 /**
  * Load a PDF for text extraction.
@@ -24,7 +28,10 @@ export const loadPdf = async (PDFJS, data, options) => {
   return getPage
 }
 
-export const groupTextItems = (textItems, options) => {
-  const groups = groupItems(textItems, options)
-  return groups
+export const groupTextItems = (universe, { selection }) => {
+  // Universe is all items
+  const searchUniverse = createItemTrees(universe)
+  const bodyItems = searchUniverse(_.intersection, selection)
+
+  return bodyItems
 }
