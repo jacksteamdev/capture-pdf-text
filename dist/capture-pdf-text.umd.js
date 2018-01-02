@@ -513,6 +513,7 @@ exports.skipRearg = {
  */
 var placeholder = {};
 
+/** Built-in value reference. */
 var push = Array.prototype.push;
 
 /**
@@ -1840,15 +1841,17 @@ exports.PreOrder = PreOrder;
 if (typeof Symbol === 'function') {
     PreOrder.prototype[Symbol.iterator] = function () { return this; };
 }
-//# sourceMappingURL=index.js.map
+
 });
 
 var IntervalTree = unwrapExports(lib);
 
+/** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
 
 var _freeGlobal = freeGlobal;
 
+/** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
 
 /** Used as a reference to the global object. */
@@ -1856,10 +1859,12 @@ var root = _freeGlobal || freeSelf || Function('return this')();
 
 var _root = root;
 
+/** Built-in value references. */
 var Symbol$1 = _root.Symbol;
 
 var _Symbol = Symbol$1;
 
+/** Used for built-in method references. */
 var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
@@ -1927,6 +1932,7 @@ function objectToString(value) {
 
 var _objectToString = objectToString;
 
+/** `Object#toString` result references. */
 var nullTag = '[object Null]';
 var undefinedTag = '[object Undefined]';
 
@@ -1997,10 +2003,12 @@ function overArg(func, transform) {
 
 var _overArg = overArg;
 
+/** Built-in value references. */
 var getPrototype = _overArg(Object.getPrototypeOf, Object);
 
 var _getPrototype = getPrototype;
 
+/** `Object#toString` result references. */
 var objectTag = '[object Object]';
 
 /** Used for built-in method references. */
@@ -2059,6 +2067,7 @@ function isPlainObject(value) {
 
 var isPlainObject_1 = isPlainObject;
 
+/** `Object#toString` result references. */
 var domExcTag = '[object DOMException]';
 var errorTag = '[object Error]';
 
@@ -2091,6 +2100,14 @@ function isError(value) {
 
 var isError_1 = isError;
 
+/**
+ * Once the initial params are applied, use in Array.map to populate an interval tree, returning true or an Error if the operation was not successful.
+ *
+ * @param {IntervalTree} tree - IntervalTree from 'node-interval-tree'
+ * @param {string} lowKey - Low interval key name
+ * @param {string} highKey - High interval key name
+ * @returns {function(item): true|Error} true or an Error if the item was not added to the tree
+ */
 const addToTree = (tree, lowKey, highKey) => item => {
   const [low, high] = [item[lowKey], item[highKey]].sort();
   const inserted = tree.insert(low, high, item);
@@ -2223,6 +2240,16 @@ class Item {
   }
 }
 
+/**
+ * Loads PDF into PDFJS and returns a function to get the items from individual pages
+ *
+ * @export
+ * @async
+ * @function loadDocument
+ * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
+ * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
+ * @returns {Function} - getPage(pageNumber)
+ */
 const loadDocument = async (PDFJS, data) => {
   const pdf = await PDFJS.getDocument(data);
   const count = pdf.pdfInfo.numPages;

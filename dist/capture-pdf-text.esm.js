@@ -53,6 +53,16 @@ class Item {
   }
 }
 
+/**
+ * Loads PDF into PDFJS and returns a function to get the items from individual pages
+ *
+ * @export
+ * @async
+ * @function loadDocument
+ * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
+ * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
+ * @returns {Function} - getPage(pageNumber)
+ */
 const loadDocument = async (PDFJS, data) => {
   const pdf = await PDFJS.getDocument(data);
   const count = pdf.pdfInfo.numPages;
