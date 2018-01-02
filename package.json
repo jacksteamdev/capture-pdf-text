@@ -62,6 +62,7 @@
     "ignore": ["node_modules/**", "dist/"]
   },
   "dependencies": {
+    "kd-interval-tree": "https://github.com/teamsteamdev/kd-interval-tree",
     "lodash": "^4.17.4"
   }
 }
