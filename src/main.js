@@ -15,17 +15,19 @@ const createItemTrees = createTrees(['left', 'right', 'bottom', 'top'])
  * @param {number} options.verbosity - Supress PDFJS console messages: 0 for Errors, 1 for Warnings, 5 for Info.
  * @returns {Promise} - Returns a Promise with a Function as the result.
  */
-export const loadPdf = async (PDFJS, data, options) => {
+export const configureLoader = (PDFJS, options) => {
   // Configure PDFJS
   // Disable by passing options as `{doNotApply: true}`
   const pdfjs = applyOptions(PDFJS, options)
 
-  // Load PDF document into page loader
-  // Returns getPage Function with closured pdf
-  const getPage = await loadDocument(pdfjs, data)
+  return async data => {
+    // Load PDF document into page loader
+    // Returns getPage Function with closured pdf
+    const getPage = await loadDocument(pdfjs, data)
 
-  // Return page loader
-  return getPage
+    // Return page loader
+    return getPage
+  }
 }
 
 export const groupTextItems = (universe, { selection }) => {
