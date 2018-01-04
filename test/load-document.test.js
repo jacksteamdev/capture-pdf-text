@@ -12,7 +12,7 @@ it('should load the pdf', async () => {
   expect.assertions(3)
   const filepath = path.resolve(
     process.cwd(),
-    'test/fixtures/ifm-simple-page.pdf'
+    'test/fixtures/open-org-single-pg.pdf'
   )
   const file = fs.readFileSync(filepath)
   const data = new Uint8Array(file)
@@ -29,7 +29,7 @@ it('should get the page', async () => {
   expect.assertions(1)
   const filepath = path.resolve(
     process.cwd(),
-    'test/fixtures/ifm-simple-page.pdf'
+    'test/fixtures/open-org-single-pg.pdf'
   )
   const file = fs.readFileSync(filepath)
   const data = new Uint8Array(file)
