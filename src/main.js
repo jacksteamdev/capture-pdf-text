@@ -3,6 +3,7 @@ import _ from 'lodash/fp'
 
 import applyOptions from './apply-options'
 import loadDocument from './load-document'
+import groupIntoBlocks from './group-into-blocks'
 
 const createItemTrees = createTrees(['left', 'right', 'bottom', 'top'])
 
@@ -30,10 +31,15 @@ export const configureLoader = (PDFJS, options) => {
   }
 }
 
-export const groupTextItems = (universe, { selection }) => {
-  // Universe is all items
-  const searchUniverse = createItemTrees(universe)
-  const bodyItems = searchUniverse(_.intersection, selection)
+export const groupTextItems = (universe, { selection } = {}) => {
+  if (selection) {
+    // Universe is all items
+    const searchUniverse = createItemTrees(universe)
+    const bodyItems = searchUniverse(_.intersection, selection)
+    const blocks = groupIntoBlocks(bodyItems)
 
-  return bodyItems
+    return blocks
+  }
+
+  return groupIntoBlocks(universe)
 }

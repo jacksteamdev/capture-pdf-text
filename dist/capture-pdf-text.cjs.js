@@ -59,16 +59,12 @@ class Item {
   }
 }
 
-/**
- * Loads PDF into PDFJS and returns a function to get the items from individual pages
- *
- * @export
- * @async
- * @function loadDocument
- * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
- * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
- * @returns {Function} - getPage(pageNumber)
- */
+class Block extends Array {
+  get text() {
+    return this.reduce((r, s) => r + s.text, '');
+  }
+}
+
 const loadDocument = async (PDFJS, data) => {
   const pdf = await PDFJS.getDocument(data);
   const count = pdf.pdfInfo.numPages;
@@ -102,6 +98,8 @@ const loadDocument = async (PDFJS, data) => {
   return getPage;
 };
 
+var groupIntoBlocks = (items => [new Block(...items)]);
+
 const createItemTrees = createTrees(['left', 'right', 'bottom', 'top']);
 
 /**
@@ -128,12 +126,17 @@ const configureLoader = (PDFJS, options) => {
   };
 };
 
-const groupTextItems = (universe, { selection }) => {
-  // Universe is all items
-  const searchUniverse = createItemTrees(universe);
-  const bodyItems = searchUniverse(_.intersection, selection);
+const groupTextItems = (universe, { selection } = {}) => {
+  if (selection) {
+    // Universe is all items
+    const searchUniverse = createItemTrees(universe);
+    const bodyItems = searchUniverse(_.intersection, selection);
+    const blocks = groupIntoBlocks(bodyItems);
 
-  return bodyItems;
+    return blocks;
+  }
+
+  return groupIntoBlocks(universe);
 };
 
 exports.configureLoader = configureLoader;

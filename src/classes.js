@@ -22,4 +22,8 @@ export class Item {
   }
 }
 
-export class Block extends Array {}
+export class Block extends Array {
+  get text () {
+    return this.reduce((r, s) => r + s.text, '')
+  }
+}
