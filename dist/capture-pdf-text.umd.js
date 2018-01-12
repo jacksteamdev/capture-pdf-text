@@ -775,15 +775,17 @@ exports.PreOrder = PreOrder;
 if (typeof Symbol === 'function') {
     PreOrder.prototype[Symbol.iterator] = function () { return this; };
 }
-//# sourceMappingURL=index.js.map
+
 });
 
 var IntervalTree = unwrapExports(lib);
 
+/** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
 
 var _freeGlobal = freeGlobal;
 
+/** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
 
 /** Used as a reference to the global object. */
@@ -791,10 +793,12 @@ var root = _freeGlobal || freeSelf || Function('return this')();
 
 var _root = root;
 
+/** Built-in value references. */
 var Symbol$1 = _root.Symbol;
 
 var _Symbol = Symbol$1;
 
+/** Used for built-in method references. */
 var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
@@ -862,6 +866,7 @@ function objectToString(value) {
 
 var _objectToString = objectToString;
 
+/** `Object#toString` result references. */
 var nullTag = '[object Null]';
 var undefinedTag = '[object Undefined]';
 
@@ -932,10 +937,12 @@ function overArg(func, transform) {
 
 var _overArg = overArg;
 
+/** Built-in value references. */
 var getPrototype = _overArg(Object.getPrototypeOf, Object);
 
 var _getPrototype = getPrototype;
 
+/** `Object#toString` result references. */
 var objectTag = '[object Object]';
 
 /** Used for built-in method references. */
@@ -994,6 +1001,7 @@ function isPlainObject(value) {
 
 var isPlainObject_1 = isPlainObject;
 
+/** `Object#toString` result references. */
 var domExcTag = '[object DOMException]';
 var errorTag = '[object Error]';
 
@@ -1047,7 +1055,7 @@ var getPairs = (array => array.reduce((reducer, element, index, array) => {
  * @returns {function(item): true|Error} true or an Error if the item was not added to the tree
  */
 const addToTree = (tree, lowKey, highKey) => item => {
-  const [low, high] = [item[lowKey], item[highKey]].sort();
+  const [low, high] = [item[lowKey], item[highKey]].sort((a, b) => a - b);
   const inserted = tree.insert(low, high, item);
   return inserted || new Error(`${item} was not inserted into ${lowKey}, ${highKey} tree.`);
 };
@@ -1102,12 +1110,7 @@ const logError = x => {
  * @returns {searchTrees}
  */
 const createTrees = (keys, items) => {
-  const curry = keys => items => {
-    // console.log('createTrees')
-    if (keys.length % 2 !== 0) {
-      throw new Error(`Expected keys.length to be an even number. keys.length: ${keys.length}`);
-    }
-
+  const curried = keys => items => {
     const pairs = getPairs(keys);
     const trees = pairs.map((pair, i) => {
       const tree = new IntervalTree();
@@ -1122,7 +1125,7 @@ const createTrees = (keys, items) => {
     return partial;
   };
 
-  return items ? curry(keys)(items) : curry(keys);
+  return items ? curried(keys)(items) : curried(keys);
 };
 
 var lodash_min = createCommonjsModule(function (module, exports) {
@@ -1622,6 +1625,7 @@ exports.skipRearg = {
  */
 var placeholder = {};
 
+/** Built-in value reference. */
 var push = Array.prototype.push;
 
 /**
@@ -2248,8 +2252,7 @@ class Block extends Array {
   }
 }
 
-const loadDocument = async (PDFJS, data) => {
-  const pdf = await PDFJS.getDocument(data);
+const loadDocument = pdf => {
   const count = pdf.pdfInfo.numPages;
 
   /**
@@ -2266,7 +2269,11 @@ const loadDocument = async (PDFJS, data) => {
         const page = await pdf.getPage(n);
         const { items } = await page.getTextContent();
 
-        return items.map(item => new Item(item));
+        return {
+          height: page.pageInfo.view[3],
+          width: page.pageInfo.view[2],
+          items: items.map(item => new Item(item))
+        };
       } else {
         throw new Error(`Page ${n} of ${count} out of range.`);
       }
@@ -2276,9 +2283,23 @@ const loadDocument = async (PDFJS, data) => {
   };
 
   getPage.pageCount = count;
-  getPage.data = data;
 
   return getPage;
+};
+
+/**
+ * Loads PDF into PDFJS and returns a function to get the items from individual pages
+ *
+ * @export
+ * @async
+ * @function loadDocument
+ * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
+ * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
+ * @returns {Function} - getPage(pageNumber)
+ */
+const loadDocumentWithPDFJS = async (PDFJS, data) => {
+  const pdf = await PDFJS.getDocument(data);
+  return loadDocument(pdf);
 };
 
 var groupIntoBlocks = (items => [new Block(...items)]);
@@ -2302,13 +2323,21 @@ const configureLoader = (PDFJS, options) => {
   return async data => {
     // Load PDF document into page loader
     // Returns getPage Function with closured pdf
-    const getPage = await loadDocument(pdfjs, data);
+    const getPage = await loadDocumentWithPDFJS(pdfjs, data);
 
     // Return page loader
     return getPage;
   };
 };
 
+/**
+ * Returns groups of text items by selection ranges
+ * @param {Item[]} universe - All Items on page
+ * @param {Object} param1 - Object with selection property
+ * @param {Number[]} param1.selection - Number pairs representing x and y ranges,
+ *                                      with origin in bottom left corner:
+ *                                      [left, right, bottom, top]
+ */
 const groupTextItems = (universe, { selection } = {}) => {
   if (selection) {
     // Universe is all items
@@ -2324,6 +2353,7 @@ const groupTextItems = (universe, { selection } = {}) => {
 
 exports.configureLoader = configureLoader;
 exports.groupTextItems = groupTextItems;
+exports.loadDocument = loadDocument;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

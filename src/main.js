@@ -2,8 +2,10 @@ import createTrees from 'kd-interval-tree'
 import _ from 'lodash/fp'
 
 import applyOptions from './apply-options'
-import loadDocument from './load-document'
+import { loadDocumentWithPDFJS } from './load-document'
 import groupIntoBlocks from './group-into-blocks'
+
+export { loadDocument } from './load-document'
 
 const createItemTrees = createTrees(['left', 'right', 'bottom', 'top'])
 
@@ -24,13 +26,21 @@ export const configureLoader = (PDFJS, options) => {
   return async data => {
     // Load PDF document into page loader
     // Returns getPage Function with closured pdf
-    const getPage = await loadDocument(pdfjs, data)
+    const getPage = await loadDocumentWithPDFJS(pdfjs, data)
 
     // Return page loader
     return getPage
   }
 }
 
+/**
+ * Returns groups of text items by selection ranges
+ * @param {Item[]} universe - All Items on page
+ * @param {Object} param1 - Object with selection property
+ * @param {Number[]} param1.selection - Number pairs representing x and y ranges,
+ *                                      with origin in bottom left corner:
+ *                                      [left, right, bottom, top]
+ */
 export const groupTextItems = (universe, { selection } = {}) => {
   if (selection) {
     // Universe is all items

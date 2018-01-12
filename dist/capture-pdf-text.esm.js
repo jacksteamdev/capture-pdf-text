@@ -59,8 +59,7 @@ class Block extends Array {
   }
 }
 
-const loadDocument = async (PDFJS, data) => {
-  const pdf = await PDFJS.getDocument(data);
+const loadDocument = pdf => {
   const count = pdf.pdfInfo.numPages;
 
   /**
@@ -77,7 +76,11 @@ const loadDocument = async (PDFJS, data) => {
         const page = await pdf.getPage(n);
         const { items } = await page.getTextContent();
 
-        return items.map(item => new Item(item));
+        return {
+          height: page.pageInfo.view[3],
+          width: page.pageInfo.view[2],
+          items: items.map(item => new Item(item))
+        };
       } else {
         throw new Error(`Page ${n} of ${count} out of range.`);
       }
@@ -87,9 +90,23 @@ const loadDocument = async (PDFJS, data) => {
   };
 
   getPage.pageCount = count;
-  getPage.data = data;
 
   return getPage;
+};
+
+/**
+ * Loads PDF into PDFJS and returns a function to get the items from individual pages
+ *
+ * @export
+ * @async
+ * @function loadDocument
+ * @param {PDFJS} PDFJS - Pre-configured PDFJS from 'pdfjs-dist'
+ * @param {string|Uint8Array} data - PDF URL or PDF as TypedArray (Uint8Array)
+ * @returns {Function} - getPage(pageNumber)
+ */
+const loadDocumentWithPDFJS = async (PDFJS, data) => {
+  const pdf = await PDFJS.getDocument(data);
+  return loadDocument(pdf);
 };
 
 var groupIntoBlocks = (items => [new Block(...items)]);
@@ -113,13 +130,21 @@ const configureLoader = (PDFJS, options) => {
   return async data => {
     // Load PDF document into page loader
     // Returns getPage Function with closured pdf
-    const getPage = await loadDocument(pdfjs, data);
+    const getPage = await loadDocumentWithPDFJS(pdfjs, data);
 
     // Return page loader
     return getPage;
   };
 };
 
+/**
+ * Returns groups of text items by selection ranges
+ * @param {Item[]} universe - All Items on page
+ * @param {Object} param1 - Object with selection property
+ * @param {Number[]} param1.selection - Number pairs representing x and y ranges,
+ *                                      with origin in bottom left corner:
+ *                                      [left, right, bottom, top]
+ */
 const groupTextItems = (universe, { selection } = {}) => {
   if (selection) {
     // Universe is all items
@@ -133,4 +158,4 @@ const groupTextItems = (universe, { selection } = {}) => {
   return groupIntoBlocks(universe);
 };
 
-export { configureLoader, groupTextItems };
+export { configureLoader, groupTextItems, loadDocument };
