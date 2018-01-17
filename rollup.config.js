@@ -37,7 +37,8 @@ export default [
       'url',
       'pdfjs-dist',
       'kd-interval-tree',
-      'lodash/fp'
+      'lodash/fp',
+      'lodash/orderBy'
     ],
     output: [
       { file: pkg.main, format: 'cjs' },

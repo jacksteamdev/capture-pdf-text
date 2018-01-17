@@ -6,6 +6,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var createTrees = _interopDefault(require('kd-interval-tree'));
 var _ = _interopDefault(require('lodash/fp'));
+var orderBy = _interopDefault(require('lodash/orderBy'));
 
 /**
  * Configure PDFJS
@@ -115,7 +116,30 @@ const loadDocumentWithPDFJS = async (PDFJS, data) => {
   return loadDocument(pdf);
 };
 
-var groupIntoBlocks = (items => [new Block(...items)]);
+/**
+ * @func    orderByPageAndPosition
+ * @desc    Sort items by pageNumber and position on page.
+ * @param   {array}     items        - An array of objects with pageNum, top, and left values
+ * @prop    {number}    item.pageNum - Integer representing the PDF origin page of the item
+ * @prop    {number}    item.top     - Number indicating the highest y-coordinate in the item
+ * @prop    {number}    item.left    - Number indicating the lowest x-coordinate of the item
+ *
+ * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
+ */
+
+const orderByPosition = items => {
+  const iteratees = ['bottom', 'right'];
+  const orders = ['desc', 'asc'];
+  const ordered = orderBy(items, iteratees, orders);
+
+  return ordered;
+};
+
+var groupIntoBlocks = (items => {
+  const ordered = orderByPosition(items);
+  const block = new Block(...ordered);
+  return [block];
+});
 
 const createItemTrees = createTrees(['left', 'right', 'bottom', 'top']);
 
