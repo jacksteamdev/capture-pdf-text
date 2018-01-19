@@ -19,7 +19,7 @@ export const orderByPosition = items => {
   return ordered
 }
 
-export const orderLeftToRight = items => {
+export const orderLTR = items => {
   const iteratee = 'left'
   const order = 'asc'
   const ordered = orderBy(items, iteratee, order)
@@ -27,7 +27,7 @@ export const orderLeftToRight = items => {
   return ordered
 }
 
-export const orderTopToBottom = items => {
+export const orderTTB = items => {
   const iteratee = 'top'
   const order = 'desc'
   const ordered = orderBy(items, iteratee, order)
