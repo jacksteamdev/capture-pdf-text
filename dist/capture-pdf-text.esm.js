@@ -55,8 +55,63 @@ class Item {
 }
 
 class Block extends Array {
+  getRawText() {
+    return this.reduce((r, i) => r + i.text, '');
+  }
+
   get text() {
-    return this.reduce((r, s) => r + s.text, '');
+    return this.reduce((r, i, n) => `${r} ${i.text.trim()}`, '').trim();
+  }
+  set text(t) {
+    return undefined;
+  }
+
+  // this.top = bottom + height
+  get top() {
+    return this.reduce((r, { top }) => Math.max(r, top), 0);
+  }
+  set top(n) {
+    return undefined;
+  }
+
+  // this.right = left + width
+  get right() {
+    return this.reduce((r, { right }) => Math.max(r, right), 0);
+  }
+  set right(n) {
+    return undefined;
+  }
+
+  // this.bottom = bottom
+  get bottom() {
+    return this.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
+  }
+  set bottom(n) {
+    return undefined;
+  }
+
+  // this.left = left
+  get left() {
+    return this.reduce((r, { left }) => Math.min(r, left), Infinity);
+  }
+  set left(n) {
+    return undefined;
+  }
+
+  // Add getters for dimensions
+  get height() {
+    return this.top - this.bottom;
+  }
+  set height(n) {
+    return undefined;
+  }
+
+  // this.width = width
+  get width() {
+    return this.right - this.left;
+  }
+  set width(n) {
+    return undefined;
   }
 }
 
@@ -129,10 +184,46 @@ const orderByPosition = items => {
   return ordered;
 };
 
+const createItemTrees$1 = createTrees(['left', 'right', 'bottom', 'top']);
+
+const byStyle = items => {
+  const styleMap = items.reduce((map, item) => {
+    const { height, fontName } = item;
+    const style = { height, fontName };
+
+    const isEqualStyle = _.isEqual(style);
+
+    const keys = [...map.keys()];
+    const key = keys.find(isEqualStyle) || style;
+
+    const items = map.get(key) || [];
+    return map.set(key, [...items, item]);
+  }, new Map());
+
+  return [...styleMap.values()];
+};
+
 var groupIntoBlocks = (items => {
-  const ordered = orderByPosition(items);
-  const block = new Block(...ordered);
-  return [block];
+  // Items grouped by style
+  // Not all seemingly identical styles are the same:
+  // The fontName may differ, but the height will be the same
+  const itemsByStyle = byStyle(items);
+
+  // Groups of Items mapped to Blocks
+  // and sorted by text length
+  const blocks = itemsByStyle.map(items => {
+    const ordered = orderByPosition(items);
+    const block = new Block(...ordered);
+
+    return block;
+  }).sort((a, b) => b.text.length - a.text.length).reduce((r, styleBlock) => {
+    const trees = createItemTrees$1(...styleBlock);
+    // Group adjacent items
+    return [...r, styleBlock];
+  }, []);
+  // Absorb small blocks of into large blocks
+
+  return blocks;
 });
 
 const createItemTrees = createTrees(['left', 'right', 'bottom', 'top']);
