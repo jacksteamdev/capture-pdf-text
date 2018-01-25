@@ -31,6 +31,25 @@ const applyOptions = (PDFJS, options = {}) => {
 };
 
 /**
+ * @func    orderByPageAndPosition
+ * @desc    Sort items by pageNumber and position on page.
+ * @param   {array}     items        - An array of objects with pageNum, top, and left values
+ * @prop    {number}    item.pageNum - Integer representing the PDF origin page of the item
+ * @prop    {number}    item.top     - Number indicating the highest y-coordinate in the item
+ * @prop    {number}    item.left    - Number indicating the lowest x-coordinate of the item
+ *
+ * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
+ */
+
+const orderByPosition = items => {
+  const iteratees = ['bottom', 'right'];
+  const orders = ['desc', 'asc'];
+  const ordered = orderBy(items, iteratees, orders);
+
+  return ordered;
+};
+
+/**
  * A Item instance maps some properties of an text item from PDFJS
  *
  * @export
@@ -41,7 +60,7 @@ class Item {
     const { str, width, fontName } = item;
     const [,,, height, left, bottom] = item.transform;
 
-    this.fontName = fontName;
+    this.style = { fontName, height };
     this.text = str;
 
     this.height = height;
@@ -55,6 +74,29 @@ class Item {
 }
 
 class Block extends Array {
+  static ordered() {
+    const items = [...arguments];
+    // Need to sort before constructing
+    // In the constructor, this.sort would
+    // not provide predictable results
+    const ordered = orderByPosition(items);
+    const block = new Block(...ordered);
+
+    return block;
+  }
+
+  getStyles() {
+    return this.reduce((r, { style, text }) => {
+      const result = [...r].find(_.isEqual(style)) || style;
+      // Increase weight by text.length or,
+      // if weight is undefined, set weight to text.length
+      result.weight = result.weight + text.length || text.length;
+      return r.add(result);
+    }, new Set())
+    // Sort by descending weight
+    .sort((a, b) => b.weight - a.weight);
+  }
+
   getRawText() {
     return this.reduce((r, i) => r + i.text, '');
   }
@@ -165,31 +207,11 @@ const loadDocumentWithPDFJS = async (PDFJS, data) => {
   return loadDocument(pdf);
 };
 
-/**
- * @func    orderByPageAndPosition
- * @desc    Sort items by pageNumber and position on page.
- * @param   {array}     items        - An array of objects with pageNum, top, and left values
- * @prop    {number}    item.pageNum - Integer representing the PDF origin page of the item
- * @prop    {number}    item.top     - Number indicating the highest y-coordinate in the item
- * @prop    {number}    item.left    - Number indicating the lowest x-coordinate of the item
- *
- * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
- */
-
-const orderByPosition = items => {
-  const iteratees = ['bottom', 'right'];
-  const orders = ['desc', 'asc'];
-  const ordered = orderBy(items, iteratees, orders);
-
-  return ordered;
-};
-
 const createItemTrees$1 = createTrees(['left', 'right', 'bottom', 'top']);
 
 const byStyle = items => {
   const styleMap = items.reduce((map, item) => {
-    const { height, fontName } = item;
-    const style = { height, fontName };
+    const { style } = item;
 
     const isEqualStyle = _.isEqual(style);
 
@@ -211,17 +233,18 @@ var groupIntoBlocks = (items => {
 
   // Groups of Items mapped to Blocks
   // and sorted by text length
-  const blocks = itemsByStyle.map(items => {
-    const ordered = orderByPosition(items);
-    const block = new Block(...ordered);
+  const blocks = itemsByStyle.map(items => Block.ordered(...items))
+  // Sort by Block size
+  .sort((a, b) => b.text.length - a.text.length)
+  // Group adjacent items
+  .map(block => {
+    const searchTrees = createItemTrees$1(block);
+    const groups = searchTrees.getGroups();
+    const blocks = groups.map(g => Block.ordered(...g));
 
-    return block;
-  }).sort((a, b) => b.text.length - a.text.length).reduce((r, styleBlock) => {
-    const trees = createItemTrees$1(...styleBlock);
-    // Group adjacent items
-    return [...r, styleBlock];
+    return blocks;
   }, []);
-  // Absorb small blocks of into large blocks
+  // Absorb small blocks into large blocks
 
   return blocks;
 });

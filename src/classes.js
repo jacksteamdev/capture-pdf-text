@@ -1,3 +1,7 @@
+import _ from 'lodash/fp'
+
+import { orderByPosition } from './order-items'
+
 /**
  * A Item instance maps some properties of an text item from PDFJS
  *
@@ -9,7 +13,7 @@ export class Item {
     const { str, width, fontName } = item
     const [, , , height, left, bottom] = item.transform
 
-    this.fontName = fontName
+    this.style = { fontName, height }
     this.text = str
 
     this.height = height
@@ -23,6 +27,31 @@ export class Item {
 }
 
 export class Block extends Array {
+  static ordered () {
+    const items = [...arguments]
+    // Need to sort before constructing
+    // In the constructor, this.sort would
+    // not provide predictable results
+    const ordered = orderByPosition(items)
+    const block = new Block(...ordered)
+
+    return block
+  }
+
+  getStyles () {
+    return (
+      this.reduce((r, { style, text }) => {
+        const result = [...r].find(_.isEqual(style)) || style
+        // Increase weight by text.length or,
+        // if weight is undefined, set weight to text.length
+        result.weight = result.weight + text.length || text.length
+        return r.add(result)
+      }, new Set())
+        // Sort by descending weight
+        .sort((a, b) => b.weight - a.weight)
+    )
+  }
+
   getRawText () {
     return this.reduce((r, i) => r + i.text, '')
   }

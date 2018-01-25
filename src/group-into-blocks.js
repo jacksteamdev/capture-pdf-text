@@ -8,8 +8,7 @@ const createItemTrees = createTrees(['left', 'right', 'bottom', 'top'])
 
 const byStyle = items => {
   const styleMap = items.reduce((map, item) => {
-    const { height, fontName } = item
-    const style = { height, fontName }
+    const { style } = item
 
     const isEqualStyle = _.isEqual(style)
 
@@ -32,19 +31,18 @@ export default items => {
   // Groups of Items mapped to Blocks
   // and sorted by text length
   const blocks = itemsByStyle
-    .map(items => {
-      const ordered = orderByPosition(items)
-      const block = new Block(...ordered)
-
-      return block
-    })
+    .map(items => Block.ordered(...items))
+    // Sort by Block size
     .sort((a, b) => b.text.length - a.text.length)
-    .reduce((r, styleBlock) => {
-      const trees = createItemTrees(...styleBlock)
-      // Group adjacent items
-      return [...r, styleBlock]
+    // Group adjacent items
+    .map(block => {
+      const searchTrees = createItemTrees(block)
+      const groups = searchTrees.getGroups()
+      const blocks = groups.map(g => Block.ordered(...g))
+
+      return blocks
     }, [])
-  // Absorb small blocks of into large blocks
+  // Absorb small blocks into large blocks
 
   return blocks
 }
