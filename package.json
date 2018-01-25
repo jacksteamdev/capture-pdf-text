@@ -36,6 +36,7 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "test": "jest",
+    "test-watch": "jest --watch",
     "precommit": "lint-staged",
     "pretest": "standard"
   },
@@ -62,7 +63,7 @@
     "ignore": ["node_modules/**", "dist/"]
   },
   "dependencies": {
-    "kd-interval-tree": "https://github.com/teamsteamdev/kd-interval-tree",
+    "kd-interval-tree": "../kd-interval-tree",
     "lodash": "^4.17.4"
   }
 }
