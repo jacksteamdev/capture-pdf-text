@@ -1,5 +1,3 @@
-import _ from 'lodash/fp'
-
 import { orderByPosition } from './order-items'
 
 /**
@@ -27,82 +25,79 @@ export class Item {
 }
 
 export class Block {
-  constructor () {
+  constructor (items) {
     // TODO: Make array property of block
     // TODO: Adjust this keyword usage
-  }
-  static ordered () {
-    const items = [...arguments]
-    // Need to sort before constructing
-    // In the constructor, this.sort would
-    // not provide predictable results
-    const ordered = orderByPosition(items)
-    const block = new Block(...ordered)
-
-    return block
+    this.__items = items
   }
 
   getStyles () {
+    const styleSet = this.items.reduce((r, { style, text }) => {
+      const isSameStyle = ({ fontName, height }) =>
+        fontName === style.fontName && height === style.height
+
+      const result = [...r].find(isSameStyle) || style
+      // Increase weight by text.length or,
+      // if weight is undefined, set weight to text.length
+      result.weight = result.weight + text.length || text.length
+
+      return r.add(result)
+    }, new Set())
+
     return (
-      this.reduce((r, { style, text }) => {
-        const result = [...r].find(_.isEqual(style)) || style
-        // Increase weight by text.length or,
-        // if weight is undefined, set weight to text.length
-        result.weight =
-          result.weight + text.length || text.length
-        return r.add(result)
-      }, new Set())
-        // Sort by descending weight
-        .sort((a, b) => b.weight - a.weight)
+      // Spread into array and sort by descending weight
+      [...styleSet].sort((a, b) => b.weight - a.weight)
     )
   }
 
   getRawText () {
-    return this.reduce((r, i) => r + i.text, '')
+    return this.items.reduce((r, i) => r + i.text, '')
   }
 
   get text () {
-    return this.reduce(
-      (r, i, n) => `${r} ${i.text.trim()}`,
-      ''
-    ).trim()
+    return this.items
+      .reduce((r, i, n) => `${r} ${i.text.trim()}`, '')
+      .trim()
   }
   set text (t) {
     return undefined
   }
 
-  // this.top = bottom + height
+  // this.items.top = bottom + height
   get top () {
-    return this.reduce((r, { top }) => Math.max(r, top), 0)
+    return this.items.reduce((r, { top }) => Math.max(r, top), 0)
   }
   set top (n) {
     return undefined
   }
 
-  // this.right = left + width
+  // this.items.right = left + width
   get right () {
-    return this.reduce((r, { right }) => Math.max(r, right), 0)
+    return this.items.reduce(
+      (r, { right }) => Math.max(r, right),
+      0,
+    )
   }
   set right (n) {
     return undefined
   }
 
-  // this.bottom = bottom
+  // this.items.bottom = bottom
   get bottom () {
-    return this.reduce(
+    return this.items.reduce(
       (r, { bottom }) => Math.min(r, bottom),
-      Infinity
+      Infinity,
     )
   }
   set bottom (n) {
     return undefined
   }
 
-  // this.left = left
+  // this.items.left = left
   get left () {
-    return this.reduce(
+    return this.items.reduce(
       (r, { left }) => Math.min(r, left),
-      Infinity
+      Infinity,
     )
   }
   set left (n) {
@@ -122,6 +117,15 @@ export class Block {
     return this.right - this.left
   }
   set width (n) {
+    return undefined
+  }
+
+  get items () {
+    const ordered = orderByPosition(this.__items)
+    return ordered
+  }
+
+  set items (x) {
     return undefined
   }
 }
