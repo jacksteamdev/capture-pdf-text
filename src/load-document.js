@@ -20,7 +20,7 @@ export const loadDocument = pdf => {
         return {
           height: page.pageInfo.view[3],
           width: page.pageInfo.view[2],
-          items: items.map(item => new Item(item))
+          items: items.map(item => new Item(item)),
         }
       } else {
         throw new Error(`Page ${n} of ${count} out of range.`)

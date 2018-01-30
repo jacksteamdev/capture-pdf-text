@@ -4,7 +4,12 @@ import _ from 'lodash/fp'
 import { Block } from './classes'
 // import { orderByPosition, orderTTB } from './order-items'
 
-const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top'])
+const createTree = kdIntervalTree([
+  'left',
+  'right',
+  'bottom',
+  'top',
+])
 
 const byStyle = items => {
   const styleMap = items.reduce((map, item) => {

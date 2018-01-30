@@ -7,7 +7,12 @@ import groupIntoBlocks from './group-into-blocks'
 
 export { loadDocument } from './load-document'
 
-const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top'])
+const createTree = kdIntervalTree([
+  'left',
+  'right',
+  'bottom',
+  'top',
+])
 
 /**
  * Load a PDF for text extraction.

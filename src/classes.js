@@ -48,7 +48,8 @@ export class Block {
         const result = [...r].find(_.isEqual(style)) || style
         // Increase weight by text.length or,
         // if weight is undefined, set weight to text.length
-        result.weight = result.weight + text.length || text.length
+        result.weight =
+          result.weight + text.length || text.length
         return r.add(result)
       }, new Set())
         // Sort by descending weight
@@ -61,7 +62,10 @@ export class Block {
   }
 
   get text () {
-    return this.reduce((r, i, n) => `${r} ${i.text.trim()}`, '').trim()
+    return this.reduce(
+      (r, i, n) => `${r} ${i.text.trim()}`,
+      ''
+    ).trim()
   }
   set text (t) {
     return undefined
@@ -85,7 +89,10 @@ export class Block {
 
   // this.bottom = bottom
   get bottom () {
-    return this.reduce((r, { bottom }) => Math.min(r, bottom), Infinity)
+    return this.reduce(
+      (r, { bottom }) => Math.min(r, bottom),
+      Infinity
+    )
   }
   set bottom (n) {
     return undefined
@@ -93,7 +100,10 @@ export class Block {
 
   // this.left = left
   get left () {
-    return this.reduce((r, { left }) => Math.min(r, left), Infinity)
+    return this.reduce(
+      (r, { left }) => Math.min(r, left),
+      Infinity
+    )
   }
   set left (n) {
     return undefined
