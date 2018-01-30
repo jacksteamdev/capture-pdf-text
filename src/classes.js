@@ -26,7 +26,11 @@ export class Item {
   }
 }
 
-export class Block extends Array {
+export class Block {
+  constructor () {
+    // TODO: Make array property of block
+    // TODO: Adjust this keyword usage
+  }
   static ordered () {
     const items = [...arguments]
     // Need to sort before constructing

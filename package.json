@@ -10,6 +10,10 @@
   "main": "dist/capture-pdf-text.cjs.js",
   "module": "dist/capture-pdf-text.esm.js",
   "browser": "dist/capture-pdf-text.umd.js",
+  "dependencies": {
+    "kd-interval-tree": "../kd-interval-tree",
+    "lodash": "^4.17.4"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
@@ -17,9 +21,9 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "husky": "^0.14.3",
-    "jest": "^21.2.1",
+    "jest": "^22.1.4",
     "lint-staged": "^6.0.0",
-    "pdfjs-dist": "^2.0.205",
+    "pdfjs-mock": "/home/jack/Repos/Work/pdfjs-mock",
     "prettier": "^1.9.2",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
@@ -30,15 +34,14 @@
     "standard": "^10.0.3"
   },
   "peerDependencies": {
-    "pdfjs-dist": "^2.0.205"
+    "pdfjs-dist": "latest"
   },
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
     "test": "jest",
     "test-watch": "jest --watch",
-    "precommit": "lint-staged",
-    "pretest": "standard"
+    "precommit": "lint-staged"
   },
   "files": ["dist"],
   "jest": {
@@ -47,11 +50,7 @@
     }
   },
   "lint-staged": {
-    "*.{js}": [
-      "prettier --no-semi --single-quote --write",
-      "standard --fix",
-      "git add"
-    ],
+    "*.{js}": ["prettier --no-semi --single-quote --write", "git add"],
     "*.{json,css,md}": ["prettier --write", "git add"]
   },
   "prettier": {
@@ -61,9 +60,5 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": ["node_modules/**", "dist/"]
-  },
-  "dependencies": {
-    "kd-interval-tree": "../kd-interval-tree",
-    "lodash": "^4.17.4"
   }
 }

@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var createTrees = _interopDefault(require('kd-interval-tree'));
+var kdIntervalTree = _interopDefault(require('kd-interval-tree'));
 var _ = _interopDefault(require('lodash/fp'));
 var orderBy = _interopDefault(require('lodash/orderBy'));
 
@@ -55,12 +55,6 @@ const orderByPosition = items => {
   return ordered;
 };
 
-/**
- * A Item instance maps some properties of an text item from PDFJS
- *
- * @export
- * @class Item
- */
 class Item {
   constructor(item) {
     const { str, width, fontName } = item;
@@ -213,7 +207,7 @@ const loadDocumentWithPDFJS = async (PDFJS, data) => {
   return loadDocument(pdf);
 };
 
-const createItemTrees$1 = createTrees(['left', 'right', 'bottom', 'top']);
+const createTree$1 = kdIntervalTree(['left', 'right', 'bottom', 'top']);
 
 const byStyle = items => {
   const styleMap = items.reduce((map, item) => {
@@ -244,18 +238,16 @@ var groupIntoBlocks = (items => {
   .sort((a, b) => b.text.length - a.text.length)
   // Group adjacent items
   .map(block => {
-    const searchTrees = createItemTrees$1(block);
-    const groups = searchTrees.getGroups();
+    const { groups } = createTree$1(block);
     const blocks = groups.map(g => Block.ordered(...g));
 
     return blocks;
   }, []);
-  // Absorb small blocks into large blocks
 
-  return blocks;
+  return _.flatten(blocks);
 });
 
-const createItemTrees = createTrees(['left', 'right', 'bottom', 'top']);
+const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top']);
 
 /**
  * Load a PDF for text extraction.
@@ -283,23 +275,22 @@ const configureLoader = (PDFJS, options) => {
 
 /**
  * Returns groups of text items by selection ranges
- * @param {Item[]} universe - All Items on page
+ * @param {Item[]} allItems - All Items on page
  * @param {Object} param1 - Object with selection property
  * @param {Number[]} param1.selection - Number pairs representing x and y ranges,
  *                                      with origin in bottom left corner:
  *                                      [left, right, bottom, top]
  */
-const groupTextItems = (universe, { selection } = {}) => {
+const groupTextItems = (allItems, { selection } = {}) => {
   if (selection) {
-    // Universe is all items
-    const searchUniverse = createItemTrees(universe);
-    const bodyItems = searchUniverse(_.intersection, selection);
+    const { searchTrees } = createTree(allItems);
+    const bodyItems = searchTrees(_.intersection, selection);
     const blocks = groupIntoBlocks(bodyItems);
 
     return blocks;
   }
 
-  return groupIntoBlocks(universe);
+  return groupIntoBlocks(allItems);
 };
 
 exports.configureLoader = configureLoader;

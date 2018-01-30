@@ -1,10 +1,10 @@
-import createTrees from 'kd-interval-tree'
+import kdIntervalTree from 'kd-interval-tree'
 import _ from 'lodash/fp'
 
 import { Block } from './classes'
-import { orderByPosition, orderTTB } from './order-items'
+// import { orderByPosition, orderTTB } from './order-items'
 
-const createItemTrees = createTrees(['left', 'right', 'bottom', 'top'])
+const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top'])
 
 const byStyle = items => {
   const styleMap = items.reduce((map, item) => {
@@ -36,13 +36,11 @@ export default items => {
     .sort((a, b) => b.text.length - a.text.length)
     // Group adjacent items
     .map(block => {
-      const searchTrees = createItemTrees(block)
-      const groups = searchTrees.getGroups()
+      const { groups } = createTree(block)
       const blocks = groups.map(g => Block.ordered(...g))
 
       return blocks
     }, [])
-  // Absorb small blocks into large blocks
 
-  return blocks
+  return _.flatten(blocks)
 }

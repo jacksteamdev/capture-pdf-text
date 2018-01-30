@@ -1,0 +1,14 @@
+{
+  "pages": [
+    [
+      {
+        "str": "Hello, world!",
+        "dir": "ltr",
+        "width": 64.656,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 70, 50],
+        "fontName": "Times"
+      }
+    ]
+  ]
+}

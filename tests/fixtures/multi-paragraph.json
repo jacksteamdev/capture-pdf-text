@@ -1,0 +1,814 @@
+{
+  "pages": [
+    [
+      {
+        "str": "Puro, Chile, es tu cielo azulado",
+        "dir": "ltr",
+        "width": 165.44400000000002,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ".",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 219.65, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 223.01, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "p",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 226.25, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "uras brisas te cruzan también",
+        "dir": "ltr",
+        "width": 157.26,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 232.97, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ".",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 390.43, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 393.79, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Y tu campo de flores bordad",
+        "dir": "ltr",
+        "width": 150.56399999999996,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 397.15, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "o",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 547.9, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 554.62, 708.7],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "s la copia feliz del Edén",
+        "dir": "ltr",
+        "width": 125.98799999999999,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 60.72, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ".",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 186.86, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 190.22, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Majestuosa es la blanca montaña",
+        "dir": "ltr",
+        "width": 178.596,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 193.58, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 372.43, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "q",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 375.79, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "ue te dio por baluarte el Seño",
+        "dir": "ltr",
+        "width": 157.26,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 382.39, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "r",
+        "dir": "ltr",
+        "width": 3.9960000000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 539.74, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 543.7, 693.82],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Y ese mar que tranquilo te",
+        "dir": "ltr",
+        "width": 140.712,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 194.93, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "baña",
+        "dir": "ltr",
+        "width": 26.688000000000006,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 198.17, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 224.93, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "t",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 228.29, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e promete futuro esplendo",
+        "dir": "ltr",
+        "width": 139.99200000000002,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 231.53, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "r",
+        "dir": "ltr",
+        "width": 3.9960000000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 371.71, 678.94],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 2.712,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 375.55, 678.94],
+        "fontName": "g_d8_f115"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 2.712,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 655.9],
+        "fontName": "g_d8_f115"
+      },
+      {
+        "str": "Pure, Chile, is your blue sk",
+        "dir": "ltr",
+        "width": 142.692,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 6,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 196.85, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 202.73, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Pure breezes cross you as wel",
+        "dir": "ltr",
+        "width": 163.344,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 209.45, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "l",
+        "dir": "ltr",
+        "width": 2.664,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 372.91, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 375.55, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "And your flower",
+        "dir": "ltr",
+        "width": 83.24399999999999,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 382.27, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "-",
+        "dir": "ltr",
+        "width": 3.9960000000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 465.58, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "embroidered ",
+        "dir": "ltr",
+        "width": 70.716,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 469.54, 632.26],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "field",
+        "dir": "ltr",
+        "width": 22.020000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "s",
+        "dir": "ltr",
+        "width": 6,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 76.104, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 82.104, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Are the happy copy of Ede",
+        "dir": "ltr",
+        "width": 141.31199999999998,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 88.824, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "n",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 230.33, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.48,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 237.05, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Majestic is the white colored mountai",
+        "dir": "ltr",
+        "width": 196.056,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 243.65, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "n",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 439.75, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 446.47, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 453.07, 617.38],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 594.46],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "That was given to you as a bastion by the Lor",
+        "dir": "ltr",
+        "width": 241.476,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 571.54],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "d",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 295.61, 571.54],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 302.33, 571.54],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "That was given to you as a bastion by the ",
+        "dir": "ltr",
+        "width": 224.02800000000002,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 308.93, 571.54],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Lor",
+        "dir": "ltr",
+        "width": 17.484,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "d",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 71.424, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 78.144, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "And that sea that quietly washes your shor",
+        "dir": "ltr",
+        "width": 226.01999999999995,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 84.744, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 310.97, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 317.69, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 324.29, 556.66],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 533.71],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Promises you a future splendo",
+        "dir": "ltr",
+        "width": 162.072,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "r",
+        "dir": "ltr",
+        "width": 3.9960000000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 216.29, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 220.25, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "And that sea that quietly washes your shor",
+        "dir": "ltr",
+        "width": 226.01999999999998,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 226.97, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 453.19, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.48,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 459.91, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Prom",
+        "dir": "ltr",
+        "width": 28.584,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 466.54, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "ises you a ",
+        "dir": "ltr",
+        "width": 57.40800000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 495.22, 510.79],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "future splendo",
+        "dir": "ltr",
+        "width": 76.104,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "r",
+        "dir": "ltr",
+        "width": 3.9960000000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 130.22, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 134.18, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Sweet Fatherland accept the vow",
+        "dir": "ltr",
+        "width": 177.336,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 140.78, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "s",
+        "dir": "ltr",
+        "width": 6,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 318.17, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 324.17, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "With which Chile swore at your altar",
+        "dir": "ltr",
+        "width": 191.052,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 330.67, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "s",
+        "dir": "ltr",
+        "width": 6,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 521.86, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 527.86, 495.91],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Either the tomb of the free you will b",
+        "dir": "ltr",
+        "width": 191.19599999999997,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 245.45, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 252.17, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Or the refuge against oppressio",
+        "dir": "ltr",
+        "width": 167.988,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 258.89, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "n",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 427.03, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 433.75, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 440.35, 481.03],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 458.11],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Either the tomb of the free you will b",
+        "dir": "ltr",
+        "width": 191.19599999999997,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 245.45, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 252.17, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Or the refuge against oppressio",
+        "dir": "ltr",
+        "width": 167.988,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 258.89, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "n",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 427.03, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 433.75, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Eithe",
+        "dir": "ltr",
+        "width": 27.288000000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 440.47, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "r the tomb of the ",
+        "dir": "ltr",
+        "width": 90.624,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 467.86, 435.31],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "free you will b",
+        "dir": "ltr",
+        "width": 73.22400000000002,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 54, 420.43],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "e",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 127.34, 420.43],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ". ",
+        "dir": "ltr",
+        "width": 6.720000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 134.06, 420.43],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "Or the refuge against oppressio",
+        "dir": "ltr",
+        "width": 168,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 140.78, 420.43],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": "n",
+        "dir": "ltr",
+        "width": 6.672000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 308.93, 420.43],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": ".",
+        "dir": "ltr",
+        "width": 3.3360000000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 315.65, 420.43],
+        "fontName": "Helvetica"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 2.712,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 318.89, 420.43],
+        "fontName": "g_d8_f115"
+      }
+    ]
+  ]
+}

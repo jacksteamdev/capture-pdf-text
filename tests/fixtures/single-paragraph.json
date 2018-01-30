@@ -1,0 +1,33 @@
+{
+  "pages": [
+    [
+      {
+        "str":
+          "Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores ",
+        "dir": "ltr",
+        "width": 456.4320000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 56.8, 724],
+        "fontName": "g_d10_f4"
+      },
+      {
+        "str":
+          "bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte",
+        "dir": "ltr",
+        "width": 494.9400000000006,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 56.8, 710.2],
+        "fontName": "g_d10_f4"
+      },
+      {
+        "str":
+          "el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.",
+        "dir": "ltr",
+        "width": 377.2560000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 56.8, 696.4],
+        "fontName": "g_d10_f4"
+      }
+    ]
+  ]
+}
