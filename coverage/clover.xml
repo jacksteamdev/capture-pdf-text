@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1517419489806" clover="3.2.0">
-  <project timestamp="1517419489806" name="All files">
-    <metrics statements="117" coveredstatements="46" conditionals="58" coveredconditionals="6" methods="72" coveredmethods="21" elements="247" coveredelements="73" complexity="0" loc="117" ncloc="117" packages="1" files="6" classes="6">
+<coverage generated="1517421165169" clover="3.2.0">
+  <project timestamp="1517421165169" name="All files">
+    <metrics statements="117" coveredstatements="47" conditionals="58" coveredconditionals="6" methods="72" coveredmethods="22" elements="247" coveredelements="75" complexity="0" loc="117" ncloc="117" packages="1" files="6" classes="6">
       <file name="apply-options.js" path="/home/jack/Repos/Work/capture-pdf-text/src/apply-options.js">
         <metrics statements="9" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -15,7 +15,7 @@
         <line num="27" count="0" type="stmt"/>
       </file>
       <file name="classes.js" path="/home/jack/Repos/Work/capture-pdf-text/src/classes.js">
-        <metrics statements="41" coveredstatements="31" conditionals="6" coveredconditionals="6" methods="29" coveredmethods="18"/>
+        <metrics statements="41" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="29" coveredmethods="19"/>
         <line num="11" count="13" type="stmt"/>
         <line num="12" count="13" type="stmt"/>
         <line num="14" count="13" type="stmt"/>
@@ -29,12 +29,12 @@
         <line num="31" count="4" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
-        <line num="37" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="42" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="44" count="3" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
         <line num="59" count="6" type="stmt"/>

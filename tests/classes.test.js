@@ -50,11 +50,16 @@ describe('Block class', () => {
     const block = new Block(data)
     const result = block.getStyles()
     expect(result).toBeInstanceOf(Array)
-    expect(result.length).toBe(1)
+    expect(result.length).toBe(2)
     expect(result).toContainEqual({
       fontName: 'g_d10_f4',
       height: 12,
-      weight: 251,
+      weight: 164,
+    })
+    expect(result).toContainEqual({
+      fontName: 'g_d10_f3',
+      height: 12,
+      weight: 87,
     })
   })
 
