@@ -9,12 +9,12 @@
  * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
  */
 
-import orderBy from 'lodash/orderBy'
+import orderBy from 'lodash/fp/orderBy'
 
 export const orderByPosition = items => {
   const iteratees = ['bottom', 'right']
   const orders = ['desc', 'asc']
-  const ordered = orderBy(items, iteratees, orders)
+  const ordered = orderBy(iteratees, orders, items)
 
   return ordered
 }
@@ -22,7 +22,7 @@ export const orderByPosition = items => {
 export const orderLTR = items => {
   const iteratee = 'left'
   const order = 'asc'
-  const ordered = orderBy(items, iteratee, order)
+  const ordered = orderBy(iteratee, order, items)
 
   return ordered
 }
@@ -30,7 +30,7 @@ export const orderLTR = items => {
 export const orderTTB = items => {
   const iteratee = 'top'
   const order = 'desc'
-  const ordered = orderBy(items, iteratee, order)
+  const ordered = orderBy(iteratee, order, items)
 
   return ordered
 }
