@@ -75,7 +75,7 @@ describe('Block class', () => {
       'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
     )
 
-    expect(result.top).toBe(736)
+    expect(result.top).toBe(73)
     expect(result.right).toBe(551.7400000000006)
     expect(result.bottom).toBe(696.4)
     expect(result.left).toBe(56.8)
