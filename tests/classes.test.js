@@ -36,7 +36,6 @@ describe('Block class', () => {
     expect(result.items).toBeInstanceOf(Array)
     expect(result.__items).toBeInstanceOf(Array)
     expect(result.getStyles).toBeInstanceOf(Function)
-    expect(result.getRawText).toBeInstanceOf(Function)
 
     expect(typeof result.text).toBe('string')
     expect(typeof result.left).toBe('number')
@@ -76,6 +75,32 @@ describe('Block class', () => {
     const data = singleParPDF.pages[0].map(x => new Item(x))
     const result = new Block(data)
 
+    expect(result.text).toBe(
+      'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
+    )
+
+    expect(result.top).toBe(736)
+    expect(result.right).toBe(551.7400000000006)
+    expect(result.bottom).toBe(696.4)
+    expect(result.left).toBe(56.8)
+    expect(result.height).toBe(39.60000000000002)
+    expect(result.width).toBe(494.94000000000057)
+  })
+
+  test('setters do nothing', () => {
+    const data = singleParPDF.pages[0].map(x => new Item(x))
+    const result = new Block(data)
+
+    result.items = []
+    result.text = 'Whatever I want'
+    result.top = 900
+    result.right = 900
+    result.bottom = 900
+    result.left = 900
+    result.height = 900
+    result.width = 900
+
+    expect(result.items.length).not.toBe(0)
     expect(result.text).toBe(
       'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
     )

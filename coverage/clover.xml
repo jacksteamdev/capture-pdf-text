@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1517421165169" clover="3.2.0">
-  <project timestamp="1517421165169" name="All files">
-    <metrics statements="117" coveredstatements="47" conditionals="58" coveredconditionals="6" methods="72" coveredmethods="22" elements="247" coveredelements="75" complexity="0" loc="117" ncloc="117" packages="1" files="6" classes="6">
+<coverage generated="1517497505524" clover="3.2.0">
+  <project timestamp="1517497505524" name="All files">
+    <metrics statements="116" coveredstatements="55" conditionals="58" coveredconditionals="6" methods="71" coveredmethods="31" elements="245" coveredelements="92" complexity="0" loc="116" ncloc="116" packages="1" files="6" classes="6">
       <file name="apply-options.js" path="/home/jack/Repos/Work/capture-pdf-text/src/apply-options.js">
         <metrics statements="9" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -15,18 +15,18 @@
         <line num="27" count="0" type="stmt"/>
       </file>
       <file name="classes.js" path="/home/jack/Repos/Work/capture-pdf-text/src/classes.js">
-        <metrics statements="41" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="29" coveredmethods="19"/>
-        <line num="11" count="13" type="stmt"/>
-        <line num="12" count="13" type="stmt"/>
-        <line num="14" count="13" type="stmt"/>
-        <line num="15" count="13" type="stmt"/>
-        <line num="17" count="13" type="stmt"/>
-        <line num="18" count="13" type="stmt"/>
-        <line num="20" count="13" type="stmt"/>
-        <line num="21" count="13" type="stmt"/>
-        <line num="22" count="13" type="stmt"/>
-        <line num="23" count="13" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
+        <metrics statements="40" coveredstatements="40" conditionals="6" coveredconditionals="6" methods="28" coveredmethods="28"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="21" count="16" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
         <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
@@ -35,28 +35,27 @@
         <line num="44" count="3" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="59" count="6" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="68" count="9" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="76" count="3" type="stmt"/>
-        <line num="77" count="9" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="87" count="3" type="stmt"/>
-        <line num="88" count="9" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="98" count="3" type="stmt"/>
-        <line num="99" count="9" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="109" count="1" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
-        <line num="117" count="1" type="stmt"/>
-        <line num="120" count="0" type="stmt"/>
-        <line num="124" count="17" type="stmt"/>
-        <line num="125" count="17" type="stmt"/>
-        <line num="129" count="0" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="55" count="9" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="64" count="15" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="72" count="5" type="stmt"/>
+        <line num="73" count="15" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="83" count="5" type="stmt"/>
+        <line num="84" count="15" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="94" count="5" type="stmt"/>
+        <line num="95" count="15" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="120" count="27" type="stmt"/>
+        <line num="121" count="27" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
       </file>
       <file name="group-into-blocks.js" path="/home/jack/Repos/Work/capture-pdf-text/src/group-into-blocks.js">
         <metrics statements="22" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="9" coveredmethods="0"/>
@@ -122,10 +121,10 @@
       <file name="order-items.js" path="/home/jack/Repos/Work/capture-pdf-text/src/order-items.js">
         <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="15" count="18" type="stmt"/>
-        <line num="16" count="18" type="stmt"/>
-        <line num="17" count="18" type="stmt"/>
-        <line num="19" count="18" type="stmt"/>
+        <line num="15" count="28" type="stmt"/>
+        <line num="16" count="28" type="stmt"/>
+        <line num="17" count="28" type="stmt"/>
+        <line num="19" count="28" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>

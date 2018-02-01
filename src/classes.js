@@ -33,10 +33,10 @@ export class Block {
 
   getStyles () {
     const styleSet = this.items.reduce((r, { style, text }) => {
-      const isSameStyle = ({ fontName, height }) =>
+      const isSameStyle = style => ({ fontName, height }) =>
         fontName === style.fontName && height === style.height
 
-      const result = [...r].find(isSameStyle) || style
+      const result = [...r].find(isSameStyle(style)) || style
       // Increase weight by text.length or,
       // if weight is undefined, set weight to text.length
       result.weight = result.weight + text.length || text.length
@@ -48,10 +48,6 @@ export class Block {
       // Spread into array and sort by descending weight
       [...styleSet].sort((a, b) => b.weight - a.weight)
     )
-  }
-
-  getRawText () {
-    return this.items.reduce((r, i) => r + i.text, '')
   }
 
   get text () {
@@ -124,7 +120,6 @@ export class Block {
     const ordered = orderByPosition(this.__items)
     return ordered
   }
-
   set items (x) {
     return undefined
   }
