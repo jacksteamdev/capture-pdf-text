@@ -13,9 +13,7 @@ describe('Item class', () => {
     const result = new Item(data)
 
     expect(result).toBeInstanceOf(Item)
-    expect(result).toHaveProperty('style')
-    expect(result.style).toHaveProperty('height', 12)
-    expect(result.style).toHaveProperty('fontName', 'Times')
+    expect(result).toHaveProperty('fontName', 'Times')
     expect(result).toHaveProperty('text', 'Hello, world!')
     expect(result).toHaveProperty('height', 12)
     expect(result).toHaveProperty('width', 64.656)
@@ -35,31 +33,12 @@ describe('Block class', () => {
 
     expect(result.items).toBeInstanceOf(Array)
     expect(result.__items).toBeInstanceOf(Array)
-    expect(result.getStyles).toBeInstanceOf(Function)
 
     expect(typeof result.text).toBe('string')
     expect(typeof result.left).toBe('number')
     expect(typeof result.right).toBe('number')
     expect(typeof result.bottom).toBe('number')
     expect(typeof result.top).toBe('number')
-  })
-
-  test('getStyles works', () => {
-    const data = singleParPDF.pages[0].map(x => new Item(x))
-    const block = new Block(data)
-    const result = block.getStyles()
-    expect(result).toBeInstanceOf(Array)
-    expect(result.length).toBe(2)
-    expect(result).toContainEqual({
-      fontName: 'g_d10_f4',
-      height: 12,
-      weight: 164,
-    })
-    expect(result).toContainEqual({
-      fontName: 'g_d10_f3',
-      height: 12,
-      weight: 87,
-    })
   })
 
   test('items is correctly ordered', () => {

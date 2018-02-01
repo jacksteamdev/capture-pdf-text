@@ -1,5 +1,13 @@
 import { orderByPosition } from './order-items'
 
+export class Style {
+  constructor ({ fontName, height }) {
+    this.fontName = fontName
+    this.height = height
+    this.weight = 0
+  }
+}
+
 /**
  * A Item instance maps some properties of an text item from PDFJS
  *
@@ -11,7 +19,7 @@ export class Item {
     const { str, width, fontName } = item
     const [, , , height, left, bottom] = item.transform
 
-    this.style = { fontName, height }
+    this.fontName = fontName
     this.text = str
 
     this.height = height
@@ -29,25 +37,6 @@ export class Block {
     // TODO: Make array property of block
     // TODO: Adjust this keyword usage
     this.__items = items
-  }
-
-  getStyles () {
-    const styleSet = this.items.reduce((r, { style, text }) => {
-      const isSameStyle = style => ({ fontName, height }) =>
-        fontName === style.fontName && height === style.height
-
-      const result = [...r].find(isSameStyle(style)) || style
-      // Increase weight by text.length or,
-      // if weight is undefined, set weight to text.length
-      result.weight = result.weight + text.length || text.length
-
-      return r.add(result)
-    }, new Set())
-
-    return (
-      // Spread into array and sort by descending weight
-      [...styleSet].sort((a, b) => b.weight - a.weight)
-    )
   }
 
   get text () {

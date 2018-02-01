@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for order-items.js</title>
+    <title>Code coverage report for styles.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> order-items.js
+      <a href="index.html">All files</a> styles.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>7/7</span>
       </div>
     </div>
   </div>
@@ -79,7 +79,15 @@
 34
 35
 36
-37</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+37
+38
+39
+40
+41
+42
+43
+44
+45</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -89,68 +97,84 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @func    orderByPageAndPosition
- * @desc    Sort items by pageNumber and position on page.
- * @param   {array}     items        - An array of objects with pageNum, top, and left values
- * @prop    {number}    item.pageNum - Integer representing the PDF origin page of the item
- * @prop    {number}    item.top     - Number indicating the highest y-coordinate in the item
- * @prop    {number}    item.left    - Number indicating the lowest x-coordinate of the item
- *
- * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import compose from 'lodash/fp/compose'
+import curry from 'lodash/fp/curry'
+import reduce from 'lodash/fp/reduce'
+import sortBy from 'lodash/fp/sortBy'
+import uniq from 'lodash/fp/uniq'
+&nbsp;
+import { Style } from './classes'
+&nbsp;
+/**
+ * hasEqualStyle :: Item -&gt; Item -&gt; Boolean
  */
+export const hasEqualStyle = curry(
+  (item1, item2) =&gt;
+    item1.fontName === item2.fontName &amp;&amp;
+    item1.height === item2.height,
+)
 &nbsp;
-import orderBy from 'lodash/fp/orderBy'
+/**
+ * findStyleBy :: [Style] -&gt; fn -&gt; Item -&gt; [Style]
+ */
+export const findStyleBy = curry((finder, styles, item) =&gt; {
+  const style = styles.find(finder(item)) || new Style(item)
+  // Increase weight by text.length or,
+  // if weight is undefined, set weight to text.length
+  style.weight += item.text.length
 &nbsp;
-export const orderByPosition = items =&gt; {
-  const iteratees = ['bottom', 'right']
-  const orders = ['desc', 'asc']
-  const ordered = orderBy(iteratees, orders, items)
+  return uniq([...styles, style])
+})
 &nbsp;
-  return ordered
-}
+// /**
+//  * getSortedBy :: a -&gt; fn -&gt; string -&gt; [Item] -&gt; [b]
+//  */
+// export const reduceBy = curry((accumulator, fn, items) =&gt; [
+//   ...items.reduce(fn, accumulator),
+// ])
 &nbsp;
-export const orderLTR = items =&gt; {
-  const iteratee = 'left'
-  const order = 'asc'
-  const ordered = orderBy(iteratee, order, items)
-&nbsp;
-  return ordered
-}
-&nbsp;
-export const orderTTB = items =&gt; {
-  const iteratee = 'top'
-  const order = 'desc'
-  const ordered = orderBy(iteratee, order, items)
-&nbsp;
-  return ordered
-}
+/**
+ * getStyles :: [Items] -&gt; [Styles]
+ */
+export const getStyles = compose(
+  sortBy('height'),
+  reduce([]),
+  findStyleBy(hasEqualStyle),
+)
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

@@ -1,17 +1,10 @@
-import kdIntervalTree from 'kd-interval-tree'
 import _ from 'lodash/fp'
 
+import createTree from './trees'
 import { Block } from './classes'
-// import { orderByPosition, orderTTB } from './order-items'
+import { getStyles } from './styles'
 
-const createTree = kdIntervalTree([
-  'left',
-  'right',
-  'bottom',
-  'top',
-])
-
-const byStyle = items => {
+const groupBy = fn => items => {
   const styleMap = items.reduce((map, item) => {
     const { style } = item
 
@@ -31,7 +24,7 @@ export default items => {
   // Items grouped by style
   // Not all seemingly identical styles are the same:
   // The fontName may differ, but the height will be the same
-  const itemsByStyle = byStyle(items)
+  const itemsByStyle = groupByStyle(items)
 
   // Groups of Items mapped to Blocks
   // and sorted by text length

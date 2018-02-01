@@ -1,18 +1,11 @@
-import kdIntervalTree from 'kd-interval-tree'
 import _ from 'lodash/fp'
 
+import createTree from './trees'
 import applyOptions from './apply-options'
 import { loadDocumentWithPDFJS } from './load-document'
 import groupIntoBlocks from './group-into-blocks'
 
 export { loadDocument } from './load-document'
-
-const createTree = kdIntervalTree([
-  'left',
-  'right',
-  'bottom',
-  'top',
-])
 
 /**
  * Load a PDF for text extraction.

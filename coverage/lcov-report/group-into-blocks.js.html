@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/33</span>
+        <span class='fraction'>0/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -32,7 +32,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -87,25 +87,11 @@
 42
 43
 44
-45
-46
-47
-48
-49
-50
-51
-52</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+45</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -145,40 +131,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import kdInte<span class="cstat-no" title="statement not covered" >rvalTree from 'kd-interval-tree'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
-import _ f<span class="cstat-no" title="statement not covered" >rom 'lodash/fp'<span class="cstat-no" title="statement not covered" ></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from<span class="cstat-no" title="statement not covered" > 'lodash/fp'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
 &nbsp;
-import { Block <span class="cstat-no" title="statement not covered" >} from './classes'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span>
-// import { orderByPosition, orderTTB } from './order-items'
+import create<span class="cstat-no" title="statement not covered" >Tree from './trees'<span class="cstat-no" title="statement not covered" ></span></span>
+import { Block <span class="cstat-no" title="statement not covered" >} from './classes'</span>
+import { getSt<span class="cstat-no" title="statement not covered" >yles } from './style</span>s'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span>
 &nbsp;
-const createTree <span class="cstat-no" title="statement not covered" >= kdIntervalTree([</span>
-  'left',
-  'right',
-  'bottom',
-  'top',
-])
+const groupBy <span class="cstat-no" title="statement not covered" >= fn =&gt; i<span class="fstat-no" title="function not covered" >tems =&gt; </span>{<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  const styleMap = <span class="cstat-no" title="statement not covered" >items.reduce(<span class="fstat-no" title="function not covered" >(m</span>ap, item) =&gt; {</span>
+    const { st<span class="cstat-no" title="statement not covered" >yle } = ite</span>m
 &nbsp;
-const byStyle <span class="cstat-no" title="statement not covered" >= items =<span class="fstat-no" title="function not covered" >&gt; {</span></span>
-  const styleMap <span class="cstat-no" title="statement not covered" >= items.reduc<span class="fstat-no" title="function not covered" >e(</span>(map, item) =&gt; {</span>
-    const { <span class="cstat-no" title="statement not covered" >style } = i</span>tem
+    const isEqualStyle = <span class="cstat-no" title="statement not covered" >_.isEqual(style)</span>
 &nbsp;
-    const isEqualStyle <span class="cstat-no" title="statement not covered" >= _.isEqual(style)</span>
+    const keys = <span class="cstat-no" title="statement not covered" >[...map.keys()]</span>
+    const key = <span class="cstat-no" title="statement not covered" >keys.find(isEqualStyle) || style</span>
 &nbsp;
-    const keys <span class="cstat-no" title="statement not covered" >= [...map.keys()]</span>
-    const key <span class="cstat-no" title="statement not covered" >= keys.find(isEqualStyle) || styl</span>e
-&nbsp;
-    const items <span class="cstat-no" title="statement not covered" >= map.get(key) || [</span>]
-<span class="cstat-no" title="statement not covered" >    return map.set(key, [...items, item])</span>
+    const items = <span class="cstat-no" title="statement not covered" >map.get(key) || []</span>
+    re<span class="cstat-no" title="statement not covered" >turn map.set(key, [...items, item])</span>
   }, new Map())
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return [...styleMap.values()]</span>
+  re<span class="cstat-no" title="statement not covered" >turn [...styleMap.values()]</span>
 }<span class="cstat-no" title="statement not covered" ></span>
 &nbsp;
 <span class="fstat-no" title="function not covered" >ex</span>port default items =&gt; {
   // Items grouped by style
   // Not all seemingly identical styles are the same:
   // The fontName may differ, but the height will be the same
-  const itemsByStyle <span class="cstat-no" title="statement not covered" >= byStyle(items</span>)
+  const itemsByStyle <span class="cstat-no" title="statement not covered" >= groupByStyle(items</span>)
 &nbsp;
   // Groups of Items mapped to Blocks
   // and sorted by text length
@@ -188,7 +167,7 @@ const byStyle <span class="cstat-no" title="statement not covered" >= items =<sp
     .sor<span class="fstat-no" title="function not covered" >t(</span>(a, b) =&gt; b.tex<span class="cstat-no" title="statement not covered" >t.length - a.text.length)</span>
     // Group adjacent items
     .ma<span class="fstat-no" title="function not covered" >p(</span>block =&gt; {
-<span class="cstat-no" title="statement not covered" >      const { groups }</span> = create<span class="cstat-no" title="statement not covered" >Tree(block)</span>
+<span class="cstat-no" title="statement not covered" >      const { groups } = createT</span>ree(block<span class="cstat-no" title="statement not covered" >)</span>
       const block<span class="cstat-no" title="statement not covered" >s = groups.<span class="fstat-no" title="function not covered" >ma</span>p(g =&gt; Block<span class="cstat-no" title="statement not covered" >.ordered(...g))</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      return blocks</span>
@@ -202,7 +181,7 @@ const byStyle <span class="cstat-no" title="statement not covered" >= items =<sp
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 01 2018 09:05:05 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 01 2018 13:57:48 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/53</span>
+        <span class='fraction'>0/52</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/16</span>
+        <span class='fraction'>0/15</span>
       </div>
     </div>
   </div>
@@ -95,14 +95,7 @@
 50
 51
 52
-53
-54
-55
-56
-57
-58
-59
-60</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+53</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -110,13 +103,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,21 +147,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import kdInte<span class="cstat-no" title="statement not covered" >rvalTree from 'kd-interval-tree'<span class="cstat-no" title="statement not covered" ></span></span>
-import _ from 'lodash/fp'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from<span class="cstat-no" title="statement not covered" > 'lodash/fp'<span class="cstat-no" title="statement not covered" ></span></span>
 &nbsp;
+import createTree from './trees'
 import applyOptions from './apply-options'
 import { loadDocumen<span class="cstat-no" title="statement not covered" >tWithPDFJS } from './load-d<span class="cstat-no" title="statement not covered" ></span>ocument'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
 import groupIntoBlocks from './group-into-blocks'
 &nbsp;
-export { loadDocument } from './load-documen<span class="cstat-no" title="statement not covered" >t'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
-&nbsp;
-const createTree <span class="cstat-no" title="statement not covered" >= kdIntervalTree([</span>
-  'left',
-  'right',
-  'bottom',
-  'top',
-])
+export { loadDocument } from './<span class="cstat-no" title="statement not covered" >load-document'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
 &nbsp;
 /**
  * Load a PDF for text extraction.
@@ -211,7 +190,7 @@ export const configure<span class="cstat-no" title="statement not covered" >Load
  */
 export const groupTex<span class="cstat-no" title="statement not covered" >tItems = (allItems, { selection } <span class="fstat-no" title="function not covered" >= {}) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
 <span class="cstat-no" title="statement not covered" >  if (selection) {</span>
-<span class="cstat-no" title="statement not covered" >    const { searchTrees }</span> = createTree(<span class="cstat-no" title="statement not covered" >allItems)</span>
+<span class="cstat-no" title="statement not covered" >    const { searchTrees } = createT</span>ree(allItems)<span class="cstat-no" title="statement not covered" ></span>
     const bodyItems <span class="cstat-no" title="statement not covered" >= searchTrees(_.intersection, selection)</span>
     const blocks <span class="cstat-no" title="statement not covered" >= groupIntoBlocks(bodyItems)</span>
 &nbsp;
@@ -226,7 +205,7 @@ export const groupTex<span class="cstat-no" title="statement not covered" >tItem
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 01 2018 09:05:05 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 01 2018 13:57:48 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>
