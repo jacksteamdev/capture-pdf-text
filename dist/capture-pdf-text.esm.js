@@ -1,6 +1,12 @@
-import kdIntervalTree from 'kd-interval-tree';
 import _ from 'lodash/fp';
-import orderBy from 'lodash/orderBy';
+import kdIntervalTree from 'kd-interval-tree';
+import orderBy from 'lodash/fp/orderBy';
+import compose from 'lodash/fp/compose';
+import curry from 'lodash/fp/curry';
+import reduce from 'lodash/fp/reduce';
+import sortBy from 'lodash/fp/sortBy';
+
+const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top']);
 
 /**
  * Configure PDFJS
@@ -44,17 +50,23 @@ const applyOptions = (PDFJS, options = {}) => {
 const orderByPosition = items => {
   const iteratees = ['bottom', 'right'];
   const orders = ['desc', 'asc'];
-  const ordered = orderBy(items, iteratees, orders);
+  const ordered = orderBy(iteratees, orders, items);
 
   return ordered;
 };
 
+/**
+ * A Item instance maps some properties of an text item from PDFJS
+ *
+ * @export
+ * @class Item
+ */
 class Item {
   constructor(item) {
     const { str, width, fontName } = item;
     const [,,, height, left, bottom] = item.transform;
 
-    this.style = { fontName, height };
+    this.fontName = fontName;
     this.text = str;
 
     this.height = height;
@@ -67,68 +79,47 @@ class Item {
   }
 }
 
-class Block extends Array {
-  static ordered() {
-    const items = [...arguments];
-    // Need to sort before constructing
-    // In the constructor, this.sort would
-    // not provide predictable results
-    const ordered = orderByPosition(items);
-    const block = new Block(...ordered);
-
-    return block;
-  }
-
-  getStyles() {
-    return this.reduce((r, { style, text }) => {
-      const result = [...r].find(_.isEqual(style)) || style;
-      // Increase weight by text.length or,
-      // if weight is undefined, set weight to text.length
-      result.weight = result.weight + text.length || text.length;
-      return r.add(result);
-    }, new Set())
-    // Sort by descending weight
-    .sort((a, b) => b.weight - a.weight);
-  }
-
-  getRawText() {
-    return this.reduce((r, i) => r + i.text, '');
+class Block {
+  constructor(items) {
+    // TODO: Make array property of block
+    // TODO: Adjust this keyword usage
+    this.__items = items;
   }
 
   get text() {
-    return this.reduce((r, i, n) => `${r} ${i.text.trim()}`, '').trim();
+    return this.items.reduce((r, i, n) => `${r} ${i.text.trim()}`, '').trim();
   }
   set text(t) {
     return undefined;
   }
 
-  // this.top = bottom + height
+  // this.items.top = bottom + height
   get top() {
-    return this.reduce((r, { top }) => Math.max(r, top), 0);
+    return this.items.reduce((r, { top }) => Math.max(r, top), 0);
   }
   set top(n) {
     return undefined;
   }
 
-  // this.right = left + width
+  // this.items.right = left + width
   get right() {
-    return this.reduce((r, { right }) => Math.max(r, right), 0);
+    return this.items.reduce((r, { right }) => Math.max(r, right), 0);
   }
   set right(n) {
     return undefined;
   }
 
-  // this.bottom = bottom
+  // this.items.bottom = bottom
   get bottom() {
-    return this.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
+    return this.items.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
   }
   set bottom(n) {
     return undefined;
   }
 
-  // this.left = left
+  // this.items.left = left
   get left() {
-    return this.reduce((r, { left }) => Math.min(r, left), Infinity);
+    return this.items.reduce((r, { left }) => Math.min(r, left), Infinity);
   }
   set left(n) {
     return undefined;
@@ -147,6 +138,14 @@ class Block extends Array {
     return this.right - this.left;
   }
   set width(n) {
+    return undefined;
+  }
+
+  get items() {
+    const ordered = orderByPosition(this.__items);
+    return ordered;
+  }
+  set items(x) {
     return undefined;
   }
 }
@@ -201,29 +200,35 @@ const loadDocumentWithPDFJS = async (PDFJS, data) => {
   return loadDocument(pdf);
 };
 
-const createTree$1 = kdIntervalTree(['left', 'right', 'bottom', 'top']);
+/**
+ * hasEqualStyle :: Item -> Item -> Boolean
+ */
+const hasEqualStyle = curry((item1, item2) => item1.fontName === item2.fontName && item1.height === item2.height);
 
-const byStyle = items => {
-  const styleMap = items.reduce((map, item) => {
-    const { style } = item;
+/**
+ * addItemToStyle :: Item -> Style -> Style
+ */
 
-    const isEqualStyle = _.isEqual(style);
 
-    const keys = [...map.keys()];
-    const key = keys.find(isEqualStyle) || style;
+/**
+ * findAndMutate :: (Item -> Item -> Bool) -> [Style] -> Item -> [Style]
+ */
+const findAndMutate = curry((finder, add, styles, item) => {
+  const style = add(item)(styles.find(finder(item)));
 
-    const items = map.get(key) || [];
-    return map.set(key, [...items, item]);
-  }, new Map());
+  return Array.from(new Set([...styles, style]));
+});
 
-  return [...styleMap.values()];
-};
+/**
+ * getStyles :: [Items] -> [Styles]
+ */
+const getStyles = compose(sortBy('height'), reduce([]), findAndMutate(hasEqualStyle));
 
 var groupIntoBlocks = (items => {
   // Items grouped by style
   // Not all seemingly identical styles are the same:
   // The fontName may differ, but the height will be the same
-  const itemsByStyle = byStyle(items);
+  const itemsByStyle = groupByStyle(items);
 
   // Groups of Items mapped to Blocks
   // and sorted by text length
@@ -232,7 +237,7 @@ var groupIntoBlocks = (items => {
   .sort((a, b) => b.text.length - a.text.length)
   // Group adjacent items
   .map(block => {
-    const { groups } = createTree$1(block);
+    const { groups } = createTree(block);
     const blocks = groups.map(g => Block.ordered(...g));
 
     return blocks;
@@ -240,8 +245,6 @@ var groupIntoBlocks = (items => {
 
   return _.flatten(blocks);
 });
-
-const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top']);
 
 /**
  * Load a PDF for text extraction.

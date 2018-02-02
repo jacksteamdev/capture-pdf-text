@@ -1,10 +1,29 @@
 import compose from 'lodash/fp/compose'
 import curry from 'lodash/fp/curry'
 import reduce from 'lodash/fp/reduce'
-import sortBy from 'lodash/fp/sortBy'
-import uniq from 'lodash/fp/uniq'
+import orderBy from 'lodash/fp/orderBy'
 
-import { Style } from './classes'
+export class Style {
+  constructor (item) {
+    this.fontName = item.fontName
+    this.height = item.height
+    this.items = new Set([item])
+  }
+
+  addItem (item) {
+    if (hasEqualStyle(this, item)) {
+      this.items.add(item)
+    }
+    return this
+  }
+
+  getCharCount () {
+    return [...this.items].reduce(
+      (r, { text }) => r + text.length,
+      0,
+    )
+  }
+}
 
 /**
  * hasEqualStyle :: Item -> Item -> Boolean
@@ -16,29 +35,38 @@ export const hasEqualStyle = curry(
 )
 
 /**
- * findStyleBy :: [Style] -> fn -> Item -> [Style]
+ * addItemToStyle :: Item -> Style -> Style
  */
-export const findStyleBy = curry((finder, styles, item) => {
-  const style = styles.find(finder(item)) || new Style(item)
-  // Increase weight by text.length or,
-  // if weight is undefined, set weight to text.length
-  style.weight += item.text.length
+export const addItemToStyle = item => (
+  style = new Style(item),
+) => style.addItem(item)
 
-  return uniq([...styles, style])
-})
+/**
+ * findAndMutate :: (a -> a -> Bool) -> (a -> b -> b) ->  a -> [a] -> [a]
+ * Needs to fit reduce signature after functions are applied
+ */
+export const findAndMutate = curry(
+  (comparator, mutator, reducer, item) => {
+    const found = reducer.find(comparator(item))
+    const changed = mutator(item)(found)
 
-// /**
-//  * getSortedBy :: a -> fn -> string -> [Item] -> [b]
-//  */
-// export const reduceBy = curry((accumulator, fn, items) => [
-//   ...items.reduce(fn, accumulator),
-// ])
+    return Array.from(new Set([...reducer, changed]))
+  },
+)
+
+/**
+ * addItemToStyles :: [Style] -> Item -> [Style]
+ * Needs to fit reduce signature
+ */
+export const addItemToStyles = findAndMutate(
+  hasEqualStyle,
+  addItemToStyle,
+)
 
 /**
  * getStyles :: [Items] -> [Styles]
  */
 export const getStyles = compose(
-  sortBy('height'),
-  reduce([]),
-  findStyleBy(hasEqualStyle),
+  orderBy(style => style.getCharCount(), 'desc'),
+  reduce(addItemToStyles, []),
 )

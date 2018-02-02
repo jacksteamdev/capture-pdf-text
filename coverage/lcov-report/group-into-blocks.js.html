@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/34</span>
+        <span class='fraction'>0/26</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/22</span>
+        <span class='fraction'>0/12</span>
       </div>
     </div>
   </div>
@@ -70,50 +70,16 @@
 25
 26
 27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+28</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,29 +101,12 @@
 &nbsp;
 import create<span class="cstat-no" title="statement not covered" >Tree from './trees'<span class="cstat-no" title="statement not covered" ></span></span>
 import { Block <span class="cstat-no" title="statement not covered" >} from './classes'</span>
-import { getSt<span class="cstat-no" title="statement not covered" >yles } from './style</span>s'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span>
-&nbsp;
-const groupBy <span class="cstat-no" title="statement not covered" >= fn =&gt; i<span class="fstat-no" title="function not covered" >tems =&gt; </span>{<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
-  const styleMap = <span class="cstat-no" title="statement not covered" >items.reduce(<span class="fstat-no" title="function not covered" >(m</span>ap, item) =&gt; {</span>
-    const { st<span class="cstat-no" title="statement not covered" >yle } = ite</span>m
-&nbsp;
-    const isEqualStyle = <span class="cstat-no" title="statement not covered" >_.isEqual(style)</span>
-&nbsp;
-    const keys = <span class="cstat-no" title="statement not covered" >[...map.keys()]</span>
-    const key = <span class="cstat-no" title="statement not covered" >keys.find(isEqualStyle) || style</span>
-&nbsp;
-    const items = <span class="cstat-no" title="statement not covered" >map.get(key) || []</span>
-    re<span class="cstat-no" title="statement not covered" >turn map.set(key, [...items, item])</span>
-  }, new Map())
-&nbsp;
-  re<span class="cstat-no" title="statement not covered" >turn [...styleMap.values()]</span>
-}<span class="cstat-no" title="statement not covered" ></span>
+import { getSt<span class="cstat-no" title="statement not covered" >yles } from './style</span>s'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span>
 &nbsp;
 <span class="fstat-no" title="function not covered" >ex</span>port default items =&gt; {
-  // Items grouped by style
-  // Not all seemingly identical styles are the same:
-  // The fontName may differ, but the height will be the same
-  const itemsByStyle <span class="cstat-no" title="statement not covered" >= groupByStyle(items</span>)
+  const itemsByStyle <span class="cstat-no" title="statement not covered" >= getStyles(items).map(({ items })<span class="fstat-no" title="function not covered" > =</span>&gt; [<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+    ...items,
+  ])
 &nbsp;
   // Groups of Items mapped to Blocks
   // and sorted by text length
@@ -181,7 +130,7 @@ const groupBy <span class="cstat-no" title="statement not covered" >= fn =&gt; i
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 01 2018 13:57:48 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 02 2018 14:42:25 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

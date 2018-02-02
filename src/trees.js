@@ -1,8 +1,10 @@
 import kdIntervalTree from 'kd-interval-tree'
 
-export const createTrees = kdIntervalTree([
+const createTree = kdIntervalTree([
   'left',
   'right',
   'bottom',
   'top',
 ])
+
+export default createTree

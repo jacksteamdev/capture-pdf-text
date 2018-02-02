@@ -5,8 +5,9 @@
       "type": "node",
       "request": "launch",
       "name": "Jest Tests",
-      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
-      "args": ["--runInBand", "--watch"],
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["styles --runInBand", "--watch"],
       "preLaunchTask": "build",
       "internalConsoleOptions": "openOnSessionStart",
       "outFiles": ["${workspaceRoot}/dist/**/*"]

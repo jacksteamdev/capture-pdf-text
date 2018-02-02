@@ -3,7 +3,7 @@
 import {
   orderByPosition,
   orderTTB,
-  orderLTR
+  orderLTR,
 } from '../src/order-items'
 
 describe('orderByPosition', () => {

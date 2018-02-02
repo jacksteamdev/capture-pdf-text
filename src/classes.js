@@ -1,13 +1,5 @@
 import { orderByPosition } from './order-items'
 
-export class Style {
-  constructor ({ fontName, height }) {
-    this.fontName = fontName
-    this.height = height
-    this.weight = 0
-  }
-}
-
 /**
  * A Item instance maps some properties of an text item from PDFJS
  *
