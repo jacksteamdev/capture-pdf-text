@@ -17,12 +17,18 @@ export class Style {
     return this
   }
 
+  getItems () {
+    return [...this.items]
+  }
+
   getCharCount () {
     return [...this.items].reduce(
       (r, { text }) => r + text.length,
       0,
     )
   }
+
+  searchTrees () {}
 }
 
 /**
@@ -43,7 +49,7 @@ export const addItemToStyle = item => (
 
 /**
  * findAndMutate :: (a -> a -> Bool) -> (a -> b -> b) ->  a -> [a] -> [a]
- * Needs to fit reduce signature after functions are applied
+ * Needs to fit reduce signature (reducer -> item -> reducer) after functions are applied
  */
 export const findAndMutate = curry(
   (comparator, mutator, reducer, item) => {

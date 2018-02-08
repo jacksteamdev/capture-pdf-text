@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for group-into-blocks.js</title>
+    <title>Code coverage report for groups.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> group-into-blocks.js
+      <a href="index.html">All files</a> groups.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/21</span>
+        <span class='fraction'>0/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>0/10</span>
       </div>
     </div>
   </div>
@@ -84,7 +84,10 @@
 39
 40
 41
-42</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+42
+43
+44
+45</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -94,14 +97,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,15 +140,15 @@ import { Block,<span class="cstat-no" title="statement not covered" > createBloc
 import { getSt<span class="cstat-no" title="statement not covered" >yles } from './style</span>s'
 import { orderByPo<span class="cstat-no" title="statement not covered" >sition } from './order-it</span>ems'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
 &nbsp;
-// getIOPair :: (a -&gt; b) -&gt; a -&gt; [a, b]
-const getPair <span class="cstat-no" title="statement not covered" >= fn =&gt; s<span class="fstat-no" title="function not covered" >tyle =&gt; </span>[styl<span class="cstat-no" title="statement not covered" >e, fn(s<span class="fstat-no" title="function not covered" >ty</span>le)]<span class="cstat-no" title="statement not covered" ></span></span></span>
+// getPair :: (a -&gt; b) -&gt; a -&gt; [a, b]
+// export const getPair = fn =&gt; style =&gt; [style, fn(style)]
 &nbsp;
 // getStyleBlocks :: Style -&gt; [Block]
 const getStyleBlocks <span class="cstat-no" title="statement not covered" >= style =<span class="fstat-no" title="function not covered" >&gt;<span class="cstat-no" title="statement not covered" ></span></span></span>
   createBlocks(createTree(style.items).groups)
 &nbsp;
 // getBlocksByStyle :: Style -&gt; [Style, [Block]]
-const getBlocksByStyle <span class="cstat-no" title="statement not covered" >= getIOPair(getStyleBlocks</span>)
+const getBlocksByStyle <span class="cstat-no" title="statement not covered" >= getPair(getStyleBlocks</span>)
 &nbsp;
 // combineSimilarStyles :: [Style, [Block]] -&gt; [[Style], [Block]]
 // const combineSimilarStyles = comparator =&gt; reducer =&gt; pair =&gt; {
@@ -163,7 +169,10 @@ const getBlocksByStyle <span class="cstat-no" title="statement not covered" >= g
  *   - use orderByPosition
  * getBlocks :: [Items] -&gt; [Blocks]
  */
-const getBlocks <span class="cstat-no" title="statement not covered" >= compose(map(getStyleBlocks), getStyles)<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+/**
+ * Order items by height, fontName
+ */<span class="cstat-no" title="statement not covered" ></span>
 &nbsp;
 export default getBlocks
 &nbsp;</pre></td></tr>
@@ -172,7 +181,7 @@ export default getBlocks
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 05 2018 11:42:02 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 06 2018 10:40:44 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

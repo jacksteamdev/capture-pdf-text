@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/52</span>
+        <span class='fraction'>0/51</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/15</span>
+        <span class='fraction'>0/14</span>
       </div>
     </div>
   </div>
@@ -94,8 +94,7 @@
 49
 50
 51
-52
-53</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+52</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,7 +135,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -152,7 +150,7 @@
 import createTree from './trees'
 import applyOptions from './apply-options'
 import { loadDocumen<span class="cstat-no" title="statement not covered" >tWithPDFJS } from './load-d<span class="cstat-no" title="statement not covered" ></span>ocument'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
-import groupIntoBlocks from './group-into-blocks'
+import searchForBlocks from './blocks'
 &nbsp;
 export { loadDocument } from './<span class="cstat-no" title="statement not covered" >load-document'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
 &nbsp;
@@ -191,8 +189,7 @@ export const configure<span class="cstat-no" title="statement not covered" >Load
 export const groupTex<span class="cstat-no" title="statement not covered" >tItems = (allItems, { selection } <span class="fstat-no" title="function not covered" >= {}) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
 <span class="cstat-no" title="statement not covered" >  if (selection) {</span>
 <span class="cstat-no" title="statement not covered" >    const { searchTrees } = createT</span>ree(allItems)<span class="cstat-no" title="statement not covered" ></span>
-    const bodyItems <span class="cstat-no" title="statement not covered" >= searchTrees(_.intersection, selection)</span>
-    const blocks <span class="cstat-no" title="statement not covered" >= groupIntoBlocks(bodyItems)</span>
+    const blocks <span class="cstat-no" title="statement not covered" >= searchTrees(searchForBlocks, selection)</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return blocks</span>
   }
@@ -205,7 +202,7 @@ export const groupTex<span class="cstat-no" title="statement not covered" >tItem
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 02 2018 14:42:25 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 08 2018 11:56:50 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

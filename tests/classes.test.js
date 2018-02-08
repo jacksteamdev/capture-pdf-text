@@ -39,6 +39,7 @@ describe('Block class', () => {
     expect(typeof result.right).toBe('number')
     expect(typeof result.bottom).toBe('number')
     expect(typeof result.top).toBe('number')
+    expect(typeof result.lineHeight).toBe('number')
   })
 
   test('items is correctly ordered', () => {
@@ -63,6 +64,7 @@ describe('Block class', () => {
     expect(result.bottom).toBe(696.4)
     expect(result.left).toBe(56.8)
     expect(result.height).toBe(39.60000000000002)
+    expect(result.lineHeight).toBe(12)
     expect(result.width).toBe(494.94000000000057)
   })
 
@@ -77,6 +79,7 @@ describe('Block class', () => {
     result.bottom = 900
     result.left = 900
     result.height = 900
+    result.lineHeight = 900
     result.width = 900
 
     expect(result.items.length).not.toBe(0)
@@ -89,6 +92,7 @@ describe('Block class', () => {
     expect(result.bottom).toBe(696.4)
     expect(result.left).toBe(56.8)
     expect(result.height).toBe(39.60000000000002)
+    expect(result.lineHeight).toBe(12)
     expect(result.width).toBe(494.94000000000057)
   })
 })

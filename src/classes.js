@@ -1,7 +1,8 @@
 import { orderByPosition } from './order-items'
+import orderBy from 'lodash/fp/orderBy'
 
 /**
- * A Item instance maps some properties of an text item from PDFJS
+ * An Item instance maps some properties of an text item from PDFJS
  *
  * @export
  * @class Item
@@ -24,6 +25,11 @@ export class Item {
   }
 }
 
+/**
+ * A Block instance represents a group of Items
+ * @export
+ * @class Block
+ */
 export class Block {
   constructor (items) {
     // TODO: Make array property of block
@@ -86,6 +92,27 @@ export class Block {
     return this.top - this.bottom
   }
   set height (n) {
+    return undefined
+  }
+
+  // lineHeight = most common item height
+  get lineHeight () {
+    const heightByFrequency = [
+      ...this.items.reduce((map, { height }) => {
+        const instances = map.get(height) || 0
+        return map.set(height, instances + 1)
+      }, new Map()),
+    ].map(([height, frequency]) => ({ height, frequency }))
+
+    const mostFrequentHeight = orderBy(
+      'frequency',
+      'desc',
+      heightByFrequency,
+    )[0].height
+
+    return mostFrequentHeight
+  }
+  set lineHeight (n) {
     return undefined
   }
 
