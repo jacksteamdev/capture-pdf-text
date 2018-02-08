@@ -1,6 +1,11 @@
 /* eslint-env jest */
 
-import { createBlocks, blocksAreNear } from '../src/blocks'
+import {
+  createBlocks,
+  blocksAreNear,
+  blocksAreAligned,
+  toRangeBy,
+} from '../src/blocks'
 import { Block, Item } from '../src/classes'
 import singleParPDF from './fixtures/single-paragraph.json'
 
@@ -30,5 +35,19 @@ describe('blocksAreNear', () => {
       { top: 10, bottom: 7, lineHeight: 1 },
     )
     expect(result).toBe(false)
+  })
+})
+
+describe('toRangeBy', () => {
+  test('returns correct range', () => {
+    expect(toRangeBy(2, 3)).toEqual([2, 4])
+  })
+})
+
+describe('blocksAreAligned', () => {
+  test('returns true if blocks are aligned', () => {
+    const partial = blocksAreAligned('left', 1)
+    const result = partial({ left: 0 }, { left: 0.1 })
+    expect(result).toBe(true)
   })
 })
