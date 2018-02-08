@@ -1,32 +1,31 @@
-```
-Predicate one block upon another by proximity and alignment
-```
+Compare each item in array one to each item in array two. If any items in array one and two evaluate true, the arrays are concatenated. Else, both arrays are returned.
 
-blocksAreRelated :: block -> block -> Bool
+concatIfAny ::
+(a -> a -> Bool) -> [a] -> [a] -> [ [a] ] || [ [a], [a] ]
 
-const blocksAreRelated = overEvery([blocksAreNear, blocksAreAligned('left', 1)])
+function concatIfAny (fn, array1, array2) {
+return array1.some((a) => {
+const predicate = fn(a)
+return array.2.some((b) => predicate(b))
+} ? [ [ ...array1, ...array2 ] ] : [ array1, array2 ]
+}
 
-blocksAreRelated(
-{ top: 5, bottom: 1, lineHeight: 1, left: 1 },
-{ top: 10, bottom: 6, lineHeight: 1, left: 1 },
-) // true
+const concatIfAnyEqual = concatIfAny(isEqual)
 
-blocksAreRelated(
-{ top: 5, bottom: 1, lineHeight: 1, left: 1 },
-{ top: 10, bottom: 7, lineHeight: 1, left: 1 },
-) // false
+concatIfAnyEqual(
+[1, 2, 3],
+[3, 4, 5],
+) // [ [1, 2, 3, 3, 4, 5 ] ]
 
-blocksAreRelated(
-{ top: 5, bottom: 1, lineHeight: 1, left: 1.5 },
-{ top: 10, bottom: 6, lineHeight: 1, left: 1 },
-) // true
-
-blocksAreRelated(
-{ top: 5, bottom: 1, lineHeight: 1, left: 2 },
-{ top: 10, bottom: 6, lineHeight: 1, left: 1 },
-) // false
+concatIfAnyEqual(
+[1, 2, 3],
+[4, 5, 6],
+) // [ [1, 2, 3], [4, 5, 6] ]
 
 ```
+
+```
+
 Group Style#items by proximity
 
 * use getStyles
@@ -49,4 +48,7 @@ Combine all styles and sort by position
 * use orderByPosition
 
 `getBlocks :: [Items] -> [Blocks]`
+
+```
+
 ```

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518121327889" clover="3.2.0">
-  <project timestamp="1518121327889" name="All files">
-    <metrics statements="123" coveredstatements="35" conditionals="51" coveredconditionals="2" methods="77" coveredmethods="8" elements="251" coveredelements="45" complexity="0" loc="123" ncloc="123" packages="1" files="8" classes="8">
+<coverage generated="1518124726517" clover="3.2.0">
+  <project timestamp="1518124726517" name="All files">
+    <metrics statements="128" coveredstatements="40" conditionals="53" coveredconditionals="4" methods="80" coveredmethods="11" elements="261" coveredelements="55" complexity="0" loc="128" ncloc="128" packages="1" files="8" classes="8">
       <file name="apply-options.js" path="/home/jack/Repos/Work/capture-pdf-text/src/apply-options.js">
         <metrics statements="9" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -15,18 +15,23 @@
         <line num="27" count="0" type="stmt"/>
       </file>
       <file name="blocks.js" path="/home/jack/Repos/Work/capture-pdf-text/src/blocks.js">
-        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="6" type="stmt"/>
+        <line num="68" count="16" type="stmt"/>
       </file>
       <file name="classes.js" path="/home/jack/Repos/Work/capture-pdf-text/src/classes.js">
         <metrics statements="39" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="27" coveredmethods="2"/>
@@ -117,10 +122,10 @@
         <line num="25" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
       </file>
       <file name="styles.js" path="/home/jack/Repos/Work/capture-pdf-text/src/styles.js">
         <metrics statements="20" coveredstatements="5" conditionals="5" coveredconditionals="0" methods="11" coveredmethods="0"/>

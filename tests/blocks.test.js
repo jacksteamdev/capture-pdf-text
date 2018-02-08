@@ -3,11 +3,14 @@
 import {
   createBlocks,
   blocksAreNear,
-  blocksAreAligned,
   toRangeBy,
+  blocksAreAligned,
+  blocksAreRelated,
+  concatIfAny,
 } from '../src/blocks'
 import { Block, Item } from '../src/classes'
 import singleParPDF from './fixtures/single-paragraph.json'
+import isEqual from 'lodash/fp/isEqual'
 
 describe('createBlocks', () => {
   test('creates an array of blocks', () => {
@@ -49,5 +52,53 @@ describe('blocksAreAligned', () => {
     const partial = blocksAreAligned('left', 1)
     const result = partial({ left: 0 }, { left: 0.1 })
     expect(result).toBe(true)
+  })
+})
+
+describe('blocksAreRelated', () => {
+  test('returns true if blocks are related', () => {
+    const result = blocksAreRelated(
+      { top: 5, bottom: 1, lineHeight: 1, left: 1 },
+      { top: 10, bottom: 6, lineHeight: 1, left: 1 },
+    )
+    expect(result).toBe(true)
+  })
+
+  test('returns false if blocks are not close vertically', () => {
+    const result = blocksAreRelated(
+      { top: 4, bottom: 1, lineHeight: 1, left: 1 },
+      { top: 10, bottom: 6, lineHeight: 1, left: 1 },
+    )
+    expect(result).toBe(false)
+  })
+
+  test('returns false if blocks are not left aligned', () => {
+    const result = blocksAreRelated(
+      { top: 5, bottom: 1, lineHeight: 1, left: 1 },
+      { top: 10, bottom: 6, lineHeight: 1, left: 1.5 },
+    )
+    expect(result).toBe(false)
+  })
+
+  test('returns false if blocks are not related at all', () => {
+    const result = blocksAreRelated(
+      { top: 5, bottom: 1, lineHeight: 1, left: 1 },
+      { top: 10, bottom: 8, lineHeight: 1, left: 1.5 },
+    )
+    expect(result).toBe(false)
+  })
+})
+
+describe('concatIfAny', () => {
+  test('concats arrays if predicated', () => {
+    const concatIfAnyEqual = concatIfAny(isEqual)
+    const result = concatIfAnyEqual([1, 2, 3], [3, 4, 5])
+    expect(result).toEqual([[1, 2, 3, 3, 4, 5]])
+  })
+
+  test('does not concat arrays if not predicated', () => {
+    const concatIfAnyEqual = concatIfAny(isEqual)
+    const result = concatIfAnyEqual([1, 2, 3], [4, 5, 6])
+    expect(result).toEqual([[1, 2, 3], [4, 5, 6]])
   })
 })
