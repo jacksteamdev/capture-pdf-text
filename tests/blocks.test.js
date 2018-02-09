@@ -7,10 +7,39 @@ import {
   blocksAreAligned,
   blocksAreRelated,
   concatIfAny,
+  splitBy,
 } from '../src/blocks'
 import { Block, Item } from '../src/classes'
 import singleParPDF from './fixtures/single-paragraph.json'
 import isEqual from 'lodash/fp/isEqual'
+import identity from 'lodash/fp/identity'
+
+describe('splitBy', () => {
+  test('splits numbers by value', () => {
+    const nums = [1, 1, 1, 2, 2, 2, 3, 3, 3]
+    const result = splitBy(identity, isEqual, nums)
+    expect(result).toBeInstanceOf(Array)
+    expect(result.length).toBe(3)
+    expect(result).toEqual([[1, 1, 1], [2, 2, 2], [3, 3, 3]])
+  })
+
+  test('splits objects by property value', () => {
+    const items = [
+      { x: 1 },
+      { x: 2 },
+      { x: 1 },
+      { x: 3 },
+      { x: 2 },
+    ]
+    const result = splitBy('x', isEqual, items)
+    expect(result.length).toBe(3)
+    expect(result).toEqual([
+      [{ x: 1 }, { x: 1 }],
+      [{ x: 2 }, { x: 2 }],
+      [{ x: 3 }],
+    ])
+  })
+})
 
 describe('createBlocks', () => {
   test('creates an array of blocks', () => {

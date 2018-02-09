@@ -4,11 +4,37 @@ import map from 'lodash/fp/map'
 import inRange from 'lodash/fp/inRange'
 import curry from 'lodash/fp/curry'
 import overEvery from 'lodash/fp/overEvery'
+import sortBy from 'lodash/fp/sortBy'
 
 import createTree from './trees'
 import { Block } from './classes'
 import { getStyles } from './styles'
 import { orderByPosition, orderTTB } from './order-items'
+
+/**
+ * Split an array into nested arrays by value. Use a partially applied predicate to start a new array or add the element to the current one.
+ *
+ * splitBy ::
+ *  string -> (a -> a -> Bool) -> [a] -> [ [a] ]
+ */
+export const splitBy = curry((key, fn, items) => {
+  const sorted = sortBy(key, items)
+  const split = sorted.reduce(
+    (r, x) => {
+      const current = r.slice(-1)[0]
+      const prev = r.slice(0, -1)
+      const predicate = fn(current[0] || x)
+
+      if (predicate(x)) {
+        return [...prev, [...current, x]]
+      } else {
+        return [...r, [x]]
+      }
+    },
+    [[]],
+  )
+  return split
+})
 
 /**
  * createBlocks :: [[Item]] -> [Block]

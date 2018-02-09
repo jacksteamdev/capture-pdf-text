@@ -5504,9 +5504,9 @@ var Promise = _getNative(_root, 'Promise');
 var _Promise = Promise;
 
 /* Built-in method references that are verified to be native. */
-var Set$1 = _getNative(_root, 'Set');
+var Set = _getNative(_root, 'Set');
 
-var _Set = Set$1;
+var _Set = Set;
 
 /** `Object#toString` result references. */
 var mapTag$2 = '[object Map]';
@@ -7624,7 +7624,7 @@ var Node = /** @class */ (function () {
     };
     /*
     Left-Left case:
-
+  
            z                                      y
           / \                                   /   \
          y   T4      Right Rotate (z)          x     z
@@ -7632,9 +7632,9 @@ var Node = /** @class */ (function () {
        x   T3                                T1 T2 T3 T4
       / \
     T1   T2
-
+  
     Left-Right case:
-
+  
          z                               z                           x
         / \                             / \                        /   \
        y   T4  Left Rotate (y)         x  T4  Right Rotate(z)     y     z
@@ -7680,7 +7680,7 @@ var Node = /** @class */ (function () {
     };
     /*
     Right-Right case:
-
+  
       z                               y
      / \                            /   \
     T1  y     Left Rotate(z)       z     x
@@ -7688,9 +7688,9 @@ var Node = /** @class */ (function () {
       T2  x                      T1 T2 T3 T4
          / \
         T3 T4
-
+  
     Right-Left case:
-
+  
        z                            z                            x
       / \                          / \                         /   \
      T1  y   Right Rotate (y)     T1  x      Left Rotate(z)   z     y
@@ -8389,8 +8389,8 @@ var n=this.__index__>=this.__values__.length;return{done:n,value:n?F:this.__valu
 }, On.prototype.toJSON=On.prototype.valueOf=On.prototype.value=function(){return kr(this.__wrapped__,this.__actions__)}, On.prototype.first=On.prototype.head, Ai&&(On.prototype[Ai]=tu), On}();typeof undefined=="function"&&typeof undefined.amd=="object"&&undefined.amd?(Zn._=it, undefined(function(){return it})):Vn?((Vn.exports=it)._=it, qn._=it):Zn._=it;}).call(commonjsGlobal);
 });
 
-var _$2 = lodash_min$2.runInContext();
-var fp$1 = _baseConvert$2(_$2, _$2);
+var _$1 = lodash_min$2.runInContext();
+var fp$2 = _baseConvert$2(_$1, _$1);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT$2 = 'Expected a function';
@@ -9281,7 +9281,7 @@ const trace = label => x => {
 const getAdjacent = curry((searchTrees, item) => {
   const { keys } = searchTrees;
 
-  const composed = compose(searchTrees(fp$1.intersection), expandRanges(Math.min), getRanges(keys));
+  const composed = compose(searchTrees(fp$2.intersection), expandRanges(Math.min), getRanges(keys));
 
   return composed(item);
 });
@@ -9298,9 +9298,9 @@ const getAdjacent = curry((searchTrees, item) => {
  *   - callIfLength(operation, comparison op, array, array)
  * @todo write test for getClusters
  */
-const getClusters = fp$1.compose(
+const getClusters = fp$2.compose(
 // refactor
-uniqueSets, trace('after callIfLength:'), callIfLength(fp$1.intersection, fp$1.union), trace('before callIfLength:'), uniqueSets);
+uniqueSets, trace('after callIfLength:'), callIfLength(fp$2.intersection, fp$2.union), trace('before callIfLength:'), uniqueSets);
 
 /**
  * Group items using tree keys
@@ -9334,6 +9334,9 @@ const kdIntervalTree = curry((keys, items) => {
   };
 });
 
+/**
+ * createTree :: [Item] -> {([Keys] -> [Items]), [Block]}
+ */
 const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top']);
 
 /**
@@ -12842,9 +12845,9 @@ var Promise$2 = _getNative$2(_root$2, 'Promise');
 var _Promise$2 = Promise$2;
 
 /* Built-in method references that are verified to be native. */
-var Set$3 = _getNative$2(_root$2, 'Set');
+var Set$2 = _getNative$2(_root$2, 'Set');
 
-var _Set$2 = Set$3;
+var _Set$2 = Set$2;
 
 /** `Object#toString` result references. */
 var mapTag$7 = '[object Map]';
@@ -15137,7 +15140,6 @@ var orderBy_1 = orderBy$2;
 var func$8 = convert_1$2('orderBy', orderBy_1);
 
 func$8.placeholder = placeholder;
-var orderBy = func$8;
 
 /**
  * @func    orderByPageAndPosition
@@ -15150,16 +15152,8 @@ var orderBy = func$8;
  * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
  */
 
-const orderByPosition = items => {
-  const iteratees = ['bottom', 'right'];
-  const orders = ['desc', 'asc'];
-  const ordered = orderBy(iteratees, orders, items);
-
-  return ordered;
-};
-
 /**
- * A Item instance maps some properties of an text item from PDFJS
+ * An Item instance maps some properties of an text item from PDFJS
  *
  * @export
  * @class Item
@@ -15182,76 +15176,11 @@ class Item {
   }
 }
 
-class Block {
-  constructor(items) {
-    // TODO: Make array property of block
-    // TODO: Adjust this keyword usage
-    this.__items = items;
-  }
-
-  get text() {
-    return this.items.reduce((r, i, n) => `${r} ${i.text.trim()}`, '').trim();
-  }
-  set text(t) {
-    return undefined;
-  }
-
-  // this.items.top = bottom + height
-  get top() {
-    return this.items.reduce((r, { top }) => Math.max(r, top), 0);
-  }
-  set top(n) {
-    return undefined;
-  }
-
-  // this.items.right = left + width
-  get right() {
-    return this.items.reduce((r, { right }) => Math.max(r, right), 0);
-  }
-  set right(n) {
-    return undefined;
-  }
-
-  // this.items.bottom = bottom
-  get bottom() {
-    return this.items.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
-  }
-  set bottom(n) {
-    return undefined;
-  }
-
-  // this.items.left = left
-  get left() {
-    return this.items.reduce((r, { left }) => Math.min(r, left), Infinity);
-  }
-  set left(n) {
-    return undefined;
-  }
-
-  // Add getters for dimensions
-  get height() {
-    return this.top - this.bottom;
-  }
-  set height(n) {
-    return undefined;
-  }
-
-  // this.width = width
-  get width() {
-    return this.right - this.left;
-  }
-  set width(n) {
-    return undefined;
-  }
-
-  get items() {
-    const ordered = orderByPosition(this.__items);
-    return ordered;
-  }
-  set items(x) {
-    return undefined;
-  }
-}
+/**
+ * A Block instance represents a group of Items
+ * @export
+ * @class Block
+ */
 
 const loadDocument = pdf => {
   const count = pdf.pdfInfo.numPages;
@@ -15303,325 +15232,6 @@ const loadDocumentWithPDFJS = async (PDFJS, data) => {
   return loadDocument(pdf);
 };
 
-/** Error message constants. */
-var FUNC_ERROR_TEXT$5 = 'Expected a function';
-
-/** Used to compose bitmasks for function metadata. */
-var WRAP_CURRY_FLAG$13 = 8;
-var WRAP_PARTIAL_FLAG$7 = 32;
-var WRAP_ARY_FLAG$9 = 128;
-var WRAP_REARG_FLAG$7 = 256;
-
-/**
- * Creates a `_.flow` or `_.flowRight` function.
- *
- * @private
- * @param {boolean} [fromRight] Specify iterating from right to left.
- * @returns {Function} Returns the new flow function.
- */
-function createFlow$2(fromRight) {
-  return _flatRest$2(function(funcs) {
-    var length = funcs.length,
-        index = length,
-        prereq = _LodashWrapper$2.prototype.thru;
-
-    if (fromRight) {
-      funcs.reverse();
-    }
-    while (index--) {
-      var func = funcs[index];
-      if (typeof func != 'function') {
-        throw new TypeError(FUNC_ERROR_TEXT$5);
-      }
-      if (prereq && !wrapper && _getFuncName$2(func) == 'wrapper') {
-        var wrapper = new _LodashWrapper$2([], true);
-      }
-    }
-    index = wrapper ? index : length;
-    while (++index < length) {
-      func = funcs[index];
-
-      var funcName = _getFuncName$2(func),
-          data = funcName == 'wrapper' ? _getData$2(func) : undefined;
-
-      if (data && _isLaziable$2(data[0]) &&
-            data[1] == (WRAP_ARY_FLAG$9 | WRAP_CURRY_FLAG$13 | WRAP_PARTIAL_FLAG$7 | WRAP_REARG_FLAG$7) &&
-            !data[4].length && data[9] == 1
-          ) {
-        wrapper = wrapper[_getFuncName$2(data[0])].apply(wrapper, data[3]);
-      } else {
-        wrapper = (func.length == 1 && _isLaziable$2(func))
-          ? wrapper[funcName]()
-          : wrapper.thru(func);
-      }
-    }
-    return function() {
-      var args = arguments,
-          value = args[0];
-
-      if (wrapper && args.length == 1 && isArray_1$2(value)) {
-        return wrapper.plant(value).value();
-      }
-      var index = 0,
-          result = length ? funcs[index].apply(this, args) : value;
-
-      while (++index < length) {
-        result = funcs[index].call(this, result);
-      }
-      return result;
-    };
-  });
-}
-
-var _createFlow$2 = createFlow$2;
-
-/**
- * This method is like `_.flow` except that it creates a function that
- * invokes the given functions from right to left.
- *
- * @static
- * @since 3.0.0
- * @memberOf _
- * @category Util
- * @param {...(Function|Function[])} [funcs] The functions to invoke.
- * @returns {Function} Returns the new composite function.
- * @see _.flow
- * @example
- *
- * function square(n) {
- *   return n * n;
- * }
- *
- * var addSquare = _.flowRight([square, _.add]);
- * addSquare(1, 2);
- * // => 9
- */
-var flowRight$5 = _createFlow$2(true);
-
-var flowRight_1$2 = flowRight$5;
-
-var func$9 = convert_1$2('flowRight', flowRight_1$2);
-
-func$9.placeholder = placeholder;
-var flowRight$3 = func$9;
-
-var compose$2 = flowRight$3;
-
-var func$10 = convert_1$2('curry', curry_1$2);
-
-func$10.placeholder = placeholder;
-var curry$4 = func$10;
-
-/**
- * The base implementation of `_.reduce` and `_.reduceRight`, without support
- * for iteratee shorthands, which iterates over `collection` using `eachFunc`.
- *
- * @private
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @param {*} accumulator The initial value.
- * @param {boolean} initAccum Specify using the first or last element of
- *  `collection` as the initial value.
- * @param {Function} eachFunc The function to iterate over `collection`.
- * @returns {*} Returns the accumulated value.
- */
-function baseReduce(collection, iteratee, accumulator, initAccum, eachFunc) {
-  eachFunc(collection, function(value, index, collection) {
-    accumulator = initAccum
-      ? (initAccum = false, value)
-      : iteratee(accumulator, value, index, collection);
-  });
-  return accumulator;
-}
-
-var _baseReduce = baseReduce;
-
-/**
- * Reduces `collection` to a value which is the accumulated result of running
- * each element in `collection` thru `iteratee`, where each successive
- * invocation is supplied the return value of the previous. If `accumulator`
- * is not given, the first element of `collection` is used as the initial
- * value. The iteratee is invoked with four arguments:
- * (accumulator, value, index|key, collection).
- *
- * Many lodash methods are guarded to work as iteratees for methods like
- * `_.reduce`, `_.reduceRight`, and `_.transform`.
- *
- * The guarded methods are:
- * `assign`, `defaults`, `defaultsDeep`, `includes`, `merge`, `orderBy`,
- * and `sortBy`
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} [iteratee=_.identity] The function invoked per iteration.
- * @param {*} [accumulator] The initial value.
- * @returns {*} Returns the accumulated value.
- * @see _.reduceRight
- * @example
- *
- * _.reduce([1, 2], function(sum, n) {
- *   return sum + n;
- * }, 0);
- * // => 3
- *
- * _.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
- *   (result[value] || (result[value] = [])).push(key);
- *   return result;
- * }, {});
- * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
- */
-function reduce$2(collection, iteratee, accumulator) {
-  var func = isArray_1$2(collection) ? _arrayReduce$2 : _baseReduce,
-      initAccum = arguments.length < 3;
-
-  return func(collection, _baseIteratee$2(iteratee, 4), accumulator, initAccum, _baseEach$2);
-}
-
-var reduce_1 = reduce$2;
-
-var func$11 = convert_1$2('reduce', reduce_1);
-
-func$11.placeholder = placeholder;
-var reduce = func$11;
-
-/**
- * The base implementation of `_.rest` which doesn't validate or coerce arguments.
- *
- * @private
- * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
- * @returns {Function} Returns the new function.
- */
-function baseRest$2(func, start) {
-  return _setToString$2(_overRest$2(func, start, identity_1$2), func + '');
-}
-
-var _baseRest$2 = baseRest$2;
-
-/**
- * Checks if the given arguments are from an iteratee call.
- *
- * @private
- * @param {*} value The potential iteratee value argument.
- * @param {*} index The potential iteratee index or key argument.
- * @param {*} object The potential iteratee object argument.
- * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
- *  else `false`.
- */
-function isIterateeCall$2(value, index, object) {
-  if (!isObject_1$2(object)) {
-    return false;
-  }
-  var type = typeof index;
-  if (type == 'number'
-        ? (isArrayLike_1$2(object) && _isIndex$2(index, object.length))
-        : (type == 'string' && index in object)
-      ) {
-    return eq_1$2(object[index], value);
-  }
-  return false;
-}
-
-var _isIterateeCall$2 = isIterateeCall$2;
-
-/**
- * Creates an array of elements, sorted in ascending order by the results of
- * running each element in a collection thru each iteratee. This method
- * performs a stable sort, that is, it preserves the original sort order of
- * equal elements. The iteratees are invoked with one argument: (value).
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {...(Function|Function[])} [iteratees=[_.identity]]
- *  The iteratees to sort by.
- * @returns {Array} Returns the new sorted array.
- * @example
- *
- * var users = [
- *   { 'user': 'fred',   'age': 48 },
- *   { 'user': 'barney', 'age': 36 },
- *   { 'user': 'fred',   'age': 40 },
- *   { 'user': 'barney', 'age': 34 }
- * ];
- *
- * _.sortBy(users, [function(o) { return o.user; }]);
- * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
- *
- * _.sortBy(users, ['user', 'age']);
- * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
- */
-var sortBy$2 = _baseRest$2(function(collection, iteratees) {
-  if (collection == null) {
-    return [];
-  }
-  var length = iteratees.length;
-  if (length > 1 && _isIterateeCall$2(collection, iteratees[0], iteratees[1])) {
-    iteratees = [];
-  } else if (length > 2 && _isIterateeCall$2(iteratees[0], iteratees[1], iteratees[2])) {
-    iteratees = [iteratees[0]];
-  }
-  return _baseOrderBy(collection, _baseFlatten$2(iteratees, 1), []);
-});
-
-var sortBy_1 = sortBy$2;
-
-var func$12 = convert_1$2('sortBy', sortBy_1);
-
-func$12.placeholder = placeholder;
-var sortBy = func$12;
-
-/**
- * hasEqualStyle :: Item -> Item -> Boolean
- */
-const hasEqualStyle = curry$4((item1, item2) => item1.fontName === item2.fontName && item1.height === item2.height);
-
-/**
- * addItemToStyle :: Item -> Style -> Style
- */
-
-
-/**
- * findAndMutate :: (Item -> Item -> Bool) -> [Style] -> Item -> [Style]
- */
-const findAndMutate = curry$4((finder, add, styles, item) => {
-  const style = add(item)(styles.find(finder(item)));
-
-  return Array.from(new Set([...styles, style]));
-});
-
-/**
- * getStyles :: [Items] -> [Styles]
- */
-const getStyles = compose$2(sortBy('height'), reduce([]), findAndMutate(hasEqualStyle));
-
-var groupIntoBlocks = (items => {
-  // Items grouped by style
-  // Not all seemingly identical styles are the same:
-  // The fontName may differ, but the height will be the same
-  const itemsByStyle = groupByStyle(items);
-
-  // Groups of Items mapped to Blocks
-  // and sorted by text length
-  const blocks = itemsByStyle.map(items => Block.ordered(...items))
-  // Sort by Block size
-  .sort((a, b) => b.text.length - a.text.length)
-  // Group adjacent items
-  .map(block => {
-    const { groups } = createTree(block);
-    const blocks = groups.map(g => Block.ordered(...g));
-
-    return blocks;
-  }, []);
-
-  return fp.flatten(blocks);
-});
-
 /**
  * Load a PDF for text extraction.
  * @param {PDFJS} PDFJS - PDFJS from pdfjs-dist, which pollutes the global scope when imported
@@ -15657,8 +15267,7 @@ const configureLoader = (PDFJS, options) => {
 const groupTextItems = (allItems, { selection } = {}) => {
   if (selection) {
     const { searchTrees } = createTree(allItems);
-    const bodyItems = searchTrees(fp.intersection, selection);
-    const blocks = groupIntoBlocks(bodyItems);
+    const blocks = searchTrees(searchForBlocks, selection);
 
     return blocks;
   }

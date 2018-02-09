@@ -1,11 +1,10 @@
-import _ from 'lodash/fp';
+import fp from 'lodash/fp';
 import kdIntervalTree from 'kd-interval-tree';
 import orderBy from 'lodash/fp/orderBy';
-import compose from 'lodash/fp/compose';
-import curry from 'lodash/fp/curry';
-import reduce from 'lodash/fp/reduce';
-import sortBy from 'lodash/fp/sortBy';
 
+/**
+ * createTree :: [Item] -> {([Keys] -> [Items]), [Block]}
+ */
 const createTree = kdIntervalTree(['left', 'right', 'bottom', 'top']);
 
 /**
@@ -47,16 +46,8 @@ const applyOptions = (PDFJS, options = {}) => {
  * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
  */
 
-const orderByPosition = items => {
-  const iteratees = ['bottom', 'right'];
-  const orders = ['desc', 'asc'];
-  const ordered = orderBy(iteratees, orders, items);
-
-  return ordered;
-};
-
 /**
- * A Item instance maps some properties of an text item from PDFJS
+ * An Item instance maps some properties of an text item from PDFJS
  *
  * @export
  * @class Item
@@ -79,76 +70,11 @@ class Item {
   }
 }
 
-class Block {
-  constructor(items) {
-    // TODO: Make array property of block
-    // TODO: Adjust this keyword usage
-    this.__items = items;
-  }
-
-  get text() {
-    return this.items.reduce((r, i, n) => `${r} ${i.text.trim()}`, '').trim();
-  }
-  set text(t) {
-    return undefined;
-  }
-
-  // this.items.top = bottom + height
-  get top() {
-    return this.items.reduce((r, { top }) => Math.max(r, top), 0);
-  }
-  set top(n) {
-    return undefined;
-  }
-
-  // this.items.right = left + width
-  get right() {
-    return this.items.reduce((r, { right }) => Math.max(r, right), 0);
-  }
-  set right(n) {
-    return undefined;
-  }
-
-  // this.items.bottom = bottom
-  get bottom() {
-    return this.items.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
-  }
-  set bottom(n) {
-    return undefined;
-  }
-
-  // this.items.left = left
-  get left() {
-    return this.items.reduce((r, { left }) => Math.min(r, left), Infinity);
-  }
-  set left(n) {
-    return undefined;
-  }
-
-  // Add getters for dimensions
-  get height() {
-    return this.top - this.bottom;
-  }
-  set height(n) {
-    return undefined;
-  }
-
-  // this.width = width
-  get width() {
-    return this.right - this.left;
-  }
-  set width(n) {
-    return undefined;
-  }
-
-  get items() {
-    const ordered = orderByPosition(this.__items);
-    return ordered;
-  }
-  set items(x) {
-    return undefined;
-  }
-}
+/**
+ * A Block instance represents a group of Items
+ * @export
+ * @class Block
+ */
 
 const loadDocument = pdf => {
   const count = pdf.pdfInfo.numPages;
@@ -201,52 +127,6 @@ const loadDocumentWithPDFJS = async (PDFJS, data) => {
 };
 
 /**
- * hasEqualStyle :: Item -> Item -> Boolean
- */
-const hasEqualStyle = curry((item1, item2) => item1.fontName === item2.fontName && item1.height === item2.height);
-
-/**
- * addItemToStyle :: Item -> Style -> Style
- */
-
-
-/**
- * findAndMutate :: (Item -> Item -> Bool) -> [Style] -> Item -> [Style]
- */
-const findAndMutate = curry((finder, add, styles, item) => {
-  const style = add(item)(styles.find(finder(item)));
-
-  return Array.from(new Set([...styles, style]));
-});
-
-/**
- * getStyles :: [Items] -> [Styles]
- */
-const getStyles = compose(sortBy('height'), reduce([]), findAndMutate(hasEqualStyle));
-
-var groupIntoBlocks = (items => {
-  // Items grouped by style
-  // Not all seemingly identical styles are the same:
-  // The fontName may differ, but the height will be the same
-  const itemsByStyle = groupByStyle(items);
-
-  // Groups of Items mapped to Blocks
-  // and sorted by text length
-  const blocks = itemsByStyle.map(items => Block.ordered(...items))
-  // Sort by Block size
-  .sort((a, b) => b.text.length - a.text.length)
-  // Group adjacent items
-  .map(block => {
-    const { groups } = createTree(block);
-    const blocks = groups.map(g => Block.ordered(...g));
-
-    return blocks;
-  }, []);
-
-  return _.flatten(blocks);
-});
-
-/**
  * Load a PDF for text extraction.
  * @param {PDFJS} PDFJS - PDFJS from pdfjs-dist, which pollutes the global scope when imported
  * @param {string|Uint8Array} data - PDF url or Uint8Array containing the PDF data
@@ -281,8 +161,7 @@ const configureLoader = (PDFJS, options) => {
 const groupTextItems = (allItems, { selection } = {}) => {
   if (selection) {
     const { searchTrees } = createTree(allItems);
-    const bodyItems = searchTrees(_.intersection, selection);
-    const blocks = groupIntoBlocks(bodyItems);
+    const blocks = searchTrees(searchForBlocks, selection);
 
     return blocks;
   }

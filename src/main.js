@@ -3,7 +3,7 @@ import _ from 'lodash/fp'
 import createTree from './trees'
 import applyOptions from './apply-options'
 import { loadDocumentWithPDFJS } from './load-document'
-import searchForBlocks from './blocks'
+// import searchForBlocks from './blocks'
 
 export { loadDocument } from './load-document'
 

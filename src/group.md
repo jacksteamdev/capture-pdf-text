@@ -1,26 +1,26 @@
-Compare each item in array one to each item in array two. If any items in array one and two evaluate true, the arrays are concatenated. Else, both arrays are returned.
+const nums = [ 1, 1, 1, 2, 2, 2, 3, 3, 3, ]
 
-concatIfAny ::
-(a -> a -> Bool) -> [a] -> [a] -> [ [a] ] || [ [a], [a] ]
+splitBy(identity, isEqual, nums)
+// [
+// [1, 1, 1,],
+// [2, 2, 2,],
+// [3, 3, 3,],
+// ]
 
-function concatIfAny (fn, array1, array2) {
-return array1.some((a) => {
-const predicate = fn(a)
-return array.2.some((b) => predicate(b))
-} ? [ [ ...array1, ...array2 ] ] : [ array1, array2 ]
-}
+const items = [
+{ x: 1 },
+{ x: 1 },
+{ x: 2 },
+{ x: 2 },
+{ x: 3 },
+]
 
-const concatIfAnyEqual = concatIfAny(isEqual)
-
-concatIfAnyEqual(
-[1, 2, 3],
-[3, 4, 5],
-) // [ [1, 2, 3, 3, 4, 5 ] ]
-
-concatIfAnyEqual(
-[1, 2, 3],
-[4, 5, 6],
-) // [ [1, 2, 3], [4, 5, 6] ]
+splitBy('x', isEqual, items)
+// [
+// [ { x: 1 }, { x: 1 } ],
+// [ { x: 2 }, { x: 2 } ],
+// [ { x: 3 } ],
+// ]
 
 ```
 
