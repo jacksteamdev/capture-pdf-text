@@ -1,31 +1,21 @@
-const nums = [ 1, 1, 1, 2, 2, 2, 3, 3, 3, ]
+Group items in an array into an array of blocks by proximity.
 
-splitBy(identity, isEqual, nums)
-// [
-// [1, 1, 1,],
-// [2, 2, 2,],
-// [3, 3, 3,],
-// ]
+```
+groupItems ::  [item] -> [block]
 
-const items = [
-{ x: 1 },
-{ x: 1 },
-{ x: 2 },
-{ x: 2 },
-{ x: 3 },
-]
+function groupItems (items) {
+  const search = createTree(items)
+  const groups = getGroupsFromKD(search)
+  const blocks = groups.map(Block.from)
+  return blocks
+}
 
-splitBy('x', isEqual, items)
-// [
-// [ { x: 1 }, { x: 1 } ],
-// [ { x: 2 }, { x: 2 } ],
-// [ { x: 3 } ],
-// ]
-
+Block.from = function (items) {
+  return new Block(items)
+}
 ```
 
 ```
-
 Group Style#items by proximity
 
 * use getStyles
@@ -48,6 +38,7 @@ Combine all styles and sort by position
 * use orderByPosition
 
 `getBlocks :: [Items] -> [Blocks]`
+```
 
 ```
 

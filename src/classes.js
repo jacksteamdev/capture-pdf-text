@@ -37,6 +37,10 @@ export class Block {
     this.__items = items
   }
 
+  static from (items) {
+    return new Block(items)
+  }
+
   get text () {
     return this.items
       .reduce((r, i, n) => `${r} ${i.text.trim()}`, '')

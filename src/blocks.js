@@ -6,7 +6,7 @@ import curry from 'lodash/fp/curry'
 import overEvery from 'lodash/fp/overEvery'
 import sortBy from 'lodash/fp/sortBy'
 
-import createTree from './trees'
+import { createTree, getGroups } from './trees'
 import { Block } from './classes'
 import { getStyles } from './styles'
 import { orderByPosition, orderTTB } from './order-items'
@@ -96,3 +96,18 @@ export const concatIfAny = curry((fn, array1, array2) => {
     ? [[...array1, ...array2]]
     : [array1, array2]
 })
+
+/**
+ * Group items in an array into an array of blocks by proximity.
+ *
+ * groupItems ::  [item] -> [block]
+ */
+export const groupItems = items => {
+  const search = createTree(items)
+  const groups = getGroups(search)
+  console.log('groups length', groups.length)
+
+  const blocks = groups.map(Block.from)
+  // console.log('blocks', blocks)
+  return blocks
+}

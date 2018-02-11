@@ -1,18 +1,20 @@
 /* eslint-env jest */
 
 import {
+  splitBy,
   createBlocks,
   blocksAreNear,
   toRangeBy,
   blocksAreAligned,
   blocksAreRelated,
   concatIfAny,
-  splitBy,
+  groupItems,
 } from '../src/blocks'
 import { Block, Item } from '../src/classes'
 import singleParPDF from './fixtures/single-paragraph.json'
 import isEqual from 'lodash/fp/isEqual'
 import identity from 'lodash/fp/identity'
+import multiParPDF from './fixtures/multi-paragraph.json'
 
 describe('splitBy', () => {
   test('splits numbers by value', () => {
@@ -129,5 +131,16 @@ describe('concatIfAny', () => {
     const concatIfAnyEqual = concatIfAny(isEqual)
     const result = concatIfAnyEqual([1, 2, 3], [4, 5, 6])
     expect(result).toEqual([[1, 2, 3], [4, 5, 6]])
+  })
+})
+
+describe('groupItems', () => {
+  test('group overlapping items', () => {
+    const data = multiParPDF.pages[0].map(x => new Item(x))
+    // console.log('data', data)
+    const result = groupItems(data)
+    // console.log('result', result)
+    expect(result).toBeInstanceOf(Array)
+    expect(result.length).toBe(5)
   })
 })
