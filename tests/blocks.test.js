@@ -1,14 +1,16 @@
 /* eslint-env jest */
 
 import {
+  isEmpty,
   splitBy,
   createBlocks,
   blocksAreNear,
   toRangeBy,
   blocksAreAligned,
   blocksAreRelated,
-  concatIfAny,
+  predicateSome,
   groupItems,
+  groupIntoBlocks,
 } from '../src/blocks'
 import { Block, Item } from '../src/classes'
 import singleParPDF from './fixtures/single-paragraph.json'
@@ -16,10 +18,21 @@ import isEqual from 'lodash/fp/isEqual'
 import identity from 'lodash/fp/identity'
 import multiParPDF from './fixtures/multi-paragraph.json'
 
+describe('isEmpty', () => {
+  test('returns true for empty item', () => {
+    const result = isEmpty({ text: ' ' })
+    expect(result).toBe(true)
+  })
+  test('returns false for item with text', () => {
+    const result = isEmpty({ text: 'Jack' })
+    expect(result).toBe(false)
+  })
+})
+
 describe('splitBy', () => {
   test('splits numbers by value', () => {
     const nums = [1, 1, 1, 2, 2, 2, 3, 3, 3]
-    const result = splitBy(identity, isEqual, nums)
+    const result = splitBy(null, isEqual, nums)
     expect(result).toBeInstanceOf(Array)
     expect(result.length).toBe(3)
     expect(result).toEqual([[1, 1, 1], [2, 2, 2], [3, 3, 3]])
@@ -27,18 +40,18 @@ describe('splitBy', () => {
 
   test('splits objects by property value', () => {
     const items = [
-      { x: 1 },
-      { x: 2 },
-      { x: 1 },
-      { x: 3 },
-      { x: 2 },
+      { x: 1, y: 1 },
+      { x: 2, y: 2 },
+      { x: 1, y: 3 },
+      { x: 3, y: 4 },
+      { x: 2, y: 5 },
     ]
     const result = splitBy('x', isEqual, items)
-    expect(result.length).toBe(3)
+    // expect(result.length).toBe(3)
     expect(result).toEqual([
-      [{ x: 1 }, { x: 1 }],
-      [{ x: 2 }, { x: 2 }],
-      [{ x: 3 }],
+      [{ x: 1, y: 1 }, { x: 1, y: 3 }],
+      [{ x: 2, y: 2 }, { x: 2, y: 5 }],
+      [{ x: 3, y: 4 }],
     ])
   })
 })
@@ -120,26 +133,35 @@ describe('blocksAreRelated', () => {
   })
 })
 
-describe('concatIfAny', () => {
-  test('concats arrays if predicated', () => {
-    const concatIfAnyEqual = concatIfAny(isEqual)
-    const result = concatIfAnyEqual([1, 2, 3], [3, 4, 5])
-    expect(result).toEqual([[1, 2, 3, 3, 4, 5]])
+describe('predicateSome', () => {
+  test('returns true if predicated', () => {
+    const predicateSomeEqual = predicateSome(isEqual)
+    const result = predicateSomeEqual([1, 2, 3], [3, 4, 5])
+    expect(result).toBe(true)
   })
 
-  test('does not concat arrays if not predicated', () => {
-    const concatIfAnyEqual = concatIfAny(isEqual)
-    const result = concatIfAnyEqual([1, 2, 3], [4, 5, 6])
-    expect(result).toEqual([[1, 2, 3], [4, 5, 6]])
+  test('returns false if not predicated', () => {
+    const predicateSomeEqual = predicateSome(isEqual)
+    const result = predicateSomeEqual([1, 2, 3], [4, 5, 6])
+    expect(result).toBe(false)
   })
 })
 
 describe('groupItems', () => {
   test('group overlapping items', () => {
-    const data = multiParPDF.pages[0].map(x => new Item(x))
-    // console.log('data', data)
+    const data = multiParPDF.pages[0]
+      .map(x => new Item(x))
+      .filter(item => !isEmpty(item))
     const result = groupItems(data)
-    // console.log('result', result)
+    expect(result).toBeInstanceOf(Array)
+    expect(result.length).toBe(5)
+  })
+})
+
+describe('groupIntoBlocks', () => {
+  test.only('group items by paragraph', () => {
+    const data = multiParPDF.pages[0].map(x => new Item(x))
+    const result = groupIntoBlocks(data)
     expect(result).toBeInstanceOf(Array)
     expect(result.length).toBe(5)
   })
