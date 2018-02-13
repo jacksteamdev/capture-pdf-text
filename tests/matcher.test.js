@@ -24,3 +24,37 @@ describe('toPredicate', () => {
     expect(predicate(item3)).toBe(true)
   })
 })
+
+describe('objectMatcher', () => {
+  test('matches by comparator object', () => {
+    const item1 = { height: 12, fontName: 'Times' }
+    const item2 = { height: 13, fontName: 'Times' }
+    const item3 = { height: 12, fontName: 'Times' }
+    const item4 = { height: 12, fontName: 'Arial' }
+    const areSameStyle = objectMatcher([
+      {
+        height: isEqual,
+        fontName: isEqual,
+      },
+    ])
+    expect(areSameStyle).toBeInstanceOf(Function)
+    expect(areSameStyle(item1, item3)).toBe(true)
+    expect(areSameStyle(item1, item2)).toBe(false)
+    expect(areSameStyle(item1, item4)).toBe(false)
+  })
+  test.skip('matches by mixed comparators', () => {
+    const item1 = { height: 12, fontName: 'Times' }
+    const item2 = { height: 13, fontName: 'Times' }
+    const item3 = { height: 12, fontName: 'Times' }
+    const item4 = { height: 12, fontName: 'Arial' }
+    const areSameStyleNeighbors = objectMatcher([
+      {
+        height: isEqual,
+        fontName: isEqual,
+      },
+      areNeighbors,
+    ])
+    expect(areSameStyleNeighbors(item1, item2)).toBe(true)
+    expect(areSameStyleNeighbors(item1, item3)).toBe(false)
+  })
+})

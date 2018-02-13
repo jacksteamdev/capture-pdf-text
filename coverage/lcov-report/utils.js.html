@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/21</span>
+        <span class='fraction'>2/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">15.38% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/15</span>
+        <span class='fraction'>2/13</span>
       </div>
     </div>
   </div>
@@ -67,46 +67,46 @@
 22
 23
 24
-25</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+25</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import partia<span class="cstat-no" title="statement not covered" >l from 'lodash/fp/partial'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
-import isFunction <span class="cstat-no" title="statement not covered" >from 'lodash/fp/isFunction'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import partial from 'lodash/fp/partial'
+import isFunction from 'lodash/fp/isFunction'
 &nbsp;
-export const<span class="cstat-no" title="statement not covered" > trace = label =&gt; x =&gt; {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
-  co<span class="cstat-no" title="statement not covered" >nsole.log(label, x)</span>
-  re<span class="cstat-no" title="statement not covered" >turn x</span>
+export const trace = <span class="fstat-no" title="function not covered" >la</span>bel =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >x </span>=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  console.log(label, x)</span>
+<span class="cstat-no" title="statement not covered" >  return x</span>
 }
 &nbsp;
-export const r<span class="cstat-no" title="statement not covered" >ecurse = (func, predicate, <span class="fstat-no" title="function not covered" >initialV</span>al) =&gt; {</span>
-  let bounce = <span class="cstat-no" title="statement not covered" >f =&gt; {<span class="fstat-no" title="function not covered" ></span></span>
+export const recurse = <span class="fstat-no" title="function not covered" >(f</span>unc, predicate, initialVal) =&gt; {
+  let bounce = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >f </span>=&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    while (isFunction(f)) {</span>
 <span class="cstat-no" title="statement not covered" >      f = f.apply(f.context, f.args)</span>
     }
 <span class="cstat-no" title="statement not covered" >    return f</span>
   }
-  let cursor = <span class="cstat-no" title="statement not covered" >(v, nv) =<span class="fstat-no" title="function not covered" >&gt; {</span></span>
+  let cursor = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(v</span>, nv) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (predicate(v)) {</span>
 <span class="cstat-no" title="statement not covered" >      return v</span>
     } else {
@@ -121,7 +121,7 @@ export const r<span class="cstat-no" title="statement not covered" >ecurse = (fu
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 13 2018 13:40:24 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 13 2018 14:32:02 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>
