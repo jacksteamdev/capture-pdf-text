@@ -7,10 +7,26 @@
       "name": "Jest Tests",
       "program":
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
-      "args": ["styles --runInBand", "--watch"],
-      "preLaunchTask": "build",
-      "internalConsoleOptions": "openOnSessionStart",
-      "outFiles": ["${workspaceRoot}/dist/**/*"]
+      "args": ["--runInBand", "--watch"],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Tests - Blocks",
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["blocks", "--runInBand"],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Tests - matcher",
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["matcher", "--runInBand"],
+      "internalConsoleOptions": "openOnSessionStart"
     }
   ]
 }
