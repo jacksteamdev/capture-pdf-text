@@ -37,7 +37,12 @@ export class Block {
     this.__items = items
   }
 
-  static from (items) {
+  static from () {
+    const items = [arguments].reduce(
+      (r, item) =>
+        item.items ? [...r, ...items] : [...r, item],
+      [],
+    )
     return new Block(items)
   }
 
