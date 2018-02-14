@@ -1,5 +1,6 @@
 import curry from 'lodash/fp/curry'
-import inRange from 'lodash/fp/inRange'
+
+import { checkPropsBy, inRange } from './utils'
 
 /**
  * itemPadding :: a -> number
@@ -46,6 +47,18 @@ const yIsClose = isCloseBy(['bottom', 'top'])
  * areNeighborsBy :: (a -> number) -> a -> a -> Bool
  */
 export const areNeighborsBy = curry((fn, item1, item2) => {
+  const checkProps = checkPropsBy([
+    'left',
+    'right',
+    'bottom',
+    'top',
+    'width',
+    'lineHeight',
+  ])
+
+  checkProps('item1', item1)
+  checkProps('item2', item2)
+
   const search = padItem(fn, item1)
 
   const result =

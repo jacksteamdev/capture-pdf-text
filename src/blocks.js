@@ -1,6 +1,5 @@
 import _ from 'lodash/fp'
 import map from 'lodash/fp/map'
-import inRange from 'lodash/fp/inRange'
 import curry from 'lodash/fp/curry'
 import overEvery from 'lodash/fp/overEvery'
 import sortBy from 'lodash/fp/sortBy'
@@ -11,7 +10,7 @@ import flow from 'lodash/fp/flow'
 import { createTree, getGroups } from './trees'
 import { Block } from './classes'
 import { orderByPosition, orderTTB } from './order-items'
-import { trace, recurse } from './utils'
+import { trace, recurse, inRange } from './utils'
 
 /**
  * isEmpty :: item -> Bool

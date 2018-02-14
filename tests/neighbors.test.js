@@ -4,6 +4,7 @@ import {
   itemPadding,
   padItem,
   isCloseBy,
+  areNeighborsBy,
   areNeighbors,
 } from '../src/neighbors'
 
@@ -184,5 +185,21 @@ describe('areNeighbors', () => {
     expect(areNeighbors(items[1], items[4])).toBe(false)
     expect(areNeighbors(items[1], items[2])).toBe(false)
     expect(areNeighbors(items[4], items[3])).toBe(false)
+  })
+  test('throws error if missing required props', () => {
+    const valid = {
+      left: 1,
+      right: 11,
+      bottom: 1,
+      top: 2,
+      width: 10,
+      lineHeight: 1,
+    }
+    const invalid = {
+      bottom: 2,
+      right: 4,
+    }
+    expect(() => areNeighbors(invalid, valid)).toThrow()
+    expect(() => areNeighbors(valid, invalid)).toThrow()
   })
 })
