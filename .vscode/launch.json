@@ -27,6 +27,15 @@
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
       "args": ["matcher", "--runInBand"],
       "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Tests - neighbors",
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["neighbors", "--runInBand"],
+      "internalConsoleOptions": "openOnSessionStart"
     }
   ]
 }

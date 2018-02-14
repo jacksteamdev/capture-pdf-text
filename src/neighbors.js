@@ -4,8 +4,12 @@ import inRange from 'lodash/fp/inRange'
 /**
  * itemPadding :: a -> number
  */
-export const itemPadding = ({ width, lineHeight }) =>
-  Math.min(width, lineHeight)
+export const itemPadding = ({ width, lineHeight }) => {
+  if (!width || !lineHeight) {
+    throw new Error('item does not contain width or lineHeight')
+  }
+  return Math.min(width, lineHeight)
+}
 
 /**
  * Get object with padded boundary properties
@@ -33,15 +37,22 @@ export const isCloseBy = curry(([lo, hi], range, item) => {
   return result
 })
 
-// const xIsClose = isCloseBy(['left', 'right'])
-// const yIsClose = isCloseBy(['bottom', 'top'])
+const xIsClose = isCloseBy(['left', 'right'])
+const yIsClose = isCloseBy(['bottom', 'top'])
 
 /**
  * Compare two items or blocks to find neighbors.
  *
  * areNeighborsBy :: (a -> number) -> a -> a -> Bool
  */
-export const areNeighborsBy = curry((fn, item1, item2) => {})
+export const areNeighborsBy = curry((fn, item1, item2) => {
+  const search = padItem(fn, item1)
+
+  const result =
+    xIsClose(search, item2) && yIsClose(search, item2)
+
+  return result
+})
 
 /**
  * areNeighbors :: a -> a -> Bool
