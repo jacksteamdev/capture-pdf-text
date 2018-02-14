@@ -1,4 +1,5 @@
 import curry from 'lodash/fp/curry'
+import inRange from 'lodash/fp/inRange'
 
 /**
  * itemPadding :: a -> number
@@ -20,6 +21,20 @@ export const padItem = curry((padFn, item) => {
     top: item.top + pad,
   }
 })
+
+/**
+ * Is one of the item's key values in range?
+ *
+ * isCloseBy :: [string] -> a -> a -> Bool
+ */
+export const isCloseBy = curry(([lo, hi], range, item) => {
+  const isInRange = inRange(range[lo], range[hi])
+  const result = isInRange(item[lo]) || isInRange(item[hi])
+  return result
+})
+
+// const xIsClose = isCloseBy(['left', 'right'])
+// const yIsClose = isCloseBy(['bottom', 'top'])
 
 /**
  * Compare two items or blocks to find neighbors.

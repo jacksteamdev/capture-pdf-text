@@ -3,6 +3,7 @@
 import {
   itemPadding,
   padItem,
+  isCloseBy,
   areNeighbors,
 } from '../src/neighbors'
 
@@ -48,6 +49,23 @@ describe('padItem', () => {
       bottom: 3,
       top: 13,
     })
+  })
+})
+
+describe('isCloseBy', () => {
+  test.only('returns true if item is in range', () => {
+    const keys = ['low', 'high']
+    const item1 = { low: 1, high: 4 }
+    const item2 = { low: 3, high: 4 }
+    const result = isCloseBy(keys, item1, item2)
+    expect(result).toBe(true)
+  })
+  test.only('returns false if item is not in range', () => {
+    const keys = ['low', 'high']
+    const item1 = { low: 1, high: 4 }
+    const item2 = { low: 4, high: 5 }
+    const result = isCloseBy(keys, item1, item2)
+    expect(result).toBe(false)
   })
 })
 

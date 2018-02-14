@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1518624689408" clover="3.2.0">
-  <project timestamp="1518624689408" name="All files">
-    <metrics statements="235" coveredstatements="7" conditionals="152" coveredconditionals="0" methods="132" coveredmethods="3" elements="519" coveredelements="10" complexity="0" loc="235" ncloc="235" packages="1" files="11" classes="11">
+<coverage generated="1518625387799" clover="3.2.0">
+  <project timestamp="1518625387799" name="All files">
+    <metrics statements="239" coveredstatements="8" conditionals="154" coveredconditionals="2" methods="133" coveredmethods="1" elements="526" coveredelements="11" complexity="0" loc="239" ncloc="239" packages="1" files="11" classes="11">
       <file name="apply-options.js" path="/home/jack/Repos/Work/capture-pdf-text/src/apply-options.js">
         <metrics statements="9" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -190,14 +190,18 @@
         <line num="35" count="0" type="stmt"/>
       </file>
       <file name="neighbors.js" path="/home/jack/Repos/Work/capture-pdf-text/src/neighbors.js">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <metrics statements="11" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
       <file name="order-items.js" path="/home/jack/Repos/Work/capture-pdf-text/src/order-items.js">
         <metrics statements="13" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
