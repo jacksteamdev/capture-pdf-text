@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>0/20</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>0/13</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -79,7 +79,7 @@
 34
 35
 36
-37</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+37</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -90,32 +90,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
  * @func    orderByPageAndPosition
  * @desc    Sort items by pageNumber and position on page.
  * @param   {array}     items        - An array of objects with pageNum, top, and left values
@@ -126,14 +126,14 @@
  * @returns {array} - An array of items sorted page by page, top to bottom, left to right.
  */
 &nbsp;
-import orderBy from 'lodash/fp/orderBy'
+import orderBy <span class="cstat-no" title="statement not covered" >from 'lodash/fp/orderBy'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
 &nbsp;
-export const orderByPosition = items =&gt; {
-  const iteratees = ['bottom', 'right']
-  const orders = ['desc', 'asc']
-  const ordered = orderBy(iteratees, orders, items)
+export const orderByPo<span class="cstat-no" title="statement not covered" >sition = items =&gt; {<span class="fstat-no" title="function not covered" ></span></span>
+  const iteratees <span class="cstat-no" title="statement not covered" >= ['bottom', 'right'</span>]
+  const orders <span class="cstat-no" title="statement not covered" >= ['desc', 'asc'</span>]
+  const ordered <span class="cstat-no" title="statement not covered" >= orderBy(iteratees, orders, items)</span>
 &nbsp;
-  return ordered
+<span class="cstat-no" title="statement not covered" >  return ordered</span>
 }
 &nbsp;
 export const orderLTR = items =&gt; {
@@ -143,13 +143,13 @@ export const orderLTR = items =&gt; {
 &nbsp;
   return ordered
 }
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span>
+export const or<span class="cstat-no" title="statement not covered" >derTTB = items =&gt; {<span class="fstat-no" title="function not covered" ></span></span>
+  const iteratee <span class="cstat-no" title="statement not covered" >= 'top</span>'
+  const order <span class="cstat-no" title="statement not covered" >= 'desc</span>'
+  const ordered <span class="cstat-no" title="statement not covered" >= orderBy(iteratee, order, items)</span>
 &nbsp;
-export const orderTTB = items =&gt; {
-  const iteratee = 'top'
-  const order = 'desc'
-  const ordered = orderBy(iteratee, order, items)
-&nbsp;
-  return ordered
+<span class="cstat-no" title="statement not covered" >  return ordered</span>
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -157,7 +157,7 @@ export const orderTTB = items =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 13 2018 14:32:02 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 14 2018 10:11:29 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

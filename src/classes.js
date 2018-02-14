@@ -15,7 +15,7 @@ export class Item {
     this.fontName = fontName
     this.text = str
 
-    this.height = height
+    this.height = this.lineHeight = height
     this.width = width
 
     this.top = bottom + height
