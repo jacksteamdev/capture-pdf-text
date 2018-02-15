@@ -15,13 +15,13 @@ export class Item {
     this.fontName = fontName
     this.text = str
 
-    this.height = this.lineHeight = height
-    this.width = width
+    this.height = this.lineHeight = Math.round(height)
+    this.width = Math.round(width)
+    this.bottom = Math.round(bottom)
+    this.left = Math.round(left)
 
-    this.top = bottom + height
-    this.right = left + width
-    this.bottom = bottom
-    this.left = left
+    this.top = this.bottom + this.height
+    this.right = this.left + this.width
   }
 }
 
@@ -32,18 +32,17 @@ export class Item {
  */
 export class Block {
   constructor (items) {
-    // TODO: Make array property of block
-    // TODO: Adjust this keyword usage
     this.__items = items
   }
 
   static from () {
-    const items = [arguments].reduce(
+    const items = [...arguments].reduce(
       (r, item) =>
-        item.items ? [...r, ...items] : [...r, item],
+        item.items ? [...r, ...item.items] : [...r, item],
       [],
     )
-    return new Block(items)
+    const set = new Set(items)
+    return new Block([...set])
   }
 
   get text () {

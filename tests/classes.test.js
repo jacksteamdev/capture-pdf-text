@@ -16,9 +16,9 @@ describe('Item class', () => {
     expect(result).toHaveProperty('fontName', 'Times')
     expect(result).toHaveProperty('text', 'Hello, world!')
     expect(result).toHaveProperty('height', 12)
-    expect(result).toHaveProperty('width', 64.656)
+    expect(result).toHaveProperty('width', 65)
     expect(result).toHaveProperty('top', 50 + 12)
-    expect(result).toHaveProperty('right', 70 + 64.656)
+    expect(result).toHaveProperty('right', 70 + 65)
     expect(result).toHaveProperty('bottom', 50)
     expect(result).toHaveProperty('left', 70)
   })
@@ -42,6 +42,51 @@ describe('Block class', () => {
     expect(typeof result.lineHeight).toBe('number')
   })
 
+  test('static method from works', () => {
+    const item1 = new Item({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const result = Block.from(item1, item2)
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
+  })
+
+  test('static method from removes duplicates', () => {
+    const item1 = new Item({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const block = Block.from(item1, item2)
+    const result = Block.from(item1, item2, block)
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
+  })
+
   test('items is correctly ordered', () => {
     const data = singleParPDF.pages[0].map(x => new Item(x))
     const [item1, item2, item3] = data
@@ -60,12 +105,12 @@ describe('Block class', () => {
     )
 
     expect(result.top).toBe(736)
-    expect(result.right).toBe(551.7400000000006)
-    expect(result.bottom).toBe(696.4)
-    expect(result.left).toBe(56.8)
-    expect(result.height).toBe(39.60000000000002)
+    expect(result.right).toBe(552)
+    expect(result.bottom).toBe(696)
+    expect(result.left).toBe(57)
+    expect(result.height).toBe(40)
     expect(result.lineHeight).toBe(12)
-    expect(result.width).toBe(494.94000000000057)
+    expect(result.width).toBe(495)
   })
 
   test('setters do nothing', () => {
@@ -88,11 +133,11 @@ describe('Block class', () => {
     )
 
     expect(result.top).toBe(736)
-    expect(result.right).toBe(551.7400000000006)
-    expect(result.bottom).toBe(696.4)
-    expect(result.left).toBe(56.8)
-    expect(result.height).toBe(39.60000000000002)
+    expect(result.right).toBe(552)
+    expect(result.bottom).toBe(696)
+    expect(result.left).toBe(57)
+    expect(result.height).toBe(40)
     expect(result.lineHeight).toBe(12)
-    expect(result.width).toBe(494.94000000000057)
+    expect(result.width).toBe(495)
   })
 })
