@@ -36,6 +36,15 @@
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
       "args": ["neighbors", "--runInBand"],
       "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Tests - classes",
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["classes", "--runInBand"],
+      "internalConsoleOptions": "openOnSessionStart"
     }
   ]
 }

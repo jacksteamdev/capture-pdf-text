@@ -1,11 +1,8 @@
 /* eslint-env jest */
 
-import {
-  objectMatcher,
-  toPredicate,
-  areSameStyleNeighbors,
-} from '../src/matcher'
-import { areNeighbors } from '../src/neighbors'
+import { objectMatcher, toPredicate } from '../src/matcher'
+
+import { sameStyleNeighbors } from '../src/matcher.rules'
 
 import isEqual from 'lodash/fp/isEqual'
 
@@ -37,45 +34,15 @@ describe('objectMatcher', () => {
     const item2 = { height: 13, fontName: 'Times' }
     const item3 = { height: 12, fontName: 'Times' }
     const item4 = { height: 12, fontName: 'Arial' }
-    const areSameStyle = objectMatcher([
+    const partial = objectMatcher([
       {
         height: isEqual,
         fontName: isEqual,
       },
     ])
-    expect(areSameStyle).toBeInstanceOf(Function)
-    expect(areSameStyle(item1, item3)).toBe(true)
-    expect(areSameStyle(item1, item2)).toBe(false)
-    expect(areSameStyle(item1, item4)).toBe(false)
-  })
-  test('matches by mixed comparators', () => {
-    const item1 = { height: 12, fontName: 'Times' }
-    const item2 = { height: 13, fontName: 'Times' }
-    const item3 = { height: 12, fontName: 'Times' }
-    const item4 = { height: 12, fontName: 'Arial' }
-    const item5 = {
-      left: 1,
-      right: 11,
-      bottom: 1,
-      top: 2,
-      width: 10,
-      lineHeight: 1,
-      height: 12,
-      fontName: 'Arial',
-    }
-    const item6 = {
-      left: 2,
-      right: 3,
-      bottom: 3,
-      top: 12,
-      width: 1,
-      lineHeight: 8,
-      height: 12,
-      fontName: 'Arial',
-    }
-
-    expect(areSameStyleNeighbors(item1, item2)).toBe(false)
-    expect(areSameStyleNeighbors(item1, item4)).toBe(false)
-    expect(areSameStyleNeighbors(item5, item6)).toBe(true)
+    expect(partial).toBeInstanceOf(Function)
+    expect(partial(item1, item3)).toBe(true)
+    expect(partial(item1, item2)).toBe(false)
+    expect(partial(item1, item4)).toBe(false)
   })
 })

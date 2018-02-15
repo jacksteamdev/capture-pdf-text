@@ -1,14 +1,10 @@
 import conforms from 'lodash/fp/conforms'
 import curry from 'lodash/fp/curry'
 import isFunction from 'lodash/fp/isFunction'
-import isEqual from 'lodash/fp/isEqual'
 
 // Only lodash/mapValues includes value and key args
 import mapValues from 'lodash/mapValues'
 // import overEvery from 'lodash/overEvery'
-
-import { areNeighbors } from './neighbors'
-import { isClose } from './utils'
 
 /**
  * toPredicate :: a -> (a -> a -> Bool) -> (a -> Bool)
@@ -38,19 +34,3 @@ export const objectMatcher = curry(
     return result
   },
 )
-
-export const areSameStyleNeighbors = objectMatcher([
-  {
-    height: isEqual,
-    fontName: isEqual,
-  },
-  areNeighbors,
-])
-
-export const areSameBlock = objectMatcher([
-  areNeighbors,
-  {
-    left: isClose(1),
-    height: isClose(1),
-  },
-])
