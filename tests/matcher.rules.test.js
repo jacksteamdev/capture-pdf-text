@@ -3,12 +3,13 @@
 import {
   sameStyleNeighbors,
   sameBlock,
+  innerBlock,
 } from '../src/matcher.rules'
 import { objectMatcher } from '../src/matcher'
 
 describe('sameStyleNeighbors', () => {
   test('matches items that have same style and are neighbors', () => {
-    const partial = objectMatcher(sameStyleNeighbors)
+    const partial = objectMatcher(sameStyleNeighbors())
 
     const item1 = { height: 12, fontName: 'Times' }
     const item2 = { height: 13, fontName: 'Times' }
@@ -42,7 +43,7 @@ describe('sameStyleNeighbors', () => {
 
 describe('sameBlock', () => {
   test('match items that are left aligned', () => {
-    const partial = objectMatcher(sameBlock)
+    const partial = objectMatcher(sameBlock(1, 2))
     const item1 = {
       left: 1,
       right: 20,
@@ -75,5 +76,75 @@ describe('sameBlock', () => {
     }
     expect(partial(item1, item2)).toBe(true)
     expect(partial(item1, item3)).toBe(false)
+  })
+})
+
+describe('innerBlock', () => {
+  test('returns true if block is inside', () => {
+    const partial = objectMatcher(innerBlock(0))
+    const item1 = {
+      left: 0,
+      right: 3,
+      bottom: 0,
+      top: 3,
+    }
+    const item2 = {
+      left: 1,
+      right: 2,
+      bottom: 1,
+      top: 2,
+    }
+    expect(partial(item1, item2)).toBe(true)
+  })
+
+  test('returns false if block is outside', () => {
+    const partial = objectMatcher(innerBlock(0))
+    const item1 = {
+      left: 0,
+      right: 3,
+      bottom: 0,
+      top: 3,
+    }
+    const item2 = {
+      left: 3,
+      right: 4,
+      bottom: 3,
+      top: 4,
+    }
+    expect(partial(item1, item2)).toBe(false)
+  })
+
+  test('returns true if block is fully inside on edge', () => {
+    const partial = objectMatcher(innerBlock(0))
+    const item1 = {
+      left: 0,
+      right: 12,
+      bottom: 0,
+      top: 8,
+    }
+    const item2 = {
+      left: 4,
+      right: 8,
+      bottom: 4,
+      top: 8,
+    }
+    expect(partial(item1, item2)).toBe(true)
+  })
+
+  test('returns false if block is partially inside', () => {
+    const partial = objectMatcher(innerBlock(0))
+    const item1 = {
+      left: 0,
+      right: 12,
+      bottom: 0,
+      top: 8,
+    }
+    const item2 = {
+      left: 4,
+      right: 8,
+      bottom: 6,
+      top: 10,
+    }
+    expect(partial(item1, item2)).toBe(false)
   })
 })

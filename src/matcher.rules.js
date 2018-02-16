@@ -1,12 +1,12 @@
 import { areNeighbors } from './neighbors'
-import { isClose } from './utils'
+import { isClose, isLTE, isGTE } from './utils'
 
 import isEqual from 'lodash/fp/isEqual'
 
 /**
  * Match items that are same style and close to each other
  */
-export const sameStyleNeighbors = [
+export const sameStyleNeighbors = () => [
   {
     height: isEqual,
     fontName: isEqual,
@@ -19,10 +19,23 @@ export const sameStyleNeighbors = [
  *   - close to each other, and
  *   - very close lineHeight and left value
  */
-export const sameBlock = [
+export const sameBlock = (leftMargin, lineMargin) => [
   areNeighbors,
   {
-    left: isClose(1),
-    lineHeight: isClose(2),
+    left: isClose(leftMargin),
+    lineHeight: isClose(lineMargin),
+  },
+]
+
+/**
+ * Match blocks that
+ * are inside the first block
+ */
+export const innerBlock = margin => [
+  {
+    left: isLTE(margin),
+    right: isGTE(margin),
+    bottom: isLTE(margin),
+    top: isGTE(margin),
   },
 ]
