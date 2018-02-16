@@ -13,10 +13,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Jest Tests - Blocks",
+      "name": "Jest Tests - recursive",
       "program":
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
-      "args": ["blocks", "--runInBand"],
+      "args": ["recursive", "--runInBand"],
       "internalConsoleOptions": "openOnSessionStart"
     },
     {
