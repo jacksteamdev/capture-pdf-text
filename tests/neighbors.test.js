@@ -8,6 +8,8 @@ import {
   areNeighbors,
 } from '../src/neighbors'
 
+import { Item, Block } from '../src/classes'
+
 describe('itemPadding', () => {
   test('returns padding amount', () => {
     const item = { width: 150, lineHeight: 12 }
@@ -86,7 +88,7 @@ describe('isCloseBy', () => {
   test('returns false if item is not in range', () => {
     const keys = ['low', 'high']
     const item1 = { low: 1, high: 4 }
-    const item2 = { low: 4, high: 5 }
+    const item2 = { low: 5, high: 6 }
     const result = isCloseBy(keys, item1, item2)
     expect(result).toBe(false)
   })
@@ -201,5 +203,60 @@ describe('areNeighbors', () => {
     }
     expect(() => areNeighbors(invalid, valid)).toThrow()
     expect(() => areNeighbors(valid, invalid)).toThrow()
+  })
+  test('real world example 1', () => {
+    const item = {
+      fontName: 'Helvetica',
+      text: 'uras brisas te cruzan también',
+      lineHeight: 12,
+      height: 12,
+      width: 157,
+      bottom: 709,
+      left: 233,
+      top: 721,
+      right: 390,
+    }
+    const block = {
+      fontName: 'Helvetica',
+      text: 'first block',
+      lineHeight: 12,
+      height: 12,
+      width: 157,
+      bottom: 694,
+      left: 54,
+      top: 721,
+      right: 373,
+    }
+    expect(areNeighbors(block, item)).toBe(true)
+  })
+  test('it matches blocks to items', () => {
+    const item1 = new Item({
+      str: 'item1',
+      dir: 'ltr',
+      width: 50,
+      height: 12,
+      transform: [12, 0, 0, 12, 0, 0],
+      fontName: 'Helvetica',
+    })
+    const item2 = new Item({
+      str: 'item2',
+      dir: 'ltr',
+      width: 50,
+      height: 12,
+      transform: [12, 0, 0, 12, 50, 0],
+      fontName: 'Helvetica',
+    })
+    const item3 = new Item({
+      str: 'item3',
+      dir: 'ltr',
+      width: 50,
+      height: 12,
+      transform: [12, 0, 0, 12, 100, 0],
+      fontName: 'Helvetica',
+    })
+
+    const block = Block.from(item1, item2)
+    const result = areNeighbors(block, item3)
+    expect(result).toBe(true)
   })
 })
