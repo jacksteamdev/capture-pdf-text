@@ -6,6 +6,7 @@ import {
   innerBlock,
 } from '../src/matcher.rules'
 import { objectMatcher } from '../src/matcher'
+import { Item, Block } from '../src/classes'
 
 describe('sameStyleNeighbors', () => {
   test('matches items that have same style and are neighbors', () => {
@@ -38,6 +39,38 @@ describe('sameStyleNeighbors', () => {
       fontName: 'Arial',
     }
     expect(partial(item5, item6)).toBe(true)
+  })
+
+  test.only('it matches blocks to items', () => {
+    const item1 = new Item({
+      str: 'item1',
+      dir: 'ltr',
+      width: 50,
+      height: 12,
+      transform: [12, 0, 0, 12, 0, 0],
+      fontName: 'Helvetica',
+    })
+    const item2 = new Item({
+      str: 'item2',
+      dir: 'ltr',
+      width: 50,
+      height: 12,
+      transform: [12, 0, 0, 12, 50, 0],
+      fontName: 'Helvetica',
+    })
+    const item3 = new Item({
+      str: 'item3',
+      dir: 'ltr',
+      width: 50,
+      height: 12,
+      transform: [12, 0, 0, 12, 100, 0],
+      fontName: 'Helvetica',
+    })
+
+    const block = Block.from(item1, item2)
+    const partial = objectMatcher(sameStyleNeighbors())
+    const result = partial(block, item3)
+    expect(result).toBe(true)
   })
 })
 

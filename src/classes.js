@@ -36,11 +36,20 @@ export class Block {
   }
 
   static from () {
-    const items = [...arguments].reduce(
-      (r, item) =>
-        item.items ? [...r, ...item.items] : [...r, item],
-      [],
-    )
+    const items = [...arguments].reduce((r, item) => {
+      switch (item.constructor) {
+        case Block:
+          return [...r, ...item.items]
+        case Item:
+          return [...r, item]
+        default:
+          throw new Error(
+            `Block.from: invalid input type (${
+              item.constructor.name
+            })`,
+          )
+      }
+    }, [])
     const set = new Set(items)
     return new Block([...set])
   }
@@ -121,6 +130,27 @@ export class Block {
     return mostFrequentHeight
   }
   set lineHeight (n) {
+    return undefined
+  }
+
+  // fontName = most common item height
+  get fontName () {
+    const fontNameByFrequency = [
+      ...this.items.reduce((map, { fontName }) => {
+        const instances = map.get(fontName) || 0
+        return map.set(fontName, instances + 1)
+      }, new Map()),
+    ].map(([fontName, frequency]) => ({ fontName, frequency }))
+
+    const mostFrequentFontName = orderBy(
+      'frequency',
+      'desc',
+      fontNameByFrequency,
+    )[0].fontName
+
+    return mostFrequentFontName
+  }
+  set fontName (n) {
     return undefined
   }
 
