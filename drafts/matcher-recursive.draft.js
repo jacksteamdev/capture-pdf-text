@@ -1,7 +1,3 @@
-*** WE HAVE TOO update Block.from
-to eliminate duplicates ***
-
-
 const recurseIntoBlocks = curry((rules, items) => {
   /**
    * makeBlocks ::
@@ -49,7 +45,10 @@ const makeBlockWith = rules => {
       const resultBlock = Block.from(block, filteredItems)
       const leftOverItems = without(items, filteredItems)
 
-      return recurse({ items: leftOverItems, block: resultBlock })
+      return recurse({
+        items: leftOverItems,
+        block: resultBlock,
+      })
     }
   }
 
