@@ -31,6 +31,15 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Jest Tests - rules",
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["rules", "--runInBand"],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Jest Tests - neighbors",
       "program":
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
