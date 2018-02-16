@@ -27,10 +27,8 @@ export const toPredicate = curry(
  * @param {object} item1 First object for comparison
  * @param {object} item2 Second object for comparison
  */
-export const objectMatcher = curry(
-  (comparators, item1, item2) => {
-    const predicates = comparators.map(toPredicate(item1))
-    const result = predicates.every(p => p(item2))
-    return result
-  },
-)
+export const objectMatcher = curry((rules, item1, item2) => {
+  const predicates = rules.map(toPredicate(item1))
+  const result = predicates.every(p => p(item2))
+  return result
+})

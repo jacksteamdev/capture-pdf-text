@@ -2,8 +2,6 @@
 
 import { objectMatcher, toPredicate } from '../src/matcher'
 
-import { sameStyleNeighbors } from '../src/matcher.rules'
-
 import isEqual from 'lodash/fp/isEqual'
 
 describe('toPredicate', () => {
