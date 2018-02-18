@@ -8,7 +8,7 @@ import isEqual from 'lodash/fp/isEqual'
  */
 export const sameStyleNeighbors = () => [
   {
-    height: isEqual,
+    lineHeight: isEqual,
     fontName: isEqual,
   },
   areNeighbors,

@@ -43,4 +43,5 @@ describe('objectMatcher', () => {
     expect(partial(item1, item2)).toBe(false)
     expect(partial(item1, item4)).toBe(false)
   })
+  // test('filters items by block', () => {})
 })

@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/19</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>7/7</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -77,23 +77,7 @@
 32
 33
 34
-35</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+35</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,30 +88,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1526x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1526x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import confor<span class="cstat-no" title="statement not covered" >ms from 'lodash/fp/conforms'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
-import curry <span class="cstat-no" title="statement not covered" >from 'lodash/fp/curry'<span class="cstat-no" title="statement not covered" ></span></span>
-import isFunction <span class="cstat-no" title="statement not covered" >from 'lodash/fp/isFunction'<span class="cstat-no" title="statement not covered" ></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">763x</span>
+<span class="cline-any cline-yes">1526x</span>
+<span class="cline-any cline-yes">763x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import conforms from 'lodash/fp/conforms'
+import curry from 'lodash/fp/curry'
+import isFunction from 'lodash/fp/isFunction'
 &nbsp;
 // Only lodash/mapValues includes value and key args
-import mapValues <span class="cstat-no" title="statement not covered" >from 'lodash/mapValues'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+import mapValues from 'lodash/mapValues'
 // import overEvery from 'lodash/overEvery'
 &nbsp;
 /**
  * toPredicate :: a -&gt; (a -&gt; a -&gt; Bool) -&gt; (a -&gt; Bool)
  */
-export const toPre<span class="cstat-no" title="statement not covered" >dicate = curry(</span>
-<span class="fstat-no" title="function not covered" ></span>  (item, comparator) =&gt;<span class="cstat-no" title="statement not covered" ></span>
+export const toPredicate = curry(
+  (item, comparator) =&gt;
     isFunction(comparator)
       ? comparator(item)
       : conforms(
-        mapValues(comparator, (fn, key) =<span class="fstat-no" title="function not covered" >&gt; </span>fn(item[key])),<span class="cstat-no" title="statement not covered" ></span>
+        mapValues(comparator, (fn, key) =&gt; fn(item[key])),
       ),
 )
 &nbsp;
@@ -140,10 +140,10 @@ export const toPre<span class="cstat-no" title="statement not covered" >dicate =
  * @param {object} item1 First object for comparison
  * @param {object} item2 Second object for comparison
  */
-export const objectM<span class="cstat-no" title="statement not covered" >atcher = curry((rules, item1, item2) =&gt; {<span class="fstat-no" title="function not covered" ></span></span>
-  const predicates <span class="cstat-no" title="statement not covered" >= rules.map(toPredicate(item1)</span>)
-  const result <span class="cstat-no" title="statement not covered" >= predicates.ever<span class="fstat-no" title="function not covered" >y(</span>p =&gt; p(item2<span class="cstat-no" title="statement not covered" >))</span></span>
-<span class="cstat-no" title="statement not covered" >  return result</span>
+export const objectMatcher = curry((rules, item1, item2) =&gt; {
+  const predicates = rules.map(toPredicate(item1))
+  const result = predicates.every(p =&gt; p(item2))
+  return result
 })
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -151,7 +151,7 @@ export const objectM<span class="cstat-no" title="statement not covered" >atcher
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Feb 18 2018 08:57:00 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Feb 18 2018 09:30:35 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

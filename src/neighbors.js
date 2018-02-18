@@ -42,7 +42,6 @@ export const areNeighbors = curry((item1, item2) => {
     'right',
     'bottom',
     'top',
-    'width',
     'lineHeight',
   ])
 
