@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.16% </span>
+        <span class="strong">84.21% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/19</span>
+        <span class='fraction'>16/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/8</span>
+        <span class='fraction'>6/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/18</span>
+        <span class='fraction'>16/18</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -77,33 +77,33 @@
 32
 33</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1526x</span>
-<span class="cline-any cline-yes">7630x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2159x</span>
+<span class="cline-any cline-yes">10795x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1526x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2036x</span>
-<span class="cline-any cline-yes">2036x</span>
-<span class="cline-any cline-yes">2036x</span>
+<span class="cline-any cline-yes">2159x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2896x</span>
+<span class="cline-any cline-yes">2896x</span>
+<span class="cline-any cline-yes">2896x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,8 +113,8 @@ export const checkPropsBy = curry((keys, label, item) =&gt; {
   const missing = keys
     .filter(key =&gt; item[key] === undefined)
     .join(', ')
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (missing) {
-<span class="cstat-no" title="statement not covered" >    throw new Error(`${label} does not contain ${missing}`)</span>
+  if (missing) {
+    throw new Error(`${label} does not contain ${missing}`)
   }
 })
 &nbsp;
@@ -124,15 +124,15 @@ export const inRange = curry((start, end, num) =&gt; {
   return low &lt;= num &amp;&amp; num &lt;= high
 })
 &nbsp;
-export const isClose = curry(<span class="fstat-no" title="function not covered" >(m</span>argin, num1, num2) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return inRange(num1 + margin, num1 - margin, num2)</span>
+export const isClose = curry((margin, num1, num2) =&gt; {
+  return inRange(num1 + margin, num1 - margin, num2)
 })
 &nbsp;
-export const isLTE = curry(<span class="fstat-no" title="function not covered" >(m</span>argin, num1, num2) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return num1 + margin &lt;= num2</span>
+export const isLTE = curry((margin, num1, num2) =&gt; {
+  return num1 + margin &lt;= num2
 })
-export const isGTE = curry(<span class="fstat-no" title="function not covered" >(m</span>argin, num1, num2) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return num1 - margin &gt;= num2</span>
+export const isGTE = curry((margin, num1, num2) =&gt; {
+  return num1 - margin &gt;= num2
 })
 &nbsp;
 export const trace = <span class="fstat-no" title="function not covered" >la</span>bel =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >x </span>=&gt; {</span>
@@ -145,7 +145,7 @@ export const trace = <span class="fstat-no" title="function not covered" >la</sp
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Feb 18 2018 09:30:35 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Feb 18 2018 10:11:02 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

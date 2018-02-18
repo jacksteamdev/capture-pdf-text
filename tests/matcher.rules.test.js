@@ -12,9 +12,9 @@ describe('sameStyleNeighbors', () => {
   test('matches items that have same style and are neighbors', () => {
     const partial = objectMatcher(sameStyleNeighbors())
 
-    const item1 = { height: 12, fontName: 'Times' }
-    const item2 = { height: 13, fontName: 'Times' }
-    const item4 = { height: 12, fontName: 'Arial' }
+    const item1 = { lineHeight: 12, fontName: 'Times' }
+    const item2 = { lineHeight: 13, fontName: 'Times' }
+    const item4 = { lineHeight: 12, fontName: 'Arial' }
     expect(partial(item1, item2)).toBe(false)
     expect(partial(item1, item4)).toBe(false)
 
@@ -24,7 +24,7 @@ describe('sameStyleNeighbors', () => {
       bottom: 1,
       top: 2,
       width: 10,
-      lineHeight: 1,
+      lineHeight: 12,
       height: 12,
       fontName: 'Arial',
     }
@@ -34,14 +34,14 @@ describe('sameStyleNeighbors', () => {
       bottom: 3,
       top: 12,
       width: 1,
-      lineHeight: 8,
+      lineHeight: 12,
       height: 12,
       fontName: 'Arial',
     }
     expect(partial(item5, item6)).toBe(true)
   })
 
-  test.only('it matches blocks to items', () => {
+  test('it matches blocks to items', () => {
     const item1 = new Item({
       str: 'item1',
       dir: 'ltr',

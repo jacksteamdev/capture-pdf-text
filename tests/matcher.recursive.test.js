@@ -37,7 +37,7 @@ describe('makeBlocks', () => {
     expect(result).toContainEqual(Block.from(items[0]))
   })
 
-  test.only('makes five paragraphs', () => {
+  test('makes five paragraphs', () => {
     const items = multiParagraph.pages[0].map(
       item => new Item(item),
     )
