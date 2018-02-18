@@ -24,24 +24,7 @@ describe('Item class', () => {
   })
 })
 
-describe('Block class', () => {
-  test('Constructor works', () => {
-    const data = singleParPDF.pages[0].map(x => new Item(x))
-    const result = new Block(data)
-
-    expect(result).toBeInstanceOf(Block)
-
-    expect(result.items).toBeInstanceOf(Array)
-    expect(result.__items).toBeInstanceOf(Array)
-
-    expect(typeof result.text).toBe('string')
-    expect(typeof result.left).toBe('number')
-    expect(typeof result.right).toBe('number')
-    expect(typeof result.bottom).toBe('number')
-    expect(typeof result.top).toBe('number')
-    expect(typeof result.lineHeight).toBe('number')
-  })
-
+describe('Block.from', () => {
   test('static method from works', () => {
     const item1 = new Item({
       str: 'Hello, Amy!',
@@ -86,58 +69,41 @@ describe('Block class', () => {
     expect(result).toBeInstanceOf(Block)
     expect(result.items.length).toBe(2)
   })
+})
 
-  test('items is correctly ordered', () => {
+describe('Block class', () => {
+  test('Constructor works', () => {
+    const data = singleParPDF.pages[0].map(x => new Item(x))
+    const result = new Block(data)
+
+    expect(result).toBeInstanceOf(Block)
+
+    expect(result.items).toBeInstanceOf(Array)
+
+    expect(typeof result.text).toBe('string')
+    expect(typeof result.left).toBe('number')
+    expect(typeof result.right).toBe('number')
+    expect(typeof result.bottom).toBe('number')
+    expect(typeof result.top).toBe('number')
+    expect(typeof result.lineHeight).toBe('number')
+
+    expect(result.text).toBe(
+      'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
+    )
+    expect(result.top).toBe(736)
+    expect(result.right).toBe(552)
+    expect(result.bottom).toBe(696)
+    expect(result.left).toBe(57)
+    expect(result.height).toBe(40)
+    expect(result.lineHeight).toBe(12)
+    expect(result.width).toBe(495)
+  })
+
+  test('items are correctly ordered', () => {
     const data = singleParPDF.pages[0].map(x => new Item(x))
     const [item1, item2, item3] = data
     const block = new Block([item3, item1, item2])
     const result = block.items
-
     expect(result).toEqual(data)
-  })
-
-  test('getters return correct values', () => {
-    const data = singleParPDF.pages[0].map(x => new Item(x))
-    const result = new Block(data)
-
-    expect(result.text).toBe(
-      'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
-    )
-
-    expect(result.top).toBe(736)
-    expect(result.right).toBe(552)
-    expect(result.bottom).toBe(696)
-    expect(result.left).toBe(57)
-    expect(result.height).toBe(40)
-    expect(result.lineHeight).toBe(12)
-    expect(result.width).toBe(495)
-  })
-
-  test('setters do nothing', () => {
-    const data = singleParPDF.pages[0].map(x => new Item(x))
-    const result = new Block(data)
-
-    result.items = []
-    result.text = 'Whatever I want'
-    result.top = 900
-    result.right = 900
-    result.bottom = 900
-    result.left = 900
-    result.height = 900
-    result.lineHeight = 900
-    result.width = 900
-
-    expect(result.items.length).not.toBe(0)
-    expect(result.text).toBe(
-      'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
-    )
-
-    expect(result.top).toBe(736)
-    expect(result.right).toBe(552)
-    expect(result.bottom).toBe(696)
-    expect(result.left).toBe(57)
-    expect(result.height).toBe(40)
-    expect(result.lineHeight).toBe(12)
-    expect(result.width).toBe(495)
   })
 })

@@ -32,7 +32,29 @@ export class Item {
  */
 export class Block {
   constructor (items) {
-    this.__items = items
+    this.items = orderByPosition(items)
+
+    this.text = this.items
+      .reduce((r, i, n) => `${r} ${i.text.trim()}`, '')
+      .trim()
+    this.top = this.items.reduce(
+      (r, { top }) => Math.max(r, top),
+      0,
+    )
+    this.right = this.items.reduce(
+      (r, { right }) => Math.max(r, right),
+      0,
+    )
+    this.bottom = this.items.reduce(
+      (r, { bottom }) => Math.min(r, bottom),
+      Infinity,
+    )
+    this.left = this.items.reduce(
+      (r, { left }) => Math.min(r, left),
+      Infinity,
+    )
+    this.height = this.top - this.bottom
+    this.width = this.right - this.left
   }
 
   static from () {
@@ -52,64 +74,6 @@ export class Block {
     }, [])
     const set = new Set(items)
     return new Block([...set])
-  }
-
-  get text () {
-    return this.items
-      .reduce((r, i, n) => `${r} ${i.text.trim()}`, '')
-      .trim()
-  }
-  set text (t) {
-    return undefined
-  }
-
-  // this.items.top = bottom + height
-  get top () {
-    return this.items.reduce((r, { top }) => Math.max(r, top), 0)
-  }
-  set top (n) {
-    return undefined
-  }
-
-  // this.items.right = left + width
-  get right () {
-    return this.items.reduce(
-      (r, { right }) => Math.max(r, right),
-      0,
-    )
-  }
-  set right (n) {
-    return undefined
-  }
-
-  // this.items.bottom = bottom
-  get bottom () {
-    return this.items.reduce(
-      (r, { bottom }) => Math.min(r, bottom),
-      Infinity,
-    )
-  }
-  set bottom (n) {
-    return undefined
-  }
-
-  // this.items.left = left
-  get left () {
-    return this.items.reduce(
-      (r, { left }) => Math.min(r, left),
-      Infinity,
-    )
-  }
-  set left (n) {
-    return undefined
-  }
-
-  // Add getters for dimensions
-  get height () {
-    return this.top - this.bottom
-  }
-  set height (n) {
-    return undefined
   }
 
   // lineHeight = most common item height
@@ -151,22 +115,6 @@ export class Block {
     return mostFrequentFontName
   }
   set fontName (n) {
-    return undefined
-  }
-
-  // this.width = width
-  get width () {
-    return this.right - this.left
-  }
-  set width (n) {
-    return undefined
-  }
-
-  get items () {
-    const ordered = orderByPosition(this.__items)
-    return ordered
-  }
-  set items (x) {
     return undefined
   }
 }
