@@ -8,6 +8,8 @@ export { loadDocument } from './load-document'
 
 /**
  * Load a PDF for text extraction.
+ * configureLoader :: PDFJS -> {workerUrl:string, verbosity:number} ->
+ *   Promise[[url|Uint8Array] -> (number -> {height:number, width:number, items:[item]})]
  * @param {PDFJS} PDFJS - PDFJS from pdfjs-dist, which pollutes the global scope when imported
  * @param {string|Uint8Array} data - PDF url or Uint8Array containing the PDF data
  * @param {[Object]} options - Options to configure PDFJS:
@@ -32,6 +34,7 @@ export const configureLoader = (PDFJS, options) => {
 
 /**
  * Returns groups of text items by selection ranges
+ * groupTextItems :: [item] -> {selection: [[number]]} -> (() -> [item])
  * @param {Item[]} allItems - All Items on page
  * @param {Object} param1 - Object with selection property
  * @param {Number[]} param1.selection - Number pairs representing x and y ranges,
