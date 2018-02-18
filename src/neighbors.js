@@ -3,29 +3,19 @@ import curry from 'lodash/fp/curry'
 import { checkPropsBy, inRange } from './utils'
 
 /**
- * itemPadding :: a -> number
- */
-export const itemPadding = ({ width, lineHeight }) => {
-  if (!width || !lineHeight) {
-    throw new Error('item does not contain width or lineHeight')
-  }
-  return Math.min(width, lineHeight)
-}
-
-/**
  * Get object with padded boundary properties
  *
  * padItemBy :: (a -> number) -> a -> {left, right, bottom, top}
  */
-export const padItem = curry((padFn, item) => {
-  const pad = padFn(item)
+export const padItem = item => {
+  const pad = item.lineHeight
   return {
     left: item.left - pad,
     right: item.right + pad,
     bottom: item.bottom - pad,
     top: item.top + pad,
   }
-})
+}
 
 /**
  * Is one of the item's key values in range?
@@ -44,9 +34,9 @@ const yIsClose = isCloseBy(['bottom', 'top'])
 /**
  * Compare two items or blocks to find neighbors.
  *
- * areNeighborsBy :: (a -> number) -> a -> a -> Bool
+ * areNeighbors :: a -> a -> Bool
  */
-export const areNeighborsBy = curry((fn, item1, item2) => {
+export const areNeighbors = curry((item1, item2) => {
   const checkProps = checkPropsBy([
     'left',
     'right',
@@ -59,15 +49,10 @@ export const areNeighborsBy = curry((fn, item1, item2) => {
   checkProps('item1', item1)
   checkProps('item2', item2)
 
-  const search = padItem(fn, item1)
+  const search = padItem(item1)
 
   const result =
     xIsClose(search, item2) && yIsClose(search, item2)
 
   return result
 })
-
-/**
- * areNeighbors :: a -> a -> Bool
- */
-export const areNeighbors = areNeighborsBy(itemPadding)

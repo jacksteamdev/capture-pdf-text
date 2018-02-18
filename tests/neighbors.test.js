@@ -1,44 +1,12 @@
 /* eslint-env jest */
 
 import {
-  itemPadding,
   padItem,
   isCloseBy,
-  areNeighborsBy,
   areNeighbors,
 } from '../src/neighbors'
 
 import { Item, Block } from '../src/classes'
-
-describe('itemPadding', () => {
-  test('returns padding amount', () => {
-    const item = { width: 150, lineHeight: 12 }
-    const result = itemPadding(item)
-    expect(result).toBe(12)
-  })
-  test('throws error if missing width or lineHeight', () => {
-    const item1 = {
-      bottom: 2,
-      top: 4,
-      left: 2,
-      right: 4,
-      lineHeight: 2,
-    }
-    const item2 = {
-      bottom: 2,
-      top: 4,
-      left: 2,
-      right: 4,
-      width: 2,
-    }
-    expect(() => itemPadding(item1)).toThrow(
-      'item does not contain width or lineHeight',
-    )
-    expect(() => itemPadding(item2)).toThrow(
-      'item does not contain width or lineHeight',
-    )
-  })
-})
 
 describe('padItem', () => {
   test('expands item boundries', () => {
@@ -50,29 +18,12 @@ describe('padItem', () => {
       width: 10,
       lineHeight: 1,
     }
-    const item2 = {
-      left: 2,
-      right: 3,
-      bottom: 4,
-      top: 12,
-      width: 1,
-      lineHeight: 8,
-    }
-    const partial = padItem(itemPadding)
-    expect(partial).toBeInstanceOf(Function)
-    const result1 = partial(item1)
+    const result1 = padItem(item1)
     expect(result1).toEqual({
       left: 0,
       right: 12,
       bottom: 0,
       top: 3,
-    })
-    const result2 = partial(item2)
-    expect(result2).toEqual({
-      left: 1,
-      right: 4,
-      bottom: 3,
-      top: 13,
     })
   })
 })
