@@ -1,11 +1,15 @@
 import { makeBlocks } from './matcher.recursive'
+import { Block } from './classes'
 import {
+  sameLine,
   sameStyleNeighbors,
   sameBlock,
   innerBlock,
 } from './matcher.rules'
 
 import flow from 'lodash/fp/flow'
+import reject from 'lodash/fp/reject'
+import get from 'lodash/fp/get'
 export { loadDocument } from './load-document'
 
 /**
@@ -18,14 +22,17 @@ export { loadDocument } from './load-document'
  *                                      [left, right, bottom, top]
  */
 export const parseTextItems = items => {
-  // const getNeighbors = makeBlocks(sameStyleNeighbors())
-  // const joinBlocks = makeBlocks(sameBlock(2, 3))
-  // const absorbeBlocks = makeBlocks(innerBlock(1))
+  const emptyItem = ({ text }) => !text.trim()
 
   const result = flow(
+    makeBlocks(sameLine()),
+    reject(emptyItem),
+    Block.from,
+    get('items'),
     makeBlocks(sameStyleNeighbors()),
     makeBlocks(sameBlock(2, 3)),
     makeBlocks(innerBlock(1)),
+    reject(emptyItem),
   )
 
   return result(items)

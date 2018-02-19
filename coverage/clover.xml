@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1519053301436" clover="3.2.0">
-  <project timestamp="1519053301436" name="All files">
-    <metrics statements="150" coveredstatements="110" conditionals="34" coveredconditionals="20" methods="48" coveredmethods="37" elements="232" coveredelements="167" complexity="0" loc="150" ncloc="150" packages="1" files="11" classes="11">
+<coverage generated="1519059552769" clover="3.2.0">
+  <project timestamp="1519059552769" name="All files">
+    <metrics statements="152" coveredstatements="112" conditionals="34" coveredconditionals="20" methods="50" coveredmethods="39" elements="236" coveredelements="171" complexity="0" loc="152" ncloc="152" packages="1" files="11" classes="11">
       <file name="apply-options.js" path="/home/jack/Repos/Work/capture-pdf-text/src/apply-options.js">
         <metrics statements="9" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -16,50 +16,50 @@
       </file>
       <file name="classes.js" path="/home/jack/Repos/Work/capture-pdf-text/src/classes.js">
         <metrics statements="44" coveredstatements="41" conditionals="7" coveredconditionals="6" methods="17" coveredmethods="15"/>
-        <line num="12" count="10" type="stmt"/>
-        <line num="13" count="10" type="stmt"/>
-        <line num="15" count="10" type="stmt"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
-        <line num="19" count="10" type="stmt"/>
-        <line num="20" count="10" type="stmt"/>
-        <line num="21" count="10" type="stmt"/>
-        <line num="23" count="10" type="stmt"/>
-        <line num="24" count="10" type="stmt"/>
-        <line num="35" count="22" type="stmt"/>
-        <line num="37" count="22" type="stmt"/>
-        <line num="38" count="44" type="stmt"/>
-        <line num="40" count="22" type="stmt"/>
-        <line num="41" count="44" type="stmt"/>
-        <line num="44" count="22" type="stmt"/>
-        <line num="45" count="44" type="stmt"/>
-        <line num="48" count="22" type="stmt"/>
-        <line num="49" count="44" type="stmt"/>
-        <line num="52" count="22" type="stmt"/>
-        <line num="53" count="44" type="stmt"/>
-        <line num="56" count="22" type="stmt"/>
-        <line num="57" count="22" type="stmt"/>
-        <line num="61" count="22" type="stmt"/>
-        <line num="62" count="27" type="cond" truecount="2" falsecount="1"/>
-        <line num="64" count="17" type="stmt"/>
-        <line num="66" count="10" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="75" count="22" type="stmt"/>
-        <line num="76" count="22" type="stmt"/>
-        <line num="81" count="113" type="stmt"/>
-        <line num="83" count="208" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="208" type="stmt"/>
-        <line num="86" count="128" type="stmt"/>
-        <line num="88" count="113" type="stmt"/>
-        <line num="94" count="113" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="102" count="13" type="stmt"/>
-        <line num="104" count="32" type="cond" truecount="2" falsecount="0"/>
-        <line num="105" count="32" type="stmt"/>
-        <line num="107" count="13" type="stmt"/>
-        <line num="109" count="13" type="stmt"/>
-        <line num="115" count="13" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
+        <line num="13" count="281" type="stmt"/>
+        <line num="14" count="281" type="stmt"/>
+        <line num="16" count="281" type="stmt"/>
+        <line num="17" count="281" type="stmt"/>
+        <line num="19" count="281" type="stmt"/>
+        <line num="20" count="281" type="stmt"/>
+        <line num="21" count="281" type="stmt"/>
+        <line num="22" count="281" type="stmt"/>
+        <line num="24" count="281" type="stmt"/>
+        <line num="25" count="281" type="stmt"/>
+        <line num="36" count="312" type="stmt"/>
+        <line num="38" count="312" type="stmt"/>
+        <line num="39" count="3707" type="stmt"/>
+        <line num="41" count="312" type="stmt"/>
+        <line num="42" count="3707" type="stmt"/>
+        <line num="45" count="312" type="stmt"/>
+        <line num="46" count="3707" type="stmt"/>
+        <line num="49" count="312" type="stmt"/>
+        <line num="50" count="3707" type="stmt"/>
+        <line num="53" count="312" type="stmt"/>
+        <line num="54" count="3707" type="stmt"/>
+        <line num="57" count="312" type="stmt"/>
+        <line num="58" count="312" type="stmt"/>
+        <line num="62" count="312" type="stmt"/>
+        <line num="63" count="831" type="cond" truecount="2" falsecount="1"/>
+        <line num="65" count="277" type="stmt"/>
+        <line num="67" count="554" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="76" count="312" type="stmt"/>
+        <line num="77" count="312" type="stmt"/>
+        <line num="82" count="34166" type="stmt"/>
+        <line num="84" count="512840" type="cond" truecount="2" falsecount="0"/>
+        <line num="85" count="512840" type="stmt"/>
+        <line num="87" count="34550" type="stmt"/>
+        <line num="89" count="34166" type="stmt"/>
+        <line num="95" count="34166" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="103" count="17974" type="stmt"/>
+        <line num="105" count="280184" type="cond" truecount="2" falsecount="0"/>
+        <line num="106" count="280184" type="stmt"/>
+        <line num="108" count="17974" type="stmt"/>
+        <line num="110" count="17974" type="stmt"/>
+        <line num="116" count="17974" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
       </file>
       <file name="load-document.js" path="/home/jack/Repos/Work/capture-pdf-text/src/load-document.js">
         <metrics statements="16" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -81,72 +81,74 @@
         <line num="50" count="0" type="stmt"/>
       </file>
       <file name="main.js" path="/home/jack/Repos/Work/capture-pdf-text/src/main.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="80" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
       </file>
       <file name="matcher.js" path="/home/jack/Repos/Work/capture-pdf-text/src/matcher.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="14" count="142" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="172" type="stmt"/>
+        <line num="14" count="63365" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="78530" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="31" count="76" type="stmt"/>
-        <line num="32" count="94" type="stmt"/>
-        <line num="33" count="76" type="stmt"/>
+        <line num="31" count="38914" type="stmt"/>
+        <line num="32" count="46842" type="stmt"/>
+        <line num="33" count="38914" type="stmt"/>
       </file>
       <file name="matcher.recursive.js" path="/home/jack/Repos/Work/capture-pdf-text/src/matcher.recursive.js">
         <metrics statements="16" coveredstatements="16" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="16" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="20" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="20" count="17" type="stmt"/>
-        <line num="21" count="17" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="16" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="146" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="142" type="stmt"/>
+        <line num="21" count="142" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="40" count="22" type="stmt"/>
-        <line num="42" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="17" type="stmt"/>
-        <line num="45" count="5" type="stmt"/>
-        <line num="52" count="3" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="311" type="stmt"/>
+        <line num="42" count="311" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="142" type="stmt"/>
+        <line num="45" count="169" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
       </file>
       <file name="matcher.rules.js" path="/home/jack/Repos/Work/capture-pdf-text/src/matcher.rules.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
       </file>
       <file name="neighbors.js" path="/home/jack/Repos/Work/capture-pdf-text/src/neighbors.js">
         <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="37" type="stmt"/>
-        <line num="12" count="37" type="stmt"/>
+        <line num="11" count="8485" type="stmt"/>
+        <line num="12" count="8485" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="26" count="64" type="stmt"/>
-        <line num="27" count="64" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="64" type="stmt"/>
+        <line num="26" count="12819" type="stmt"/>
+        <line num="27" count="12819" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="12819" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="40" count="37" type="stmt"/>
-        <line num="48" count="37" type="stmt"/>
-        <line num="49" count="37" type="stmt"/>
-        <line num="51" count="37" type="stmt"/>
-        <line num="54" count="37" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="37" type="stmt"/>
+        <line num="40" count="8485" type="stmt"/>
+        <line num="48" count="8485" type="stmt"/>
+        <line num="49" count="8485" type="stmt"/>
+        <line num="51" count="8485" type="stmt"/>
+        <line num="54" count="8485" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="8485" type="stmt"/>
       </file>
       <file name="order-items.js" path="/home/jack/Repos/Work/capture-pdf-text/src/order-items.js">
         <metrics statements="15" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="22" type="stmt"/>
-        <line num="16" count="22" type="stmt"/>
-        <line num="17" count="22" type="stmt"/>
-        <line num="19" count="22" type="stmt"/>
+        <line num="15" count="312" type="stmt"/>
+        <line num="16" count="312" type="stmt"/>
+        <line num="17" count="312" type="stmt"/>
+        <line num="19" count="312" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
@@ -167,20 +169,20 @@
       <file name="utils.js" path="/home/jack/Repos/Work/capture-pdf-text/src/utils.js">
         <metrics statements="18" coveredstatements="15" conditionals="4" coveredconditionals="3" methods="8" coveredmethods="6"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="74" type="stmt"/>
-        <line num="5" count="370" type="stmt"/>
-        <line num="7" count="74" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="16970" type="stmt"/>
+        <line num="5" count="84850" type="stmt"/>
+        <line num="7" count="16970" type="cond" truecount="1" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="109" type="stmt"/>
-        <line num="14" count="109" type="stmt"/>
-        <line num="15" count="109" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="21490" type="stmt"/>
+        <line num="14" count="21490" type="stmt"/>
+        <line num="15" count="21490" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
+        <line num="19" count="76" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
+        <line num="23" count="330" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="26" count="10" type="stmt"/>
+        <line num="26" count="352" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>

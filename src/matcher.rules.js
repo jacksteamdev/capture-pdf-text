@@ -3,6 +3,13 @@ import { isClose, isLTE, isGTE } from './utils'
 
 import isEqual from 'lodash/fp/isEqual'
 
+export const sameLine = () => [
+  {
+    top: isEqual,
+    bottom: isEqual,
+  },
+]
+
 /**
  * Match items that are same style and close to each other
  */

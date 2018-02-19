@@ -1,5 +1,6 @@
 import { orderByPosition } from './order-items'
 import orderBy from 'lodash/fp/orderBy'
+import flatten from 'lodash/fp/flatten'
 
 /**
  * An Item instance maps some properties of an text item from PDFJS
@@ -58,7 +59,7 @@ export class Block {
   }
 
   static from () {
-    const items = [...arguments].reduce((r, item) => {
+    const items = flatten([...arguments]).reduce((r, item) => {
       switch (item.constructor) {
         case Block:
           return [...r, ...item.items]
