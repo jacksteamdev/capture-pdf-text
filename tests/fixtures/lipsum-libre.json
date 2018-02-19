@@ -1,0 +1,91 @@
+{
+  "pages": [
+    [
+      {
+        "str": "Group discussion: ",
+        "dir": "ltr",
+        "width": 91,
+        "height": 10,
+        "transform": [10, 0, 0, 10, 56.8, 719.7],
+        "fontName": "g_d2_f2"
+      },
+      {
+        "str":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ",
+        "dir": "ltr",
+        "width": 383.0520000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 147.9, 719.7],
+        "fontName": "g_d2_f7"
+      },
+      {
+        "str":
+          "tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum ",
+        "dir": "ltr",
+        "width": 440.9520000000004,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 56.8, 703.9],
+        "fontName": "g_d2_f7"
+      },
+      {
+        "str":
+          "suspendisse ultrices. Quis imperdiet massa tincidunt.",
+        "dir": "ltr",
+        "width": 281.7480000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 56.8, 688],
+        "fontName": "g_d2_f7"
+      },
+      {
+        "str": "➢",
+        "dir": "ltr",
+        "width": 9.540000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 74.8, 663.6],
+        "fontName": "g_d2_f11"
+      },
+      {
+        "str": "Answers",
+        "dir": "ltr",
+        "width": 45.96000000000001,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 92.8, 663.6],
+        "fontName": "g_d2_f7"
+      },
+      {
+        "str": "This is a title",
+        "dir": "ltr",
+        "width": 108.882,
+        "height": 18,
+        "transform": [18, 0, 0, 18, 56.8, 630.5],
+        "fontName": "g_d2_f2"
+      },
+      {
+        "str": "Review with students.",
+        "dir": "ltr",
+        "width": 104.37000000000002,
+        "height": 10,
+        "transform": [10, 0, 0, 10, 56.8, 604],
+        "fontName": "g_d2_f2"
+      },
+      {
+        "str":
+          " Sapien faucibus et molestie ac feugiat sed lectus. Viverra vitae congue ",
+        "dir": "ltr",
+        "width": 381.4800000000003,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 161.3, 604],
+        "fontName": "g_d2_f7"
+      },
+      {
+        "str":
+          "eu consequat ac felis. In nibh mauris cursus mattis molestie a iaculis at erat.",
+        "dir": "ltr",
+        "width": 403.65600000000023,
+        "height": 12,
+        "transform": [12, 0, 0, 12, 56.8, 588.1],
+        "fontName": "g_d2_f7"
+      }
+    ]
+  ]
+}
