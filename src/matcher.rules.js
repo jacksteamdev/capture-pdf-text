@@ -17,7 +17,8 @@ export const sameStyleNeighbors = () => [
 /**
  * Match blocks that should be combined:
  *   - close to each other, and
- *   - very close lineHeight and left value
+ *   - very close lineHeight
+ *   - and are left aligned
  */
 export const sameBlock = (leftMargin, lineMargin) => [
   areNeighbors,

@@ -22,6 +22,15 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Jest Tests - main",
+      "program":
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": ["main", "--runInBand"],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Jest Tests - matcher",
       "program":
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
