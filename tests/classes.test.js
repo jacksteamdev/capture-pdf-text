@@ -24,50 +24,73 @@ describe('Item class', () => {
   })
 })
 
-describe('Block.from', () => {
+describe('Item.from', () => {
   test('static method from works', () => {
-    const item1 = new Item({
+    const item = {
       str: 'Hello, Amy!',
       dir: 'ltr',
       width: 64.656,
       height: 12,
       transform: [12, 0, 0, 12, 70, 50],
       fontName: 'Times',
-    })
-    const item2 = new Item({
-      str: 'Hello, Jack!',
-      dir: 'ltr',
-      width: 64.656,
-      height: 12,
-      transform: [12, 0, 0, 12, 70, 50],
-      fontName: 'Times',
-    })
-    const result = Block.from(item1, item2)
-    expect(result).toBeInstanceOf(Block)
-    expect(result.items.length).toBe(2)
+    }
+    const result = Item.from(item)
+    expect(result).toBeInstanceOf(Item)
+    expect(result.text).toBe('Hello, Amy!')
+    expect(result.fontName).toBe('Times')
+    expect(result.height).toBe(12)
+    expect(result.width).toBe(65)
+    expect(result.bottom).toBe(50)
+    expect(result.left).toBe(70)
   })
-
-  test('static method from removes duplicates', () => {
-    const item1 = new Item({
-      str: 'Hello, Amy!',
-      dir: 'ltr',
-      width: 64.656,
+  test('static method from works with generic item', () => {
+    const item = {
+      text: 'Hello, Amy!',
+      width: 100,
       height: 12,
-      transform: [12, 0, 0, 12, 70, 50],
+      lineHeight: 12,
+      left: 70,
+      right: 170,
+      bottom: 50,
+      top: 62,
       fontName: 'Times',
-    })
-    const item2 = new Item({
-      str: 'Hello, Jack!',
-      dir: 'ltr',
-      width: 64.656,
+    }
+    const result = Item.from(item)
+    expect(result).toBeInstanceOf(Item)
+    expect(result.text).toBe('Hello, Amy!')
+    expect(result.width).toBe(100)
+    expect(result.height).toBe(12)
+    expect(result.lineHeight).toBe(12)
+    expect(result.left).toBe(70)
+    expect(result.right).toBe(170)
+    expect(result.bottom).toBe(50)
+    expect(result.top).toBe(62)
+    expect(result.fontName).toBe('Times')
+  })
+  test('static method from add listItem property', () => {
+    const item = {
+      text: 'Hello, Amy!',
+      width: 100,
       height: 12,
-      transform: [12, 0, 0, 12, 70, 50],
+      lineHeight: 12,
+      left: 70,
+      right: 170,
+      bottom: 50,
+      top: 62,
       fontName: 'Times',
-    })
-    const block = Block.from(item1, item2)
-    const result = Block.from(item1, item2, block)
-    expect(result).toBeInstanceOf(Block)
-    expect(result.items.length).toBe(2)
+    }
+    const result = Item.from(item, { listItem: true })
+    expect(result).toBeInstanceOf(Item)
+    expect(result.text).toBe('Hello, Amy!')
+    expect(result.width).toBe(100)
+    expect(result.height).toBe(12)
+    expect(result.lineHeight).toBe(12)
+    expect(result.left).toBe(70)
+    expect(result.right).toBe(170)
+    expect(result.bottom).toBe(50)
+    expect(result.top).toBe(62)
+    expect(result.fontName).toBe('Times')
+    expect(result.listItem).toBe(true)
   })
 })
 
@@ -105,5 +128,141 @@ describe('Block class', () => {
     const block = new Block([item3, item1, item2])
     const result = block.items
     expect(result).toEqual(data)
+  })
+})
+
+describe('Block.from', () => {
+  test('static method from works', () => {
+    const item1 = new Item({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const result = Block.from(item1, item2)
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
+  })
+  test('works with listItem Item', () => {
+    const item1 = Item.from(
+      {
+        str: 'Hello, Amy!',
+        dir: 'ltr',
+        width: 64.656,
+        height: 12,
+        transform: [12, 0, 0, 12, 70, 50],
+        fontName: 'Times',
+      },
+      { listItem: true },
+    )
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const result = Block.from(item1, item2)
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(1)
+    expect(result.listItem).toBe(item1)
+  })
+  test('works with listItem Block', () => {
+    const item1 = Item.from(
+      {
+        str: 'Hello, Amy!',
+        dir: 'ltr',
+        width: 64.656,
+        height: 12,
+        transform: [12, 0, 0, 12, 70, 50],
+        fontName: 'Times',
+      },
+      { listItem: true },
+    )
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item3 = new Item({
+      str: 'Hello, Kitty!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const block = Block.from(item1, item2)
+    const result = Block.from(item3, block)
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
+    expect(result.listItem).toBe(item1)
+  })
+  test.only('works with manual listItem', () => {
+    const item1 = Item.from({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = Item.from({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item3 = Item.from({
+      str: 'Hello, Kitty!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const result = Block.from(item1, item2, { listItem: item3 })
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
+    expect(result.listItem).toBe(item3)
+  })
+
+  test('static method from removes duplicates', () => {
+    const item1 = new Item({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const block = Block.from(item1, item2)
+    const result = Block.from(item1, item2, block)
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
   })
 })
