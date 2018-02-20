@@ -112,6 +112,7 @@ export class Block {
     )
     // get rid of duplicates
     const set = new Set(items)
+    set.delete(listItem)
     return new Block([...set], listItem)
   }
 

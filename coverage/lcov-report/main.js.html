@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>14/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>13/13</span>
       </div>
     </div>
   </div>
@@ -82,7 +82,56 @@
 37
 38
 39
-40</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,9 +155,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,6 +204,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { makeBlocks } from './matcher.recursive'
 import { Block } from './classes'
 import {
+  sameStyle,
   sameLine,
   sameStyleNeighbors,
   sameBlock,
@@ -133,29 +214,68 @@ import {
 import flow from 'lodash/fp/flow'
 import reject from 'lodash/fp/reject'
 import get from 'lodash/fp/get'
+import uniq from 'lodash/fp/uniq'
+import map from 'lodash/fp/map'
 export { loadDocument } from './load-document'
 &nbsp;
 /**
- * Returns groups of text items by selection ranges
- * groupTextItems :: [item] -&gt; {selection: [[number]]} -&gt; (() -&gt; [item])
- * @param {Item[]} allItems - All Items on page
- * @param {Object} param1 - Object with selection property
- * @param {Number[]} param1.selection - Number pairs representing x and y ranges,
- *                                      with origin in bottom left corner:
- *                                      [left, right, bottom, top]
+ * loadPdfPages :: pdf -&gt; [num1, num2] -&gt; [page]
+ */
+// export const loadPdfPages = pdf =&gt; pgRange =&gt; {
+// if !pgRange, load all pages
+// }
+&nbsp;
+/**
+ * getTextItems :: page -&gt; [item]
+ */
+// export const getTextItems = page =&gt; {}
+&nbsp;
+/**
+ * parseTextItems :: [item] -&gt; [block]
  */
 export const parseTextItems = items =&gt; {
+  const validCharBlock = ({ text }) =&gt; {
+    const chars = uniq([...text]).join('')
+    return (
+      chars.length &lt; 2 || !/[A-Za-z0-9àèìòùñÀÈÌÒÙÑ]/.test(chars)
+    )
+  }
+&nbsp;
   const emptyItem = ({ text }) =&gt; !text.trim()
+  const isListItem = ({ items: [first, second] }) =&gt;
+    first &amp;&amp;
+    second &amp;&amp;
+    first.right &lt; second.left &amp;&amp;
+    (/^(\d{1,2}|[A-Z]|[a-z]|[ivx]{1,3})[.)]?$/.test(
+      first.text,
+    ) ||
+      /^[●]$/.test(first.text))
+&nbsp;
+  const mapListItem = block =&gt; {
+    if (isListItem(block)) {
+      return Block.from(block, { listItem: block.items[0] })
+    } else {
+      return block
+    }
+  }
+&nbsp;
+  //   // check that block is list item
+  //   //   - first item matches bullet or numerator
+  //   //   - second item is not adjoining first
+  //   // make new block with first item assigned to {listItem: item}
 &nbsp;
   const result = flow(
-    makeBlocks(sameLine()),
-    reject(emptyItem),
+    makeBlocks(sameStyle()),
+    reject(validCharBlock),
     Block.from,
     get('items'),
-    makeBlocks(sameStyleNeighbors()),
-    makeBlocks(sameBlock(2, 3)),
-    makeBlocks(innerBlock(1)),
+    makeBlocks(sameLine()),
     reject(emptyItem),
+    map(mapListItem),
+    // makeBlocks(sameStyleNeighbors()),
+    // makeBlocks(sameBlock(2, 3)),
+    // makeBlocks(innerBlock(1)),
+    // reject(emptyItem),
   )
 &nbsp;
   return result(items)
@@ -166,7 +286,7 @@ export const parseTextItems = items =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 19 2018 10:59:12 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 20 2018 15:23:50 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

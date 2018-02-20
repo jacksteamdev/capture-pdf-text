@@ -1,0 +1,621 @@
+{
+  "pages": [
+    [
+      {
+        "str": "41",
+        "dir": "ltr",
+        "width": 10.008000000000001,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 547.9893, 756.0853],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": "Session 7 ",
+        "dir": "ltr",
+        "width": 42.021,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 72, 756.0853],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": "▪  Paul’s Recent Past Revisited",
+        "dir": "ltr",
+        "width": 126.7704,
+        "height": 72.89999999999999,
+        "transform": [
+          9,
+          0,
+          0,
+          8.1,
+          116.53200000000001,
+          756.0853
+        ],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": "7.3 ",
+        "dir": "ltr",
+        "width": 63.0504,
+        "height": 1224.7199999999998,
+        "transform": [37.8, 0, 0, 32.4, 120.2529, 701.4],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "Paul Defends His Change in Plans ",
+        "dir": "ltr",
+        "width": 237.9224399999999,
+        "height": 185.22,
+        "transform": [14.7, 0, 0, 12.6, 234, 714.6],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.0866,
+        "height": 185.22,
+        "transform": [14.7, 0, 0, 12.6, 471.7562, 714.6],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "(2 Corinthians 1:12–2:11)",
+        "dir": "ltr",
+        "width": 133.82985000000002,
+        "height": 114.34500000000001,
+        "transform": [11.55, 0, 0, 9.9, 234, 701.4],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "DISPLAY  VISUAL  ",
+        "dir": "ltr",
+        "width": 78.68080000000002,
+        "height": 57.6,
+        "transform": [8, 0, 0, 7.2, 239.8127, 668.3452],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "24",
+        "dir": "ltr",
+        "width": 15.848000000000003,
+        "height": 176.4,
+        "transform": [14, 0, 0, 12.6, 318.4877, 664.8452],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str":
+          "Discuss the accusations that had been made about Paul addressed in these ",
+        "dir": "ltr",
+        "width": 305.6670000000001,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 234, 648.6],
+        "fontName": "g_d2_f51"
+      },
+      {
+        "str": "passages.",
+        "dir": "ltr",
+        "width": 41.022,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 234, 635.4],
+        "fontName": "g_d2_f51"
+      },
+      {
+        "str": "Accused",
+        "dir": "ltr",
+        "width": 50.016000000000005,
+        "height": 129.60000000000002,
+        "transform": [12, 0, 0, 10.8, 234, 609],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str":
+          "Paul had been accused of the following by his opponents in Corinth:",
+        "dir": "ltr",
+        "width": 300.72000000000014,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 582.6],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 256.4479, 554.7],
+        "fontName": "g_d2_f75"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 250.776, 554.7],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str":
+          "Acting shamelessly and insincerely toward the Corinthians",
+        "dir": "ltr",
+        "width": 257.87000000000006,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 261, 556.2],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 256.4479, 541.5],
+        "fontName": "g_d2_f75"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 250.776, 541.5],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": "Showing a worldly shrewdness in his letters",
+        "dir": "ltr",
+        "width": 192.83999999999997,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 261, 543],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 256.4479, 528.3],
+        "fontName": "g_d2_f75"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 250.776, 528.3],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str":
+          "Being evasive by writing one thing but meaning another",
+        "dir": "ltr",
+        "width": 245.6800000000001,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 261, 529.8],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 256.4479, 515.1],
+        "fontName": "g_d2_f75"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 250.776, 515.1],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str":
+          "Breaking promises, not coming when he said he would ",
+        "dir": "ltr",
+        "width": 244.55000000000015,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 261, 516.6],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 256.4479, 501.9],
+        "fontName": "g_d2_f75"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 250.776, 501.9],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str":
+          "Being selfish and having no concern for the Corinthians",
+        "dir": "ltr",
+        "width": 245.12000000000003,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 261, 503.4],
+        "fontName": "g_d2_f15"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 13.72,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 259.28, 437.6],
+        "fontName": "g_d2_f107"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 27.44,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 231.84, 437.6],
+        "fontName": "g_d2_f107"
+      },
+      {
+        "str": "Group Discussion: ",
+        "dir": "ltr",
+        "width": 101.46400000000003,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 261, 450.6],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "Read 2 Corinthians 1:15–2:4. How does ",
+        "dir": "ltr",
+        "width": 179.35500000000005,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 362.4546, 450.6],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "Paul respond to the accusations that have been made against him? ",
+        "dir": "ltr",
+        "width": 292.3689999999999,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 437.4],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "How can we use these same principles today? ",
+        "dir": "ltr",
+        "width": 204.06100000000004,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 424.2],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 10,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 283.7043, 411],
+        "fontName": "g_d2_f126"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 7.94,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 275.76, 411],
+        "fontName": "g_d2_f126"
+      },
+      {
+        "str":
+          "He answers with sincerity and love. He is unshaken by the ",
+        "dir": "ltr",
+        "width": 227.04144999999994,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 411],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "accusations because his conscience is clear and the accusations are ",
+        "dir": "ltr",
+        "width": 266.1367999999998,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 397.8],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "false. He points to his integrity in his previous dealings with them. ",
+        "dir": "ltr",
+        "width": 258.24039999999985,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 384.6],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "He assures them that what he is being accused of is untrue and that ",
+        "dir": "ltr",
+        "width": 263.0730499999999,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 371.4],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "he made choices based on their best interests, not out of selfishness ",
+        "dir": "ltr",
+        "width": 261.68985,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 358.2],
+        "fontName": "g_d2_f142"
+      },
+      {
+        "str":
+          "or malice. We can follow Paul’s example by focusing on the truth ",
+        "dir": "ltr",
+        "width": 253.07715000000005,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 345],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "and answering accusations in love. Getting angry and defensive will ",
+        "dir": "ltr",
+        "width": 267.1979499999999,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 331.8],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "only inflame the situation further. Remaining calm and addressing ",
+        "dir": "ltr",
+        "width": 258.35914999999994,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 318.6],
+        "fontName": "g_d2_f142"
+      },
+      {
+        "str":
+          "the issues with patience and forgiveness will go a long way toward ",
+        "dir": "ltr",
+        "width": 259.71004999999997,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 305.4],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str": "repairing the problem. ",
+        "dir": "ltr",
+        "width": 89.93269999999998,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 292.2],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str": "\u0015",
+        "dir": "ltr",
+        "width": 31.5,
+        "height": 945,
+        "transform": [31.5, 0, 0, 30, 253.49, 252.6],
+        "fontName": "g_d2_f151"
+      },
+      {
+        "str": "\u0015",
+        "dir": "ltr",
+        "width": 22.018500000000003,
+        "height": 945,
+        "transform": [31.5, 0, 0, 30, 231.48, 252.6],
+        "fontName": "g_d2_f151"
+      },
+      {
+        "str": "Distribute Worksheet 14—Discipline. ",
+        "dir": "ltr",
+        "width": 194.79460000000006,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 261, 265.8],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "Give the students ",
+        "dir": "ltr",
+        "width": 79.134,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 455.7935, 265.8],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "time to complete the worksheet. Discuss their answers, focusing ",
+        "dir": "ltr",
+        "width": 285.0429999999999,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 252.6],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "on the main reason for discipline—to correct and restore a broken ",
+        "dir": "ltr",
+        "width": 292.3469999999998,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 239.4],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "relationship.",
+        "dir": "ltr",
+        "width": 54.69199999999999,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 226.2],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 13.72,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 259.28, 186.8],
+        "fontName": "g_d2_f107"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 27.44,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 231.84, 186.8],
+        "fontName": "g_d2_f107"
+      },
+      {
+        "str": "Group Discussion: ",
+        "dir": "ltr",
+        "width": 101.46400000000003,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 261, 199.8],
+        "fontName": "g_d2_f34"
+      },
+      {
+        "str": "What is the best way to discipline a staff ",
+        "dir": "ltr",
+        "width": 180.94670000000005,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 362.4546, 199.8],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "member who has been caught in a moral failure? What can happen ",
+        "dir": "ltr",
+        "width": 296.0771,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 186.6],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "when this done correctly? What should be the outcome? What can ",
+        "dir": "ltr",
+        "width": 293.75390000000004,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 173.4],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "happen when this done incorrectly?",
+        "dir": "ltr",
+        "width": 156.40900000000005,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 160.2],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 10,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 283.7043, 147],
+        "fontName": "g_d2_f126"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 7.94,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 275.76, 147],
+        "fontName": "g_d2_f126"
+      },
+      {
+        "str": "Answers will vary.",
+        "dir": "ltr",
+        "width": 71.36115,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 147],
+        "fontName": "g_d2_f136"
+      },
+      {
+        "str":
+          "Close the session with prayer. Ask if any students need prayer concerning ",
+        "dir": "ltr",
+        "width": 326.5779000000001,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 234, 120.6],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "a trial or difficulty they are going through and have students pray for ",
+        "dir": "ltr",
+        "width": 304.5899999999999,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 234, 107.4],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "one another. You may see an opportunity to invite students to share a ",
+        "dir": "ltr",
+        "width": 305.23019999999997,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 234, 94.2],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str":
+          "testimony about how they experienced God’s comfort and provision in ",
+        "dir": "ltr",
+        "width": 313.44390000000004,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 234, 81],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "the midst of a recent trial.",
+        "dir": "ltr",
+        "width": 113.03600000000003,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 234, 67.8],
+        "fontName": "g_d2_f120"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 663.3181],
+        "fontName": "g_d2_f151"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 446.1],
+        "fontName": "g_d2_f151"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.056,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 261.29400000000004],
+        "fontName": "g_d2_f151"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 195.28800000000004],
+        "fontName": "g_d2_f151"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 116.08800000000004],
+        "fontName": "g_d2_f151"
+      }
+    ]
+  ]
+}

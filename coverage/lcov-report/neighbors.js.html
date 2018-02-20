@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">31.25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>5/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">31.25% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>5/16</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -110,8 +110,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">8485x</span>
-<span class="cline-any cline-yes">8485x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,9 +125,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">12819x</span>
-<span class="cline-any cline-yes">12819x</span>
-<span class="cline-any cline-yes">12819x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -139,7 +139,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">8485x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,15 +147,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8485x</span>
-<span class="cline-any cline-yes">8485x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8485x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8485x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8485x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import curry from 'lodash/fp/curry'
 &nbsp;
@@ -166,9 +166,9 @@ import { checkPropsBy, inRange } from './utils'
  *
  * padItemBy :: (a -&gt; number) -&gt; a -&gt; {left, right, bottom, top}
  */
-export const padItem = item =&gt; {
-  const pad = item.lineHeight / 2
-  return {
+export const padItem = <span class="fstat-no" title="function not covered" >it</span>em =&gt; {
+  const pad = <span class="cstat-no" title="statement not covered" >item.lineHeight * 0.7</span>
+<span class="cstat-no" title="statement not covered" >  return {</span>
     left: item.left - pad,
     right: item.right + pad,
     bottom: item.bottom - pad,
@@ -181,10 +181,10 @@ export const padItem = item =&gt; {
  *
  * isCloseBy :: [string] -&gt; a -&gt; a -&gt; Bool
  */
-export const isCloseBy = curry(([lo, hi], range, item) =&gt; {
-  const isInRange = inRange(range[lo], range[hi])
-  const result = isInRange(item[lo]) || isInRange(item[hi])
-  return result
+export const isCloseBy = curry(<span class="fstat-no" title="function not covered" >([</span>lo, hi], range, item) =&gt; {
+  const isInRange = <span class="cstat-no" title="statement not covered" >inRange(range[lo], range[hi])</span>
+  const result = <span class="cstat-no" title="statement not covered" >isInRange(item[lo]) || isInRange(item[hi])</span>
+<span class="cstat-no" title="statement not covered" >  return result</span>
 })
 &nbsp;
 const xIsClose = isCloseBy(['left', 'right'])
@@ -195,8 +195,8 @@ const yIsClose = isCloseBy(['bottom', 'top'])
  *
  * areNeighbors :: a -&gt; a -&gt; Bool
  */
-export const areNeighbors = curry((item1, item2) =&gt; {
-  const checkProps = checkPropsBy([
+export const areNeighbors = curry(<span class="fstat-no" title="function not covered" >(i</span>tem1, item2) =&gt; {
+  const checkProps = <span class="cstat-no" title="statement not covered" >checkPropsBy([</span>
     'left',
     'right',
     'bottom',
@@ -204,15 +204,15 @@ export const areNeighbors = curry((item1, item2) =&gt; {
     'lineHeight',
   ])
 &nbsp;
-  checkProps('item1', item1)
-  checkProps('item2', item2)
+<span class="cstat-no" title="statement not covered" >  checkProps('item1', item1)</span>
+<span class="cstat-no" title="statement not covered" >  checkProps('item2', item2)</span>
 &nbsp;
-  const search = padItem(item1)
+  const search = <span class="cstat-no" title="statement not covered" >padItem(item1)</span>
 &nbsp;
   const result =
-    xIsClose(search, item2) &amp;&amp; yIsClose(search, item2)
+<span class="cstat-no" title="statement not covered" >    xIsClose(search, item2) &amp;&amp; yIsClose(search, item2)</span>
 &nbsp;
-  return result
+<span class="cstat-no" title="statement not covered" >  return result</span>
 })
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -220,7 +220,7 @@ export const areNeighbors = curry((item1, item2) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 19 2018 10:59:12 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 20 2018 15:23:50 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

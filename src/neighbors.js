@@ -8,7 +8,7 @@ import { checkPropsBy, inRange } from './utils'
  * padItemBy :: (a -> number) -> a -> {left, right, bottom, top}
  */
 export const padItem = item => {
-  const pad = item.lineHeight / 2
+  const pad = item.lineHeight * 0.7
   return {
     left: item.left - pad,
     right: item.right + pad,

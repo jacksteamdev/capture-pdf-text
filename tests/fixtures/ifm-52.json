@@ -1,0 +1,450 @@
+{
+  "pages": [
+    [
+      {
+        "str": "52",
+        "dir": "ltr",
+        "width": 10.008000000000001,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 54, 756.0884],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "Corinthian Correspondence",
+        "dir": "ltr",
+        "width": 110.04300000000006,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 429.9345, 756.0884],
+        "fontName": "g_d3_f35"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 10,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 265.7043, 714.6],
+        "fontName": "g_d3_f60"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 7.94,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 257.76, 714.6],
+        "fontName": "g_d3_f60"
+      },
+      {
+        "str":
+          "This refers to God’s bountiful provision, both spiritual and material. ",
+        "dir": "ltr",
+        "width": 267.45824999999985,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 270, 714.6],
+        "fontName": "g_d3_f76"
+      },
+      {
+        "str":
+          "It means we have not only what we need but also a surplus to ",
+        "dir": "ltr",
+        "width": 238.00920000000002,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 270, 701.4],
+        "fontName": "g_d3_f76"
+      },
+      {
+        "str":
+          "participate fully in every good work, including giving to others.",
+        "dir": "ltr",
+        "width": 245.51514999999978,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 270, 688.2],
+        "fontName": "g_d3_f76"
+      },
+      {
+        "str": "DISPLAY  VISUAL  ",
+        "dir": "ltr",
+        "width": 78.68080000000002,
+        "height": 57.6,
+        "transform": [8, 0, 0, 7.2, 221.8127, 655.1451],
+        "fontName": "g_d3_f85"
+      },
+      {
+        "str": "34",
+        "dir": "ltr",
+        "width": 15.848000000000003,
+        "height": 176.4,
+        "transform": [14, 0, 0, 12.6, 300.4877, 651.6451],
+        "fontName": "g_d3_f85"
+      },
+      {
+        "str":
+          "Recap the following points about participating in giving to those in need. ",
+        "dir": "ltr",
+        "width": 288.15300000000013,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 216, 635.4],
+        "fontName": "g_d3_f98"
+      },
+      {
+        "str": "Giving",
+        "dir": "ltr",
+        "width": 37.344,
+        "height": 129.60000000000002,
+        "transform": [12, 0, 0, 10.8, 216, 609],
+        "fontName": "g_d3_f85"
+      },
+      {
+        "str":
+          "According to Paul, participating in giving to those in need . . .",
+        "dir": "ltr",
+        "width": 267.9200000000001,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 216, 582.6],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 238.4479, 554.7],
+        "fontName": "g_d3_f112"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 232.776, 554.7],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "results in receiving God’s abounding grace.",
+        "dir": "ltr",
+        "width": 191.58300000000003,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 243, 556.2],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 238.4479, 541.5],
+        "fontName": "g_d3_f112"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 232.776, 541.5],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "is an expression of God’s grace.",
+        "dir": "ltr",
+        "width": 142.67000000000002,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 243, 543],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 238.4479, 528.3],
+        "fontName": "g_d3_f112"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 232.776, 528.3],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "brings spiritual benefits.",
+        "dir": "ltr",
+        "width": 105.04000000000005,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 243, 529.8],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 238.4479, 515.1],
+        "fontName": "g_d3_f112"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 232.776, 515.1],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "can cause others to give thanks to God.",
+        "dir": "ltr",
+        "width": 176.21000000000006,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 243, 516.6],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 238.4479, 501.9],
+        "fontName": "g_d3_f112"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 232.776, 501.9],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "shows obedience to God’s teaching.",
+        "dir": "ltr",
+        "width": 160.47400000000005,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 243, 503.4],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": " ",
+        "dir": "ltr",
+        "width": 4.448,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 238.4479, 488.7],
+        "fontName": "g_d3_f112"
+      },
+      {
+        "str": "▪",
+        "dir": "ltr",
+        "width": 5.664,
+        "height": 230.4,
+        "transform": [16, 0, 0, 14.4, 232.776, 488.7],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "can draw others to God.",
+        "dir": "ltr",
+        "width": 106.72000000000006,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 243, 490.2],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "\u0015",
+        "dir": "ltr",
+        "width": 31.5,
+        "height": 945,
+        "transform": [31.5, 0, 0, 30, 235.49, 424.2],
+        "fontName": "g_d3_f140"
+      },
+      {
+        "str": "\u0015",
+        "dir": "ltr",
+        "width": 22.018500000000003,
+        "height": 945,
+        "transform": [31.5, 0, 0, 30, 213.48, 424.2],
+        "fontName": "g_d3_f140"
+      },
+      {
+        "str": "Distribute Worksheet 18—Principles of Giving. ",
+        "dir": "ltr",
+        "width": 246.14260000000007,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 243, 437.4],
+        "fontName": "g_d3_f85"
+      },
+      {
+        "str": "Encourage ",
+        "dir": "ltr",
+        "width": 49.786,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 489.1304, 437.4],
+        "fontName": "g_d3_f147"
+      },
+      {
+        "str":
+          "students to make a list of principles about giving as outlined by ",
+        "dir": "ltr",
+        "width": 281.10499999999996,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 243, 424.2],
+        "fontName": "g_d3_f147"
+      },
+      {
+        "str": "Paul in Corinthians. Discuss their answers.",
+        "dir": "ltr",
+        "width": 188.51799999999997,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 243, 411],
+        "fontName": "g_d3_f147"
+      },
+      {
+        "str":
+          "Close the session with prayer, asking students if they desire prayer for ",
+        "dir": "ltr",
+        "width": 310.8622000000001,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 216, 384.6],
+        "fontName": "g_d3_f147"
+      },
+      {
+        "str":
+          "any special needs they may have, and then invite students to pray for one ",
+        "dir": "ltr",
+        "width": 324.1369999999999,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 216, 371.4],
+        "fontName": "g_d3_f147"
+      },
+      {
+        "str": "another concerning those needs.",
+        "dir": "ltr",
+        "width": 141.13000000000002,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 216, 358.2],
+        "fontName": "g_d3_f147"
+      },
+      {
+        "str": "LOGOS DIGITAL LIBRARY RESEARCH SUGGESTIONS",
+        "dir": "ltr",
+        "width": 313.55390000000006,
+        "height": 99,
+        "transform": [11, 0, 0, 9, 221.5, 288.2591],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "W.W. Wiersbe, ",
+        "dir": "ltr",
+        "width": 61.50780000000002,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 264.3358],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "The Bible Exposition Commentary",
+        "dir": "ltr",
+        "width": 136.04400000000004,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 287.5059, 264.3358],
+        "fontName": "g_d3_f155"
+      },
+      {
+        "str": " (Wheaton, IL: Victor ",
+        "dir": "ltr",
+        "width": 84.3705,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 423.5649, 264.3358],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str":
+          "Books, 1996), 2 Corinthians 9:1–14. See “The Grace of Giving” for a ",
+        "dir": "ltr",
+        "width": 274.131,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 253.3358],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str":
+          "discussion of 2 Corinthians 9 in relation to Paul’s principles of giving.",
+        "dir": "ltr",
+        "width": 272.4714000000001,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 242.3358],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "R.B. Hughes and J.C. Laney, ",
+        "dir": "ltr",
+        "width": 118.40040000000006,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 225.5758],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "Tyndale Concise Bible Commentary",
+        "dir": "ltr",
+        "width": 142.87140000000002,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 344.3975, 225.5758],
+        "fontName": "g_d3_f155"
+      },
+      {
+        "str": ", The ",
+        "dir": "ltr",
+        "width": 22.847400000000007,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 487.29, 225.5758],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str":
+          "Tyndale Reference Library (Wheaton, IL: Tyndale House Publishers, ",
+        "dir": "ltr",
+        "width": 273.96630000000005,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 214.5758],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str":
+          "2001), 572. See “Motivation by Example” and the following sections for a ",
+        "dir": "ltr",
+        "width": 291.6360000000001,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 203.5757],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "discussion of 2 Corinthians 8 and 9.",
+        "dir": "ltr",
+        "width": 142.569,
+        "height": 81,
+        "transform": [9, 0, 0, 9, 226, 192.5757],
+        "fontName": "g_d3_f16"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 183.32, 650.118],
+        "fontName": "g_d3_f140"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.056,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 183.3112, 432.9],
+        "fontName": "g_d3_f140"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 183.3112, 380.106],
+        "fontName": "g_d3_f140"
+      }
+    ]
+  ]
+}

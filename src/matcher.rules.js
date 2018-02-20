@@ -3,10 +3,14 @@ import { isClose, isLTE, isGTE } from './utils'
 
 import isEqual from 'lodash/fp/isEqual'
 
+export const sameStyle = () => [
+  { fontName: isEqual, lineHeight: isEqual },
+]
+
 export const sameLine = () => [
   {
-    top: isEqual,
-    bottom: isEqual,
+    top: isClose(3),
+    bottom: isClose(1),
   },
 ]
 
@@ -16,7 +20,7 @@ export const sameLine = () => [
 export const sameStyleNeighbors = () => [
   {
     lineHeight: isEqual,
-    fontName: isEqual,
+    listItem: secondIsNotList,
   },
   areNeighbors,
 ]

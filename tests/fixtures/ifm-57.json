@@ -1,0 +1,540 @@
+{
+  "pages": [
+    [
+      {
+        "str": "57",
+        "dir": "ltr",
+        "width": 10.008000000000001,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 547.9893, 756.0853],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "Session 10 ",
+        "dir": "ltr",
+        "width": 47.025,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 72, 756.0853],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "▪  Paul Confronts His Critics",
+        "dir": "ltr",
+        "width": 113.90400000000002,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 121.536, 756.0853],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str":
+          "incidents of strife among ministers. Ministers, like other workers, ",
+        "dir": "ltr",
+        "width": 254.2427999999999,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 714.6],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "can become territorial. However, when we all work in our chosen ",
+        "dir": "ltr",
+        "width": 255.47210000000004,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 701.4],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "fields side by side, more people are reached. Our ministries are more ",
+        "dir": "ltr",
+        "width": 269.9102,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 688.2],
+        "fontName": "g_d4_f52"
+      },
+      {
+        "str": "effective.",
+        "dir": "ltr",
+        "width": 34.8289,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 675],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str": "10.3 ",
+        "dir": "ltr",
+        "width": 84.0672,
+        "height": 1224.7199999999998,
+        "transform": [37.8, 0, 0, 32.4, 99.2303, 635.4],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "False Apostles Unmasked ",
+        "dir": "ltr",
+        "width": 181.64496000000005,
+        "height": 185.22,
+        "transform": [14.7, 0, 0, 12.6, 234, 648.6],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "(2 Corinthians 11:1–15)",
+        "dir": "ltr",
+        "width": 123.7929,
+        "height": 114.34500000000001,
+        "transform": [11.55, 0, 0, 9.9, 416.1956, 648.6],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "DISPLAY  VISUAL  ",
+        "dir": "ltr",
+        "width": 78.68080000000002,
+        "height": 57.6,
+        "transform": [8, 0, 0, 7.2, 239.8127, 615.5451],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "39",
+        "dir": "ltr",
+        "width": 15.848000000000003,
+        "height": 176.4,
+        "transform": [14, 0, 0, 12.6, 318.4877, 612.0451],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "Discuss the meaning of the term ",
+        "dir": "ltr",
+        "width": 131.55300000000005,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 234, 595.8],
+        "fontName": "g_d4_f82"
+      },
+      {
+        "str": "gospel",
+        "dir": "ltr",
+        "width": 26.514000000000003,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 365.5591, 595.8],
+        "fontName": "g_d4_f94"
+      },
+      {
+        "str": " as used in the New Testament.",
+        "dir": "ltr",
+        "width": 125.73540000000003,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 392.0801, 595.8],
+        "fontName": "g_d4_f82"
+      },
+      {
+        "str": "The Gospel",
+        "dir": "ltr",
+        "width": 65.352,
+        "height": 129.60000000000002,
+        "transform": [12, 0, 0, 10.8, 234, 569.4],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str":
+          "The gospel mentioned in the New Testament refers to the message of ",
+        "dir": "ltr",
+        "width": 311.0970000000002,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 543],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str":
+          "God’s saving grace provided through the life, death, and resurrection of ",
+        "dir": "ltr",
+        "width": 317.76200000000006,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 529.8],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "Jesus Christ.",
+        "dir": "ltr",
+        "width": 57.79000000000002,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 516.6],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 13.72,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 259.28, 450.8],
+        "fontName": "g_d4_f113"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 27.44,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 231.84, 450.8],
+        "fontName": "g_d4_f113"
+      },
+      {
+        "str": "Group Discussion: ",
+        "dir": "ltr",
+        "width": 101.46400000000003,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 261, 463.8],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "Why is it necessary to know the meaning of ",
+        "dir": "ltr",
+        "width": 195.83300000000006,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 362.4546, 463.8],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str":
+          "the real gospel? What should the “real gospel” include?",
+        "dir": "ltr",
+        "width": 244.1758000000001,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 450.6],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 10,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 283.7043, 437.4],
+        "fontName": "g_d4_f127"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 7.94,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 275.76, 437.4],
+        "fontName": "g_d4_f127"
+      },
+      {
+        "str":
+          "We must know the true gospel so we can recognize false teaching ",
+        "dir": "ltr",
+        "width": 253.5483499999999,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 437.4],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "when we encounter it. All teaching must be compared to the true ",
+        "dir": "ltr",
+        "width": 251.14960000000002,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 424.2],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "gospel. The true gospel includes the deity of Christ, His sinless life, ",
+        "dir": "ltr",
+        "width": 262.5648,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 411],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "His sacrificial death, His resurrection, and the saving work God ",
+        "dir": "ltr",
+        "width": 250.95199999999994,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 397.8],
+        "fontName": "g_d4_f52"
+      },
+      {
+        "str":
+          "offers us through His Son. Anything that teaches differently is false. ",
+        "dir": "ltr",
+        "width": 262.9447999999999,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 384.6],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str": "\u0015",
+        "dir": "ltr",
+        "width": 31.5,
+        "height": 945,
+        "transform": [31.5, 0, 0, 30, 253.3325, 345],
+        "fontName": "g_d4_f143"
+      },
+      {
+        "str": "\u0015",
+        "dir": "ltr",
+        "width": 22.018500000000003,
+        "height": 945,
+        "transform": [31.5, 0, 0, 30, 231.48, 345],
+        "fontName": "g_d4_f143"
+      },
+      {
+        "str": "Distribute Worksheet 19—Judging Paul. ",
+        "dir": "ltr",
+        "width": 209.81179999999998,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 261, 358.2],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "Allow students to ",
+        "dir": "ltr",
+        "width": 79.431,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 470.7996, 358.2],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str":
+          "fill out the worksheet. Discuss their answers, focusing on Paul’s true ",
+        "dir": "ltr",
+        "width": 299.59270000000004,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 345],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str":
+          "nature compared to what His opponents were saying about him. ",
+        "dir": "ltr",
+        "width": 279.906,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 331.8],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 13.72,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 259.28, 292.4],
+        "fontName": "g_d4_f113"
+      },
+      {
+        "str": "y",
+        "dir": "ltr",
+        "width": 27.44,
+        "height": 791.3696,
+        "transform": [27.44, 0, 0, 28.84, 231.84, 292.4],
+        "fontName": "g_d4_f113"
+      },
+      {
+        "str": "Group Discussion: ",
+        "dir": "ltr",
+        "width": 101.46400000000003,
+        "height": 108.9,
+        "transform": [11, 0, 0, 9.9, 261, 305.4],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "What was the main reason Paul did not ",
+        "dir": "ltr",
+        "width": 174.75700000000003,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 362.4546, 305.4],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str":
+          "accept money for preaching the gospel? How might accepting ",
+        "dir": "ltr",
+        "width": 275.24199999999996,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 292.2],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str":
+          "money cause problems? Have you seen this happen in modern ",
+        "dir": "ltr",
+        "width": 276.7819999999999,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 279],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str": "times?",
+        "dir": "ltr",
+        "width": 28.720999999999997,
+        "height": 121,
+        "transform": [11, 0, 0, 11, 261, 265.8],
+        "fontName": "g_d4_f123"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 10,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 283.7043, 252.6],
+        "fontName": "g_d4_f127"
+      },
+      {
+        "str": "h",
+        "dir": "ltr",
+        "width": 7.94,
+        "height": 100,
+        "transform": [10, 0, 0, 10, 275.76, 252.6],
+        "fontName": "g_d4_f127"
+      },
+      {
+        "str":
+          "Paul did not want to hinder the gospel of Christ. He could have been ",
+        "dir": "ltr",
+        "width": 267.18275,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 252.6],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "accused of preaching just for the money. He wanted his motives for ",
+        "dir": "ltr",
+        "width": 261.26805,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 239.4],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "preaching to be pure. Some ministers today still struggle with this; a ",
+        "dir": "ltr",
+        "width": 266.3001999999998,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 226.2],
+        "fontName": "g_d4_f36"
+      },
+      {
+        "str":
+          "few may use the ministry chiefly as a way to make money.",
+        "dir": "ltr",
+        "width": 221.73284999999996,
+        "height": 90.25,
+        "transform": [9.5, 0, 0, 9.5, 288, 213],
+        "fontName": "g_d4_f52"
+      },
+      {
+        "str": "DISPLAY  VISUAL  ",
+        "dir": "ltr",
+        "width": 78.68080000000002,
+        "height": 57.6,
+        "transform": [8, 0, 0, 7.2, 239.8127, 179.9451],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str": "40",
+        "dir": "ltr",
+        "width": 15.848000000000003,
+        "height": 176.4,
+        "transform": [14, 0, 0, 12.6, 318.4877, 176.4451],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str":
+          "Discuss Paul’s assessment of his opponents and why he called them “false ",
+        "dir": "ltr",
+        "width": 301.47210000000007,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 234, 160.2],
+        "fontName": "g_d4_f82"
+      },
+      {
+        "str": "prophets.”",
+        "dir": "ltr",
+        "width": 40.51800000000001,
+        "height": 72.89999999999999,
+        "transform": [9, 0, 0, 8.1, 234, 147],
+        "fontName": "g_d4_f158"
+      },
+      {
+        "str": "True Identity",
+        "dir": "ltr",
+        "width": 71.3484,
+        "height": 129.60000000000002,
+        "transform": [12, 0, 0, 10.8, 234, 120.6],
+        "fontName": "g_d4_f71"
+      },
+      {
+        "str":
+          "Paul identifies his opponents as false prophets and workers of deceit ",
+        "dir": "ltr",
+        "width": 306.8200000000001,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 94.2],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str":
+          "who pretend to be true apostles of Christ. Paul goes so far as to call ",
+        "dir": "ltr",
+        "width": 302.93000000000006,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 81],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "them “agents of Satan.",
+        "dir": "ltr",
+        "width": 101.17000000000003,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 234, 67.8],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "”",
+        "dir": "ltr",
+        "width": 3.33,
+        "height": 90,
+        "transform": [10, 0, 0, 9, 335.2719, 67.8],
+        "fontName": "g_d4_f17"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 610.5181],
+        "fontName": "g_d4_f143"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 459.3],
+        "fontName": "g_d4_f143"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.056,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 353.694],
+        "fontName": "g_d4_f143"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.056,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 300.90000000000003],
+        "fontName": "g_d4_f143"
+      },
+      {
+        "str": "",
+        "dir": "ltr",
+        "width": 16.038,
+        "height": 324,
+        "transform": [18, 0, 0, 18, 201.32, 174.91800000000003],
+        "fontName": "g_d4_f143"
+      }
+    ]
+  ]
+}

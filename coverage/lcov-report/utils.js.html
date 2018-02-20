@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">78.95% </span>
+        <span class="strong">52.63% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/19</span>
+        <span class='fraction'>10/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/8</span>
+        <span class='fraction'>2/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.33% </span>
+        <span class="strong">55.56% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/18</span>
+        <span class='fraction'>10/18</span>
       </div>
     </div>
   </div>
@@ -78,29 +78,29 @@
 33</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">16970x</span>
-<span class="cline-any cline-yes">84850x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16970x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">21490x</span>
-<span class="cline-any cline-yes">21490x</span>
-<span class="cline-any cline-yes">21490x</span>
+<span class="cline-any cline-yes">12136x</span>
+<span class="cline-any cline-yes">12136x</span>
+<span class="cline-any cline-yes">12136x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-yes">12136x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">330x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">352x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -109,11 +109,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import curry from 'lodash/fp/curry'
 &nbsp;
-export const checkPropsBy = curry((keys, label, item) =&gt; {
-  const missing = keys
-    .filter(key =&gt; item[key] === undefined)
+export const checkPropsBy = curry(<span class="fstat-no" title="function not covered" >(k</span>eys, label, item) =&gt; {
+  const missing = <span class="cstat-no" title="statement not covered" >keys</span>
+    .filter(<span class="fstat-no" title="function not covered" >ke</span>y =&gt; <span class="cstat-no" title="statement not covered" >item[key] === undefined)</span>
     .join(', ')
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (missing) {
+<span class="cstat-no" title="statement not covered" >  if (missing) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new Error(`${label} does not contain ${missing}`)</span>
   }
 })
@@ -128,11 +128,11 @@ export const isClose = curry((margin, num1, num2) =&gt; {
   return inRange(num1 + margin, num1 - margin, num2)
 })
 &nbsp;
-export const isLTE = curry((margin, num1, num2) =&gt; {
-  return num1 + margin &lt;= num2
+export const isLTE = curry(<span class="fstat-no" title="function not covered" >(m</span>argin, num1, num2) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return num1 + margin &lt;= num2</span>
 })
-export const isGTE = curry((margin, num1, num2) =&gt; {
-  return num1 - margin &gt;= num2
+export const isGTE = curry(<span class="fstat-no" title="function not covered" >(m</span>argin, num1, num2) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return num1 - margin &gt;= num2</span>
 })
 &nbsp;
 export const trace = <span class="fstat-no" title="function not covered" >la</span>bel =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >x </span>=&gt; {</span>
@@ -145,7 +145,7 @@ export const trace = <span class="fstat-no" title="function not covered" >la</sp
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 19 2018 10:59:12 GMT-0600 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 20 2018 15:23:50 GMT-0600 (CST)
 </div>
 </div>
 <script src="prettify.js"></script>

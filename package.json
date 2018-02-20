@@ -11,6 +11,7 @@
   "module": "dist/capture-pdf-text.esm.js",
   "browser": "dist/capture-pdf-text.umd.js",
   "dependencies": {
+    "detergent": "^3.5.5",
     "kd-interval-tree": "../kd-interval-tree",
     "lodash": "^4.17.4"
   },
