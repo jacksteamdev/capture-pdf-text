@@ -83,10 +83,18 @@ export class Block {
       ({ items, listItem }, item) => {
         switch (item.constructor) {
           case Block:
-            return {
-              items: [...items, ...item.items],
-              listItem: item.listItem,
+            if (item.listItem) {
+              return {
+                items: [...items, ...item.items],
+                listItem: item.listItem,
+              }
+            } else {
+              return {
+                items: [...items, ...item.items],
+                listItem,
+              }
             }
+
           case Item:
             if (item.listItem) {
               return { items, listItem: item }
