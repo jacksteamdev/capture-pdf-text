@@ -1,4 +1,5 @@
 import curry from 'lodash/fp/curry'
+import { orderByPosition } from './order-items'
 
 export const checkPropsBy = curry((keys, label, item) => {
   const missing = keys
@@ -24,6 +25,11 @@ export const isLTE = curry((margin, num1, num2) => {
 })
 export const isGTE = curry((margin, num1, num2) => {
   return num1 - margin >= num2
+})
+
+export const secondIsNotList = curry((item1, item2) => {
+  const [first, second] = orderByPosition([item1, item2])
+  return !second.listItem
 })
 
 export const trace = label => x => {
