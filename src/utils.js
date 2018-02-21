@@ -20,19 +20,7 @@ export const isClose = curry((margin, num1, num2) => {
   return inRange(num1 + margin, num1 - margin, num2)
 })
 
-export const isLTE = curry((margin, num1, num2) => {
-  return num1 + margin <= num2
-})
-export const isGTE = curry((margin, num1, num2) => {
-  return num1 - margin >= num2
-})
-
 export const secondIsNotList = curry((item1, item2) => {
-  const [first, second] = orderByPosition([item1, item2])
+  const [, second] = orderByPosition([item1, item2])
   return !second.listItem
 })
-
-export const trace = label => x => {
-  console.log(label, x)
-  return x
-}

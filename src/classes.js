@@ -1,6 +1,12 @@
 import { orderByPosition } from './order-items'
 import orderBy from 'lodash/fp/orderBy'
 import flatten from 'lodash/fp/flatten'
+import trimEnd from 'lodash/fp/trimEnd'
+import trimStart from 'lodash/fp/trimStart'
+import conforms from 'lodash/fp/conforms'
+import isString from 'lodash/fp/isString'
+import isNumber from 'lodash/fp/isNumber'
+import isObject from 'lodash/fp/isObject'
 
 // import { detergent } from 'detergent'
 
@@ -28,20 +34,22 @@ export class Item {
       this.right = this.left + this.width
     }
   }
-  static from () {
-    const item = [...arguments].reduce((item, arg) => {
-      if (
-        arg.transform &&
-        arg.str &&
-        arg.width &&
-        arg.fontName
-      ) {
-        return Object.assign(new Item(arg), item)
-      } else {
-        return Object.assign(item, arg)
-      }
-    }, new Item())
-    return item
+
+  static from (item, props) {
+    const itemSpec = conforms({
+      transform: Array.isArray,
+      str: isString,
+      width: isNumber,
+      fontName: isString,
+    })
+    if (!isObject(props)) {
+      props = {}
+    }
+    if (itemSpec(item)) {
+      return Object.assign(new Item(item), props)
+    } else {
+      return Object.assign(new Item(), item, props)
+    }
   }
 }
 
@@ -55,9 +63,8 @@ export class Block {
     this.items = orderByPosition(items)
     this.listItem = listItem
 
-    this.text = this.items
-      .reduce((r, i, n) => r + i.text, '')
-      .trim()
+    this.text = Block.getText(this.items)
+
     this.top = this.items.reduce(
       (r, { top }) => Math.max(r, top),
       0,
@@ -124,12 +131,27 @@ export class Block {
     return new Block([...set], listItem)
   }
 
+  static getText (items) {
+    return items.reduce(
+      ({ text, prev }, item) => {
+        if (prev && prev.right > item.left) {
+          return {
+            text: `${trimEnd(text)} ${trimStart(item.text)}`,
+            prev: item,
+          }
+        } else {
+          return { text: text + item.text, prev: item }
+        }
+      },
+      { text: '', prev: null },
+    ).text
+  }
   // lineHeight = most common item height
   get lineHeight () {
     const heightByFrequency = [
-      ...this.items.reduce((map, { height }) => {
+      ...this.items.reduce((map, { height, text }) => {
         const instances = map.get(height) || 0
-        return map.set(height, instances + 1)
+        return map.set(height, instances + text.length)
       }, new Map()),
     ].map(([height, frequency]) => ({ height, frequency }))
 
@@ -148,9 +170,9 @@ export class Block {
   // fontName = most common item height
   get fontName () {
     const fontNameByFrequency = [
-      ...this.items.reduce((map, { fontName }) => {
+      ...this.items.reduce((map, { fontName, text }) => {
         const instances = map.get(fontName) || 0
-        return map.set(fontName, instances + 1)
+        return map.set(fontName, instances + text.length)
       }, new Map()),
     ].map(([fontName, frequency]) => ({ fontName, frequency }))
 

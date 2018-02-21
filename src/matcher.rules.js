@@ -1,5 +1,5 @@
 import { areNeighbors } from './neighbors'
-import { isClose, isLTE, isGTE, secondIsNotList } from './utils'
+import { isClose, secondIsNotList } from './utils'
 
 import isEqual from 'lodash/fp/isEqual'
 
@@ -24,17 +24,4 @@ export const sameBlock = (leftMargin = 1, lineMargin = 1) => [
   },
   areNeighbors,
   secondIsNotList,
-]
-
-/**
- * Match blocks that
- * are inside the first block
- */
-export const innerBlock = margin => [
-  {
-    left: isLTE(margin),
-    right: isGTE(margin),
-    bottom: isLTE(margin),
-    top: isGTE(margin),
-  },
 ]

@@ -1,12 +1,6 @@
 import { makeBlocks } from './matcher.recursive'
 import { Block } from './classes'
-import {
-  sameStyle,
-  sameLine,
-  sameStyleNeighbors,
-  sameBlock,
-  innerBlock,
-} from './matcher.rules'
+import { sameStyle, sameLine, sameBlock } from './matcher.rules'
 
 import flow from 'lodash/fp/flow'
 import reject from 'lodash/fp/reject'
@@ -32,7 +26,9 @@ export { loadDocument } from './load-document'
  */
 export const parseTextItems = items => {
   const validCharBlock = ({ text }) => {
-    const chars = uniq([...text]).join('')
+    const chars = uniq([...text])
+      .join('')
+      .replace(' ', '')
     return (
       chars.length < 2 || !/[A-Za-z0-9àèìòùñÀÈÌÒÙÑ]/.test(chars)
     )
@@ -46,7 +42,7 @@ export const parseTextItems = items => {
     (/^(\d{1,2}|[A-Z]|[a-z]|[ivx]{1,3})[.)]?$/.test(
       first.text,
     ) ||
-      /^[●]$/.test(first.text))
+      /^[●▪]$/.test(first.text))
 
   const mapListItem = block => {
     if (isListItem(block)) {
@@ -69,10 +65,7 @@ export const parseTextItems = items => {
     makeBlocks(sameLine()),
     reject(emptyItem),
     map(mapListItem),
-    // makeBlocks(sameStyleNeighbors()),
-    // makeBlocks(sameBlock(2, 3)),
-    // makeBlocks(innerBlock(1)),
-    // reject(emptyItem),
+    makeBlocks(sameBlock()),
   )
 
   return result(items)

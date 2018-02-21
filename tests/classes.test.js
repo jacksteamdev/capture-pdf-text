@@ -212,7 +212,7 @@ describe('Block.from', () => {
     expect(result.items.length).toBe(2)
     expect(result.listItem).toBe(item1)
   })
-  test.only('works with manual listItem', () => {
+  test('works with manual listItem', () => {
     const item1 = Item.from({
       str: 'Hello, Amy!',
       dir: 'ltr',
@@ -242,7 +242,7 @@ describe('Block.from', () => {
     expect(result.items.length).toBe(2)
     expect(result.listItem).toBe(item3)
   })
-  test.only('works with manual listItem 2', () => {
+  test('works with manual listItem 2', () => {
     const item1 = Item.from({
       str: 'Hello, Amy!',
       dir: 'ltr',
@@ -295,5 +295,15 @@ describe('Block.from', () => {
     const result = Block.from(item1, item2, block)
     expect(result).toBeInstanceOf(Block)
     expect(result.items.length).toBe(2)
+  })
+})
+
+describe('Block.getText', () => {
+  test('joins lines correctly', () => {
+    const data = singleParPDF.pages[0].map(x => new Item(x))
+    const result = Block.getText(data)
+    expect(result).toBe(
+      'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
+    )
   })
 })
