@@ -1,5 +1,5 @@
 import { areNeighbors } from './neighbors'
-import { isClose, isLTE, isGTE } from './utils'
+import { isClose, isLTE, isGTE, secondIsNotList } from './utils'
 
 import isEqual from 'lodash/fp/isEqual'
 
@@ -17,26 +17,13 @@ export const sameLine = () => [
 /**
  * Match items that are same style and close to each other
  */
-export const sameStyleNeighbors = () => [
-  {
-    lineHeight: isEqual,
-    listItem: secondIsNotList,
-  },
-  areNeighbors,
-]
-
-/**
- * Match blocks that should be combined:
- *   - close to each other, and
- *   - very close lineHeight
- *   - and are left aligned
- */
-export const sameBlock = (leftMargin, lineMargin) => [
-  areNeighbors,
+export const sameBlock = (leftMargin = 1, lineMargin = 1) => [
   {
     left: isClose(leftMargin),
     lineHeight: isClose(lineMargin),
   },
+  areNeighbors,
+  secondIsNotList,
 ]
 
 /**

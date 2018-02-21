@@ -1,12 +1,13 @@
 /* eslint-env jest */
 // import fs from 'fs'
+import flow from 'lodash/fp/flow'
 
 import { Item, Block } from '../src/classes'
 import {
   makeBlocks,
   makeBlockWith,
 } from '../src/matcher.recursive'
-import { sameStyleNeighbors } from '../src/matcher.rules'
+import { sameBlock, sameLine } from '../src/matcher.rules'
 
 import singleParagraph from './fixtures/single-paragraph.json'
 import multiParagraph from './fixtures/multi-paragraph.json'
@@ -16,7 +17,7 @@ describe('makeBlocks', () => {
     const [item1] = singleParagraph.pages[0].map(
       item => new Item(item),
     )
-    const partial = makeBlocks(sameStyleNeighbors())
+    const partial = makeBlocks(sameBlock())
     expect(partial).toBeInstanceOf(Function)
     const result = partial([item1])
     expect(result).toBeInstanceOf(Array)
@@ -25,18 +26,6 @@ describe('makeBlocks', () => {
     expect(result[0].items.length).toBe(1)
     expect(result[0].items[0]).toBe(item1)
   })
-  test('it groups correctly', () => {
-    const items = singleParagraph.pages[0].map(
-      item => new Item(item),
-    )
-    const partial = makeBlocks(sameStyleNeighbors())
-    expect(partial).toBeInstanceOf(Function)
-    const result = partial(items)
-    expect(result).toBeInstanceOf(Array)
-    expect(result.length).toBe(2)
-    expect(result).toContainEqual(Block.from(items[0]))
-  })
-
   test('makes five paragraphs', () => {
     const items = multiParagraph.pages[0].map(
       item => new Item(item),
@@ -45,7 +34,10 @@ describe('makeBlocks', () => {
     //   './tests/fixtures/multi-paragraph-items.json',
     //   JSON.stringify(items, null, 2),
     // )
-    const partial = makeBlocks(sameStyleNeighbors())
+    const partial = flow(
+      makeBlocks(sameLine()),
+      makeBlocks(sameBlock()),
+    )
     const result = partial(items)
     expect(result.length).toBe(5)
   })
@@ -56,7 +48,7 @@ describe('makeBlockWith', () => {
     const [item1, item2, item3] = singleParagraph.pages[0].map(
       item => new Item(item),
     )
-    const partial = makeBlockWith(sameStyleNeighbors())
+    const partial = makeBlockWith(sameBlock())
     expect(partial).toBeInstanceOf(Function)
     const result = partial({
       items: [item1, item3],
@@ -65,11 +57,11 @@ describe('makeBlockWith', () => {
     expect(result).toHaveProperty('items')
     expect(result).toHaveProperty('block')
     const { items, block } = result
-    expect(block.items.length).toBe(2)
-    expect(items.length).toBe(1)
+    expect(block.items.length).toBe(3)
+    expect(items.length).toBe(0)
     expect(block.items).toContain(item2)
     expect(block.items).toContain(item3)
-    expect(items).toContain(item1)
+    expect(block.items).toContain(item1)
   })
   test('it climbs the ladder', () => {
     const item1 = new Item({
@@ -97,7 +89,7 @@ describe('makeBlockWith', () => {
       fontName: 'Helvetica',
     })
 
-    const partial = makeBlockWith(sameStyleNeighbors())
+    const partial = makeBlockWith(sameLine())
     const result = partial({
       items: [item2, item3],
       block: item1,
@@ -115,7 +107,7 @@ describe('makeBlockWith', () => {
     //   './tests/fixtures/multi-paragraph-items.json',
     //   JSON.stringify(items, null, 2),
     // )
-    const partial = makeBlockWith(sameStyleNeighbors())
+    const partial = makeBlockWith(sameBlock())
     const result = partial({ items, block: item }).block
     expect(result).toBeInstanceOf(Block)
 
