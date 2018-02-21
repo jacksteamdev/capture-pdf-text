@@ -1,14 +1,14 @@
 import curry from 'lodash/fp/curry'
 
-import { checkPropsBy, inRange } from './utils'
+import { inRange } from './utils'
 
 /**
  * Get object with padded boundary properties
  *
- * padItemBy :: (a -> number) -> a -> {left, right, bottom, top}
+ * padItem :: a -> {left, right, bottom, top}
  */
-export const padItem = item => {
-  const pad = Math.round(item.lineHeight * 0.7)
+export const padItem = (item, amount = 0.7) => {
+  const pad = Math.round(item.lineHeight * amount)
   return {
     left: item.left - pad,
     right: item.right + pad,
@@ -37,21 +37,8 @@ const yIsClose = isCloseBy(['bottom', 'top'])
  * areNeighbors :: a -> a -> Bool
  */
 export const areNeighbors = curry((item1, item2) => {
-  const checkProps = checkPropsBy([
-    'left',
-    'right',
-    'bottom',
-    'top',
-    'lineHeight',
-  ])
-
-  checkProps('item1', item1)
-  checkProps('item2', item2)
-
   const search = padItem(item1)
-
   const result =
     xIsClose(search, item2) && yIsClose(search, item2)
-
   return result
 })

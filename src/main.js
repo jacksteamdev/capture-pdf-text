@@ -7,19 +7,6 @@ import reject from 'lodash/fp/reject'
 import get from 'lodash/fp/get'
 import uniq from 'lodash/fp/uniq'
 import map from 'lodash/fp/map'
-export { loadDocument } from './load-document'
-
-/**
- * loadPdfPages :: pdf -> [num1, num2] -> [page]
- */
-// export const loadPdfPages = pdf => pgRange => {
-// if !pgRange, load all pages
-// }
-
-/**
- * getTextItems :: page -> [item]
- */
-// export const getTextItems = page => {}
 
 /**
  * parseTextItems :: [item] -> [block]

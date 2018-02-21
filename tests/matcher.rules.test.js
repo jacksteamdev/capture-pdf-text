@@ -37,7 +37,7 @@ describe('sameBlock', () => {
     expect(partial(item5, item6)).toBe(true)
   })
 
-  test.only('it matches blocks to items', () => {
+  test('it matches blocks to items', () => {
     const item1 = new Item({
       str: 'item1',
       dir: 'ltr',
