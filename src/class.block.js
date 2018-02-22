@@ -3,56 +3,8 @@ import orderBy from 'lodash/fp/orderBy'
 import flatten from 'lodash/fp/flatten'
 import trimEnd from 'lodash/fp/trimEnd'
 import trimStart from 'lodash/fp/trimStart'
-import conforms from 'lodash/fp/conforms'
-import isString from 'lodash/fp/isString'
-import isNumber from 'lodash/fp/isNumber'
-import isObject from 'lodash/fp/isObject'
 
-// import { detergent } from 'detergent'
-
-/**
- * An Item instance maps some properties of an text item from PDFJS
- *
- * @export
- * @class Item
- */
-export class Item {
-  constructor (item) {
-    if (item) {
-      const { str, width, fontName } = item
-      const [, , , height, left, bottom] = item.transform
-
-      this.fontName = fontName
-      this.text = str.replace(/[\u200B\u200E\u200F\u200A]/g, '')
-
-      this.height = this.lineHeight = Math.round(height)
-      this.width = Math.round(width)
-      this.bottom = Math.round(bottom)
-      this.left = Math.round(left)
-
-      this.top = this.bottom + this.height
-      this.right = this.left + this.width
-    }
-  }
-
-  static from (item, props) {
-    const itemSpec = conforms({
-      transform: Array.isArray,
-      str: isString,
-      width: isNumber,
-      fontName: isString,
-    })
-    if (!isObject(props)) {
-      props = {}
-    }
-    if (itemSpec(item)) {
-      return Object.assign(new Item(item), props)
-    } else {
-      return Object.assign(new Item(), item, props)
-    }
-  }
-}
-
+import { Item } from '../src/class.item'
 /**
  * A Block instance represents a group of Items
  * @export
@@ -64,6 +16,12 @@ export class Block {
     this.listItem = listItem
 
     this.text = Block.getText(this.items)
+    this.lineHeight = Block.frequency(
+      'lineHeight',
+      Math.max,
+      items,
+    )
+    this.fontName = Block.frequency('fontName', Math.max, items)
 
     this.top = this.items.reduce(
       (r, { top }) => Math.max(r, top),
@@ -146,45 +104,20 @@ export class Block {
       { text: '', prev: null },
     ).text
   }
-  // lineHeight = most common item height
-  get lineHeight () {
-    const heightByFrequency = [
-      ...this.items.reduce((map, { height, text }) => {
-        const instances = map.get(height) || 0
-        return map.set(height, instances + text.length)
+
+  static frequency (key, fn, items) {
+    return [
+      ...items.reduce((map, item) => {
+        const value = item[key]
+        const instances = map.get(value) || 0
+        return map.set(value, instances + item.text.length)
       }, new Map()),
-    ].map(([height, frequency]) => ({ height, frequency }))
-
-    const mostFrequentHeight = orderBy(
-      'frequency',
-      'desc',
-      heightByFrequency,
-    )[0].height
-
-    return mostFrequentHeight
-  }
-  set lineHeight (n) {
-    return undefined
-  }
-
-  // fontName = most common item height
-  get fontName () {
-    const fontNameByFrequency = [
-      ...this.items.reduce((map, { fontName, text }) => {
-        const instances = map.get(fontName) || 0
-        return map.set(fontName, instances + text.length)
-      }, new Map()),
-    ].map(([fontName, frequency]) => ({ fontName, frequency }))
-
-    const mostFrequentFontName = orderBy(
-      'frequency',
-      'desc',
-      fontNameByFrequency,
-    )[0].fontName
-
-    return mostFrequentFontName
-  }
-  set fontName (n) {
-    return undefined
+    ]
+      .map(([value, frequency]) => ({ value, frequency }))
+      .reduce((r, { value, frequency }) => {
+        return fn(r.frequency, frequency) === frequency
+          ? { value, frequency }
+          : r
+      }).value
   }
 }

@@ -1,4 +1,4 @@
-import { Block } from '../src/classes'
+import { Block } from '../src/class.block'
 import { objectMatcher } from '../src/matcher'
 
 import curry from 'lodash/fp/curry'

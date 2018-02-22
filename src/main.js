@@ -1,5 +1,5 @@
 import { makeBlocks } from './matcher.recursive'
-import { Block } from './classes'
+import { Block } from './class.block'
 import { sameStyle, sameLine, sameBlock } from './matcher.rules'
 
 import flow from 'lodash/fp/flow'

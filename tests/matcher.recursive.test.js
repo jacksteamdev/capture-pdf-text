@@ -2,7 +2,8 @@
 // import fs from 'fs'
 import flow from 'lodash/fp/flow'
 
-import { Item, Block } from '../src/classes'
+import { Block } from '../src/class.block'
+import { Item } from '../src/class.item'
 import {
   makeBlocks,
   makeBlockWith,

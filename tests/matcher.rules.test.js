@@ -2,7 +2,8 @@
 
 import { sameBlock, sameLine } from '../src/matcher.rules'
 import { objectMatcher } from '../src/matcher'
-import { Item, Block } from '../src/classes'
+import { Block } from '../src/class.block'
+import { Item } from '../src/class.item'
 
 describe('sameBlock', () => {
   test('matches items that have same style and are neighbors', () => {

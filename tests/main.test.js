@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { Item } from '../src/classes'
+import { Item } from '../src/class.item'
 import { parseTextItems } from '../src/main'
 
 import lipsumGoogle from './fixtures/lipsum-google.json'

@@ -1,98 +1,12 @@
 /* eslint-env jest */
 
-import { Item, Block } from '../src/classes'
+import { Block } from '../src/class.block'
+import { Item } from '../src/class.item'
 
 // import mockPDFJS from 'pdfjs-mock'
 
 import helloPDF from './fixtures/helloworld.json'
 import singleParPDF from './fixtures/single-paragraph.json'
-
-describe('Item class', () => {
-  test('Constructor works', () => {
-    const data = helloPDF.pages[0][0]
-    const result = new Item(data)
-
-    expect(result).toBeInstanceOf(Item)
-    expect(result).toHaveProperty('fontName', 'Times')
-    expect(result).toHaveProperty('text', 'Hello, world!')
-    expect(result).toHaveProperty('height', 12)
-    expect(result).toHaveProperty('width', 65)
-    expect(result).toHaveProperty('top', 50 + 12)
-    expect(result).toHaveProperty('right', 70 + 65)
-    expect(result).toHaveProperty('bottom', 50)
-    expect(result).toHaveProperty('left', 70)
-  })
-})
-
-describe('Item.from', () => {
-  test('static method from works', () => {
-    const item = {
-      str: 'Hello, Amy!',
-      dir: 'ltr',
-      width: 64.656,
-      height: 12,
-      transform: [12, 0, 0, 12, 70, 50],
-      fontName: 'Times',
-    }
-    const result = Item.from(item)
-    expect(result).toBeInstanceOf(Item)
-    expect(result.text).toBe('Hello, Amy!')
-    expect(result.fontName).toBe('Times')
-    expect(result.height).toBe(12)
-    expect(result.width).toBe(65)
-    expect(result.bottom).toBe(50)
-    expect(result.left).toBe(70)
-  })
-  test('static method from works with generic item', () => {
-    const item = {
-      text: 'Hello, Amy!',
-      width: 100,
-      height: 12,
-      lineHeight: 12,
-      left: 70,
-      right: 170,
-      bottom: 50,
-      top: 62,
-      fontName: 'Times',
-    }
-    const result = Item.from(item)
-    expect(result).toBeInstanceOf(Item)
-    expect(result.text).toBe('Hello, Amy!')
-    expect(result.width).toBe(100)
-    expect(result.height).toBe(12)
-    expect(result.lineHeight).toBe(12)
-    expect(result.left).toBe(70)
-    expect(result.right).toBe(170)
-    expect(result.bottom).toBe(50)
-    expect(result.top).toBe(62)
-    expect(result.fontName).toBe('Times')
-  })
-  test('static method from add listItem property', () => {
-    const item = {
-      text: 'Hello, Amy!',
-      width: 100,
-      height: 12,
-      lineHeight: 12,
-      left: 70,
-      right: 170,
-      bottom: 50,
-      top: 62,
-      fontName: 'Times',
-    }
-    const result = Item.from(item, { listItem: true })
-    expect(result).toBeInstanceOf(Item)
-    expect(result.text).toBe('Hello, Amy!')
-    expect(result.width).toBe(100)
-    expect(result.height).toBe(12)
-    expect(result.lineHeight).toBe(12)
-    expect(result.left).toBe(70)
-    expect(result.right).toBe(170)
-    expect(result.bottom).toBe(50)
-    expect(result.top).toBe(62)
-    expect(result.fontName).toBe('Times')
-    expect(result.listItem).toBe(true)
-  })
-})
 
 describe('Block class', () => {
   test('Constructor works', () => {
@@ -132,7 +46,7 @@ describe('Block class', () => {
 })
 
 describe('Block.from', () => {
-  test('static method from works', () => {
+  test('works', () => {
     const item1 = new Item({
       str: 'Hello, Amy!',
       dir: 'ltr',
@@ -273,8 +187,7 @@ describe('Block.from', () => {
     expect(result.items.length).toBe(2)
     expect(result.listItem).toBe(item3)
   })
-
-  test('static method from removes duplicates', () => {
+  test('removes duplicates', () => {
     const item1 = new Item({
       str: 'Hello, Amy!',
       dir: 'ltr',
@@ -296,6 +209,28 @@ describe('Block.from', () => {
     expect(result).toBeInstanceOf(Block)
     expect(result.items.length).toBe(2)
   })
+  test('works with array of items', () => {
+    const item1 = new Item({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = new Item({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const block = Block.from(item1, item2)
+    const result = Block.from([item1, item2, block])
+    expect(result).toBeInstanceOf(Block)
+    expect(result.items.length).toBe(2)
+  })
 })
 
 describe('Block.getText', () => {
@@ -305,5 +240,20 @@ describe('Block.getText', () => {
     expect(result).toBe(
       'Puro, Chile, es tu cielo azulado. Puras brisas te cruzan también. Y tu campo de flores bordado, es la copia feliz del Edén. Majestuosa es la blanca montaña, que te dio por baluarte el Señor. Y ese mar que tranquilo te baña, te promete futuro esplendor.',
     )
+  })
+})
+
+describe('Block.frequency', () => {
+  test('gets most frequent value', () => {
+    const items = [
+      { x: 12, text: 'some text' },
+      { x: 12, text: 'some text' },
+      { x: 12, text: 'some text' },
+      { x: 12, text: 'some text' },
+      { x: 14, text: 'some bigger text' },
+      { x: 14, text: 'some bigger text' },
+    ]
+    const result = Block.frequency('x', Math.max, items)
+    expect(result).toBe(12)
   })
 })

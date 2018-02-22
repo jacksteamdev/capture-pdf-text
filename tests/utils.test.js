@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import { secondIsNotList } from '../src/utils'
-import { Item } from '../src/classes'
+import { Item } from '../src/class.item'
 
 describe('secondIsNotList', () => {
   test('returns true if item2 is not a listItem', () => {

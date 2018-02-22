@@ -6,7 +6,8 @@ import {
   areNeighbors,
 } from '../src/neighbors'
 
-import { Item, Block } from '../src/classes'
+import { Block } from '../src/class.block'
+import { Item } from '../src/class.item'
 
 describe('padItem', () => {
   test('expands item boundries', () => {

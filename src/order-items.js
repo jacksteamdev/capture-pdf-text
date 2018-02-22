@@ -18,19 +18,3 @@ export const orderByPosition = items => {
 
   return ordered
 }
-
-export const orderLTR = items => {
-  const iteratee = 'left'
-  const order = 'asc'
-  const ordered = orderBy(iteratee, order, items)
-
-  return ordered
-}
-
-export const orderTTB = items => {
-  const iteratee = 'top'
-  const order = 'desc'
-  const ordered = orderBy(iteratee, order, items)
-
-  return ordered
-}
