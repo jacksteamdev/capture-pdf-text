@@ -1,4 +1,3 @@
-import { orderByPosition } from './order-items'
 import orderBy from 'lodash/fp/orderBy'
 import flatten from 'lodash/fp/flatten'
 import trimEnd from 'lodash/fp/trimEnd'
@@ -12,7 +11,7 @@ import { Item } from '../src/class.item'
  */
 export class Block {
   constructor (items, listItem) {
-    this.items = orderByPosition(items)
+    this.items = Block.order(items)
     this.listItem = listItem
 
     this.text = Block.getText(this.items)
@@ -73,7 +72,7 @@ export class Block {
             ) {
               return { items, listItem: item.listItem }
             } else {
-              throw new Error(
+              throw new TypeError(
                 `Block.from: invalid input type (${
                   item.constructor.name
                 })`,
@@ -119,5 +118,12 @@ export class Block {
           ? { value, frequency }
           : r
       }).value
+  }
+  static order (items) {
+    const iteratees = ['bottom', 'right']
+    const orders = ['desc', 'asc']
+    const ordered = orderBy(iteratees, orders, items)
+
+    return ordered
   }
 }

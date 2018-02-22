@@ -1,13 +1,13 @@
 /* eslint-env jest */
 
-import { sameBlock, sameLine } from '../src/matcher.rules'
-import { objectMatcher } from '../src/matcher'
+import { sameBlock, sameLine } from '../src/rules'
+import { matchWith } from '../src/matcher'
 import { Block } from '../src/class.block'
 import { Item } from '../src/class.item'
 
 describe('sameBlock', () => {
   test('matches items that have same style and are neighbors', () => {
-    const partial = objectMatcher(sameBlock())
+    const partial = matchWith(sameBlock())
 
     const item1 = { lineHeight: 12, fontName: 'Times' }
     const item2 = { lineHeight: 13, fontName: 'Times' }
@@ -65,12 +65,12 @@ describe('sameBlock', () => {
     })
 
     const block = Block.from(item1, item2)
-    const partial = objectMatcher(sameLine())
+    const partial = matchWith(sameLine())
     const result = partial(block, item3)
     expect(result).toBe(true)
   })
   test('match items that are left aligned', () => {
-    const partial = objectMatcher(sameBlock(1, 2))
+    const partial = matchWith(sameBlock(1, 2))
     const item1 = {
       left: 1,
       right: 20,

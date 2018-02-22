@@ -5,7 +5,6 @@ import { Item } from '../src/class.item'
 
 // import mockPDFJS from 'pdfjs-mock'
 
-import helloPDF from './fixtures/helloworld.json'
 import singleParPDF from './fixtures/single-paragraph.json'
 
 describe('Block class', () => {
@@ -187,6 +186,29 @@ describe('Block.from', () => {
     expect(result.items.length).toBe(2)
     expect(result.listItem).toBe(item3)
   })
+  test('throws TypeError with invalid input', () => {
+    const item1 = Item.from({
+      str: 'Hello, Amy!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item2 = Item.from({
+      str: 'Hello, Jack!',
+      dir: 'ltr',
+      width: 64.656,
+      height: 12,
+      transform: [12, 0, 0, 12, 70, 50],
+      fontName: 'Times',
+    })
+    const item3 = {}
+    expect(() => Block.from(item1, item2, item3)).toThrow(
+      TypeError,
+    )
+  })
+
   test('removes duplicates', () => {
     const item1 = new Item({
       str: 'Hello, Amy!',
@@ -255,5 +277,28 @@ describe('Block.frequency', () => {
     ]
     const result = Block.frequency('x', Math.max, items)
     expect(result).toBe(12)
+  })
+})
+
+describe('Block.order', () => {
+  test('It orders correctly', () => {
+    const item1 = {
+      bottom: 1,
+      right: 0,
+    }
+    const item2 = {
+      bottom: 1,
+      right: 2,
+    }
+    const item3 = {
+      bottom: 0,
+      right: 1,
+    }
+
+    const result = Block.order([item2, item1, item3])
+
+    expect(result).toBeInstanceOf(Array)
+    expect(result.length).toBe(3)
+    expect(result).toEqual([item1, item2, item3])
   })
 })

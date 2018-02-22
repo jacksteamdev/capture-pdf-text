@@ -1,13 +1,100 @@
 /* eslint-env jest */
+import { Item } from '../src/class.item'
+import { Block } from '../src/class.block'
 
 import {
-  padItem,
   isCloseBy,
+  secondIsNotList,
+  padItem,
   areNeighbors,
-} from '../src/neighbors'
+} from '../src/rules.utils'
 
-import { Block } from '../src/class.block'
-import { Item } from '../src/class.item'
+describe('isCloseBy', () => {
+  test('returns true if item is in range', () => {
+    const keys = ['low', 'high']
+    const item1 = { low: 1, high: 4 }
+    const item2 = { low: 3, high: 4 }
+    const result = isCloseBy(keys, item1, item2)
+    expect(result).toBe(true)
+  })
+  test('returns false if item is not in range', () => {
+    const keys = ['low', 'high']
+    const item1 = { low: 1, high: 4 }
+    const item2 = { low: 5, high: 6 }
+    const result = isCloseBy(keys, item1, item2)
+    expect(result).toBe(false)
+  })
+})
+
+describe('secondIsNotList', () => {
+  test('returns true if item2 is not a listItem', () => {
+    const item1 = Item.from(
+      {
+        fontName: 'Helvetica',
+        text: 'Puro, Chile, es tu cielo azulado',
+        lineHeight: 12,
+        height: 12,
+        width: 165,
+        bottom: 709,
+        left: 54,
+        top: 721,
+        right: 219,
+      },
+      { listItem: true },
+    )
+    const item2 = Item.from(
+      {
+        fontName: 'Helvetica',
+        text: 'uras brisas te cruzan también',
+        lineHeight: 12,
+        height: 12,
+        width: 157,
+        bottom: 692,
+        left: 233,
+        top: 704,
+        right: 390,
+      },
+      { listItem: false },
+    )
+
+    const partial = secondIsNotList(item1)
+    const result = partial(item2)
+    expect(result).toBe(true)
+  })
+
+  test('returns false if item2 is a listItem', () => {
+    const item1 = Item.from(
+      {
+        fontName: 'Helvetica',
+        text: 'Puro, Chile, es tu cielo azulado',
+        lineHeight: 12,
+        height: 12,
+        width: 165,
+        bottom: 709,
+        left: 54,
+        top: 721,
+        right: 219,
+      },
+      { listItem: true },
+    )
+    const item2 = Item.from(
+      {
+        fontName: 'Helvetica',
+        text: 'uras brisas te cruzan también',
+        lineHeight: 12,
+        height: 12,
+        width: 157,
+        bottom: 709,
+        left: 233,
+        top: 721,
+        right: 390,
+      },
+      { listItem: true },
+    )
+    const result = secondIsNotList(item1, item2)
+    expect(result).toBe(false)
+  })
+})
 
 describe('padItem', () => {
   test('expands item boundries', () => {
@@ -26,23 +113,6 @@ describe('padItem', () => {
       bottom: 0,
       top: 3,
     })
-  })
-})
-
-describe('isCloseBy', () => {
-  test('returns true if item is in range', () => {
-    const keys = ['low', 'high']
-    const item1 = { low: 1, high: 4 }
-    const item2 = { low: 3, high: 4 }
-    const result = isCloseBy(keys, item1, item2)
-    expect(result).toBe(true)
-  })
-  test('returns false if item is not in range', () => {
-    const keys = ['low', 'high']
-    const item1 = { low: 1, high: 4 }
-    const item2 = { low: 5, high: 6 }
-    const result = isCloseBy(keys, item1, item2)
-    expect(result).toBe(false)
   })
 })
 
