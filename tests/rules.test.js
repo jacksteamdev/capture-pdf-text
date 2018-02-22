@@ -1,9 +1,9 @@
 /* eslint-env jest */
 
-import { sameBlock, sameLine } from '../src/rules'
-import { matchWith } from '../src/matcher'
 import { Block } from '../src/class.block'
 import { Item } from '../src/class.item'
+import { matchWith } from '../src/matcher'
+import { sameBlock, sameLine } from '../src/rules'
 
 describe('sameBlock', () => {
   test('matches items that have same style and are neighbors', () => {

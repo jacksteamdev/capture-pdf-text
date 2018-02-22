@@ -4,8 +4,8 @@ import conforms from 'lodash/fp/conforms'
 import curry from 'lodash/fp/curry'
 import isFunction from 'lodash/fp/isFunction'
 
-import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
+import without from 'lodash/without'
 
 /**
  * toPredicate :: a -> (a -> a -> Bool) -> (a -> Bool)

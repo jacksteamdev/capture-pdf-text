@@ -2,10 +2,7 @@
 
 import { Item } from '../src/class.item'
 
-// import mockPDFJS from 'pdfjs-mock'
-
 import helloPDF from './fixtures/helloworld.json'
-import singleParPDF from './fixtures/single-paragraph.json'
 
 describe('Item class', () => {
   test('Constructor works', () => {

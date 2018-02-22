@@ -1,6 +1,6 @@
 import conforms from 'lodash/fp/conforms'
-import isString from 'lodash/fp/isString'
 import isNumber from 'lodash/fp/isNumber'
+import isString from 'lodash/fp/isString'
 import isObject from 'lodash/fp/isObject'
 
 /**

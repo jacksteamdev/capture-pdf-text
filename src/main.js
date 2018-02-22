@@ -1,11 +1,11 @@
-import { groupBy } from './matcher'
-import { sameStyle, sameLine, sameBlock } from './rules'
 import {
   flattenBlocks,
   invalidCharBlock,
   emptyItem,
   toListItem,
 } from './main.utils'
+import { groupBy } from './matcher'
+import { sameStyle, sameLine, sameBlock } from './rules'
 
 import flow from 'lodash/fp/flow'
 import map from 'lodash/fp/map'

@@ -1,6 +1,8 @@
-import { areNeighbors } from './rules.utils'
-import { isClose } from './rules.utils'
-import { secondIsNotList } from './rules.utils'
+import {
+  secondIsNotList,
+  areNeighbors,
+  isClose,
+} from './rules.utils'
 
 import isEqual from 'lodash/fp/isEqual'
 

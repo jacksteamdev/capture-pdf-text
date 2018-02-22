@@ -3,8 +3,6 @@
 import { Block } from '../src/class.block'
 import { Item } from '../src/class.item'
 
-// import mockPDFJS from 'pdfjs-mock'
-
 import singleParPDF from './fixtures/single-paragraph.json'
 
 describe('Block class', () => {
