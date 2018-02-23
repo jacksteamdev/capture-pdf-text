@@ -11,43 +11,52 @@ export default [
     input: 'src/main.js',
     output: {
       file: pkg.browser,
-      format: 'umd'
+      format: 'umd',
     },
     name: 'capturePdfText',
     plugins: [
       resolve({
-        preferBuiltins: true
+        preferBuiltins: true,
       }), // so Rollup can find dependencies
       builtins(), // so Rollup can include node global depencencies
       commonjs(), // so Rollup can convert dependencies to an ES module
       babel({
-        exclude: 'node_modules/**' // only transpile our source code
-      })
-    ]
+        exclude: 'node_modules/**', // only transpile our source code
+      }),
+    ],
   },
 
   // CommonJS (for Node) and ES module (for bundlers) build.
   {
     input: 'src/main.js',
     external: [
-      'zlib',
-      'fs',
-      'http',
-      'https',
-      'url',
-      'pdfjs-dist',
-      'kd-interval-tree',
-      'lodash/fp',
-      'lodash/orderBy'
+      'lodash/fp/orderBy',
+      'lodash/fp/flatten',
+      'lodash/fp/trimEnd',
+      'lodash/fp/trimStart',
+      'lodash/fp/conforms',
+      'lodash/fp/isNumber',
+      'lodash/fp/isString',
+      'lodash/fp/isObject',
+      'lodash/fp/flow',
+      'lodash/fp/get',
+      'lodash/fp/uniq',
+      'lodash/fp/curry',
+      'lodash/fp/isFunction',
+      'lodash/mapValues',
+      'lodash/without',
+      'lodash/fp/isEqual',
+      'lodash/fp/map',
+      'lodash/fp/reject',
     ],
     output: [
       { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      { file: pkg.module, format: 'es' },
     ],
     plugins: [
       babel({
-        exclude: 'node_modules/**' // only transpile our source code
-      })
-    ]
-  }
+        exclude: 'node_modules/**', // only transpile our source code
+      }),
+    ],
+  },
 ]
