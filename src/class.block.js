@@ -91,7 +91,11 @@ export class Block {
   static getText (items) {
     return items.reduce(
       ({ text, prev }, item) => {
-        if (prev && prev.right > item.left) {
+        if (
+          prev &&
+          prev.bottom > item.top &&
+          prev.right > item.left
+        ) {
           return {
             text: `${trimEnd(text)} ${trimStart(item.text)}`,
             prev: item,
