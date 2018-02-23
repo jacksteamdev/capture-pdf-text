@@ -29,131 +29,128 @@ var reject = _interopDefault(require('lodash/fp/reject'));
  * @export
  * @class Item
  */
-class Item {
-  constructor(item) {
-    if (item) {
-      const { str, width, fontName } = item;
-      const [,,, height, left, bottom] = item.transform;
+function Item(item) {
+  if (item) {
+    const { str, width, fontName } = item;
+    const [,,, height, left, bottom] = item.transform;
 
-      this.fontName = fontName;
-      this.text = str.replace(/[\u200B\u200E\u200F\u200A]/g, '');
+    this.fontName = fontName;
+    this.text = str.replace(/[\u200B\u200E\u200F\u200A]/g, '');
 
-      this.height = this.lineHeight = Math.round(height);
-      this.width = Math.round(width);
-      this.bottom = Math.round(bottom);
-      this.left = Math.round(left);
+    this.height = this.lineHeight = Math.round(height);
+    this.width = Math.round(width);
+    this.bottom = Math.round(bottom);
+    this.left = Math.round(left);
 
-      this.top = this.bottom + this.height;
-      this.right = this.left + this.width;
-    }
-  }
-
-  static from(item, props) {
-    const itemSpec = conforms({
-      transform: Array.isArray,
-      str: isString,
-      width: isNumber,
-      fontName: isString
-    });
-    if (!isObject(props)) {
-      props = {};
-    }
-    if (itemSpec(item)) {
-      return Object.assign(new Item(item), props);
-    } else {
-      return Object.assign(new Item(), item, props);
-    }
+    this.top = this.bottom + this.height;
+    this.right = this.left + this.width;
   }
 }
+
+Item.from = function (item, props) {
+  const itemSpec = conforms({
+    transform: Array.isArray,
+    str: isString,
+    width: isNumber,
+    fontName: isString
+  });
+  if (!isObject(props)) {
+    props = {};
+  }
+  if (itemSpec(item)) {
+    return Object.assign(new Item(item), props);
+  } else {
+    return Object.assign(new Item(), item, props);
+  }
+};
 
 /**
  * A Block instance represents a group of Items
  * @export
  * @class Block
  */
-class Block {
-  constructor(items, listItem) {
-    this.items = Block.order(items);
-    this.listItem = listItem;
+function Block(items, listItem) {
+  this.items = Block.order(items);
+  this.listItem = listItem;
 
-    this.text = Block.getText(this.items);
-    this.lineHeight = Block.frequency('lineHeight', Math.max, items);
-    this.fontName = Block.frequency('fontName', Math.max, items);
+  this.text = Block.getText(this.items);
+  this.lineHeight = Block.frequency('lineHeight', Math.max, items);
+  this.fontName = Block.frequency('fontName', Math.max, items);
 
-    this.top = this.items.reduce((r, { top }) => Math.max(r, top), 0);
-    this.right = this.items.reduce((r, { right }) => Math.max(r, right), 0);
-    this.bottom = this.items.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
-    this.left = this.items.reduce((r, { left }) => Math.min(r, left), Infinity);
-    this.height = this.top - this.bottom;
-    this.width = this.right - this.left;
-  }
-
-  static from() {
-    const { items, listItem } = flatten([...arguments]).reduce(({ items, listItem }, item) => {
-      switch (item.constructor) {
-        case Block:
-          if (item.listItem) {
-            return {
-              items: [...items, ...item.items],
-              listItem: item.listItem
-            };
-          } else {
-            return {
-              items: [...items, ...item.items],
-              listItem
-            };
-          }
-
-        case Item:
-          if (item.listItem) {
-            return { items, listItem: item };
-          } else {
-            return { items: [...items, item], listItem };
-          }
-        default:
-          if (item.listItem && item.listItem.constructor === Item) {
-            return { items, listItem: item.listItem };
-          } else {
-            throw new TypeError(`Block.from: invalid input type (${item.constructor.name})`);
-          }
-      }
-    }, { items: [] });
-    // get rid of duplicates
-    const set = new Set(items);
-    set.delete(listItem);
-    return new Block([...set], listItem);
-  }
-
-  static getText(items) {
-    return items.reduce(({ text, prev }, item) => {
-      if (prev && prev.bottom > item.top && prev.right > item.left) {
-        return {
-          text: `${trimEnd(text)} ${trimStart(item.text)}`,
-          prev: item
-        };
-      } else {
-        return { text: text + item.text, prev: item };
-      }
-    }, { text: '', prev: null }).text;
-  }
-
-  static frequency(key, fn, items) {
-    return [...items.reduce((map$$1, item) => {
-      const value = item[key];
-      const instances = map$$1.get(value) || 0;
-      return map$$1.set(value, instances + item.text.length);
-    }, new Map())].map(([value, frequency]) => ({ value, frequency })).reduce((r, { value, frequency }) => {
-      return fn(r.frequency, frequency) === frequency ? { value, frequency } : r;
-    }).value;
-  }
-  static order(items) {
-    const iteratees = ['bottom', 'right'];
-    const orders = ['desc', 'asc'];
-    const ordered = orderBy(iteratees, orders, items);
-
-    return ordered;
-  }
+  this.top = this.items.reduce((r, { top }) => Math.max(r, top), 0);
+  this.right = this.items.reduce((r, { right }) => Math.max(r, right), 0);
+  this.bottom = this.items.reduce((r, { bottom }) => Math.min(r, bottom), Infinity);
+  this.left = this.items.reduce((r, { left }) => Math.min(r, left), Infinity);
+  this.height = this.top - this.bottom;
+  this.width = this.right - this.left;
 }
+
+Block.from = function () {
+  const { items, listItem } = flatten([...arguments]).reduce(({ items, listItem }, item) => {
+    switch (item.constructor) {
+      case Block:
+        if (item.listItem) {
+          return {
+            items: [...items, ...item.items],
+            listItem: item.listItem
+          };
+        } else {
+          return {
+            items: [...items, ...item.items],
+            listItem
+          };
+        }
+
+      case Item:
+        if (item.listItem) {
+          return { items, listItem: item };
+        } else {
+          return { items: [...items, item], listItem };
+        }
+      default:
+        if (item.listItem && item.listItem.constructor === Item) {
+          return { items, listItem: item.listItem };
+        } else {
+          throw new TypeError(`Block.from: invalid input type (${item.constructor.name})`);
+        }
+    }
+  }, { items: [] });
+  // get rid of duplicates
+  const set = new Set(items);
+  set.delete(listItem);
+  return new Block([...set], listItem);
+};
+
+Block.getText = function (items) {
+  return items.reduce(({ text, prev }, item) => {
+    if (prev && prev.bottom > item.top && prev.right > item.left) {
+      return {
+        text: `${trimEnd(text)} ${trimStart(item.text)}`,
+        prev: item
+      };
+    } else {
+      return { text: text + item.text, prev: item };
+    }
+  }, { text: '', prev: null }).text;
+};
+
+Block.frequency = function (key, fn, items) {
+  return [...items.reduce((map$$1, item) => {
+    const value = item[key];
+    const instances = map$$1.get(value) || 0;
+    return map$$1.set(value, instances + item.text.length);
+  }, new Map())].map(([value, frequency]) => ({ value, frequency })).reduce((r, { value, frequency }) => {
+    return fn(r.frequency, frequency) === frequency ? { value, frequency } : r;
+  }).value;
+};
+
+Block.order = function (items) {
+  const iteratees = ['bottom', 'right'];
+  const orders = ['desc', 'asc'];
+  const ordered = orderBy(iteratees, orders, items);
+
+  return ordered;
+};
 
 const invalidCharBlock = ({ text }) => {
   const chars = uniq([...text]).join('').replace(' ', '');
