@@ -38,9 +38,7 @@
     "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^3.0.0"
   },
-  "peerDependencies": {
-    "pdfjs-dist": "latest"
-  },
+
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
