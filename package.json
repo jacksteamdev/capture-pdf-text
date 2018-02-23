@@ -1,7 +1,7 @@
 {
   "name": "capture-pdf-text",
-  "version": "1.0.1",
-  "description": "Parse text items from PDFJS",
+  "version": "1.0.3",
+  "description": "Capture pdf text as paragraphs",
   "license": "MIT",
   "author": {
     "name": "Jack Steam",
