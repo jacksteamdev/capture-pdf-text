@@ -11,6 +11,9 @@ import flow from 'lodash/fp/flow'
 import map from 'lodash/fp/map'
 import reject from 'lodash/fp/reject'
 
+export {Item} from './class.item'
+export {Block} from './class.block'
+
 /**
  * parseTextItems :: [item] -> [block]
  */
